@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>骚客.的个人博客</title>
+  
+  <subtitle>记录我的学习过程</subtitle>
+  <link href="http://princesaoke.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://princesaoke.github.io/"/>
+  <updated>2023-09-02T16:36:07.251Z</updated>
+  <id>http://princesaoke.github.io/</id>
+  
+  <author>
+    <name>骚客.</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo搭建个人博客</title>
+    <link href="http://princesaoke.github.io/2023/09/02/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://princesaoke.github.io/2023/09/02/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</id>
+    <published>2023-09-02T03:40:09.000Z</published>
+    <updated>2023-09-02T16:36:07.251Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文介绍如何使用Hexo搭建一个个人博客。</p><h2 id="一、安装Node-js"><a href="#一、安装Node-js" class="headerlink" title="一、安装Node.js"></a>一、安装Node.js</h2><p>关于安装node.js这部分，我参考的是<a href="https://blog.csdn.net/WHF__/article/details/129362462" title="https://blog.csdn.net/WHF__/article/details/129362462">这篇文章</a>。</p><p>首先到<a href="https://nodejs.org/zh-cn/download" title="https://nodejs.org/zh-cn/download">node.js中文官网</a>下载安装包。</p><p>运行安装包，修改安装路径，不勾选 necessary tools，一路next安装完毕。默认的设置是有安装npm的，这个很重要，相当于应用商店，第三方的包都通过它下载，必装。</p><p>顺便吐槽一句这个npm是真的辣鸡，明明用了淘宝镜像还是一样下载不动，然后过一会就又好了，玄学网络。而且下载完一个包也无法继续输入命令，只能关掉cmd重新打开，蠢的一批，隔壁python的pip都没有这种问题。</p><p>win+r输入cmd打开命令提示符，输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --version</span><br></pre></td></tr></table></figure><p>查看node版本，如果提示“不是内部或外部命令”说明没安装成功。</p><p>npm也是一样，输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure><p>查看npm版本。</p><hr><h2 id="二、安装Hexo"><a href="#二、安装Hexo" class="headerlink" title="二、安装Hexo"></a>二、安装Hexo</h2><p>成功安装node.js和npm后，继续在cmd中输入以下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><p>安装Hexo。</p><p>合理外推卸载命令就是</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall -g hexo-cli</span><br></pre></td></tr></table></figure><p>注意到有个-g，意思是全局安装，不加-g就是在当前文件夹局部安装，出了当前文件夹就相当于没安装，类比python的虚拟环境。</p><p>同时还有 hexo 和 hexo-cli 的区别，之前也疑惑过 vue 和 vue-cli，这个我暂时还不太明白。总之有-cli和没有是两个不同的东西。按我理解，用hexo就是把hexo整个框架都下载下来，而用hexo-cli就是只下载hexo的一些命令，用创建hexo项目的时候用命令远程拉取模板。不知道我理解的对不对。</p><hr><h2 id="三、创建Hexo项目"><a href="#三、创建Hexo项目" class="headerlink" title="三、创建Hexo项目"></a>三、创建Hexo项目</h2><p>cmd输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init personal-hexo</span><br></pre></td></tr></table></figure><p>新建hexo项目。其中personal-hexo是创建的hexo项目的名称</p><p>进入hexo项目的文件夹，一手</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure><p>安装依赖包。</p><p>再一手</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure><p>启动hexo服务器。这时会告诉你hexo正在本地运行，打开它给的地址 <a href="http://localhost:4000/">http://localhost:4000/</a> ，就可以看到hexo的默认页面了。</p><hr><h2 id="四、Hexo使用指南"><a href="#四、Hexo使用指南" class="headerlink" title="四、Hexo使用指南"></a>四、Hexo使用指南</h2><p>IDE打开hexo项目，先看项目结构。根目录下，scaffolds文件夹里存放模板文件。scaffolds&#x2F;post.md 文件就是文章的模板文件，比如往里面加一条”categories: “，新建的博文就会带上这个字段。</p><p>scaffolds&#x2F;_config.yml 文件是整个博客网站的配置文件。title就是HTML中的title，subtitle和description想填什么就填什么，author改成自己，language改成zh-CN，url改成 <u><strong>http:&#x2F;&#x2F;你的Github昵称.github.io</strong></u> ，其他暂时都不用改。</p><p>scaffolds&#x2F;source 文件夹下的是网站的主体，其中的文件夹可以通过url访问到，以下划线开头的文件夹除外。</p><p>scaffolds&#x2F;source&#x2F;_posts 中存放的即我们的博客。在终端中执行命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new Hexo搭建个人博客</span><br></pre></td></tr></table></figure><p>其中”Hexo搭建个人博客”是文章名。</p><p>发现 scaffolds&#x2F;source&#x2F;_posts 中多了刚才新建的文章，打开浏览器也可以看到博文创建成功了。现在可以用markdown尽情编辑博文了！</p><hr><h2 id="五、更换主题"><a href="#五、更换主题" class="headerlink" title="五、更换主题"></a>五、更换主题</h2><p>我使用的是 hexo-theme-pure 主题，Github地址<a href="https://github.com/cofess/hexo-theme-pure" title="https://github.com/cofess/hexo-theme-pure">在这</a>，Gitee地址<a href="https://gitee.com/mirrors_cofess/hexo-theme-pure#hexo-wordcount" title="https://gitee.com/mirrors_cofess/hexo-theme-pure#hexo-wordcount">在这</a>。建议看Gitee上的，文档是中文。</p><p>第三方的主题都放在themes文件夹下。项目根目录下终端执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/cofess/hexo-theme-pure.git themes/pure</span><br></pre></td></tr></table></figure><p>themes&#x2F;pure&#x2F;_config.yml 是主题的配置文件。按需配置，比较麻烦就不说了 : )</p><hr><h2 id="六、将Hexo部署到-Github-Pages"><a href="#六、将Hexo部署到-Github-Pages" class="headerlink" title="六、将Hexo部署到 Github Pages"></a>六、将Hexo部署到 Github Pages</h2><p>使用 hexo-deployer-git。参考<a href="https://zhuanlan.zhihu.com/p/611037765" title="https://zhuanlan.zhihu.com/p/611037765">这篇文章</a>。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo cl     //清理缓存</span><br><span class="line">hexo g      //生成静态文件</span><br><span class="line">hexo d      //部署网站到创建的仓库</span><br></pre></td></tr></table></figure><hr><p><em>写博客好累，后面应该不会写得这么详细了。我的hexo个人博客也上传到了github，<a href="https://princesaoke.github.io/" title="https://PrinceSaoKe.github.io">欢迎参观</a></em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;本文介绍如何使用Hexo搭建一个个人博客。&lt;/p&gt;
+&lt;h2 id=&quot;一、安装Node-js&quot;&gt;&lt;a href=&quot;#一、安装Node-js&quot; class=&quot;headerlink&quot; title=&quot;一、安装Node.js&quot;&gt;&lt;/a&gt;一、安装Node.js&lt;/h2&gt;&lt;p&gt;关于安装n</summary>
+      
+    
+    
+    
+    <category term="Hexo" scheme="http://princesaoke.github.io/categories/Hexo/"/>
+    
+    
+    <category term="Hexo 个人博客 Node.js" scheme="http://princesaoke.github.io/tags/Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-Node-js/"/>
+    
+  </entry>
+  
+</feed>
