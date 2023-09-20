@@ -6,7 +6,7 @@
   <link href="http://princesaoke.github.io/atom.xml" rel="self"/>
   
   <link href="http://princesaoke.github.io/"/>
-  <updated>2023-09-18T06:47:26.842Z</updated>
+  <updated>2023-09-20T09:54:54.112Z</updated>
   <id>http://princesaoke.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android笔记</title>
+    <link href="http://princesaoke.github.io/2023/09/20/Android%E7%AC%94%E8%AE%B0/"/>
+    <id>http://princesaoke.github.io/2023/09/20/Android%E7%AC%94%E8%AE%B0/</id>
+    <published>2023-09-20T05:41:09.000Z</published>
+    <updated>2023-09-20T09:54:54.112Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><ul><li>java文件夹下：业务逻辑</li><li>AndroidManifest.xml：项目配置文件</li><li>res&#x2F;layout文件夹下：页面布局</li><li>res&#x2F;values文件夹下：全局常量</li><li>res&#x2F;mipmap系列：不同分辨率的图片资源，根据屏幕大小使用不同规格的图片</li></ul><h2 id="View-和-ViewGroup"><a href="#View-和-ViewGroup" class="headerlink" title="View 和 ViewGroup"></a>View 和 ViewGroup</h2><ul><li>页面上的一个UI组件就是一个View，如 <code>&lt;TextView&gt;</code> 、 <code>&lt;Button&gt;</code> 等</li><li>ViewGroup是一组View的布局方式，如 <code>&lt;LinearLayout&gt;</code> 、 <code>&lt;RelativeLayout&gt;</code> 等</li></ul><h2 id="六大基本布局"><a href="#六大基本布局" class="headerlink" title="六大基本布局"></a>六大基本布局</h2><ul><li><strong>线性布局 LinearLayout</strong> ：View按水平或竖直排列</li><li><strong>相对布局 RelativeLayout</strong> ：使用margin和padding相对父容器布局</li><li><strong>表格布局 TableLayout</strong> ：<code>&lt;TableLayout&gt;</code> 内使用 <code>&lt;TableRow&gt;</code> 定义一行，<code>&lt;TableRow&gt;</code> 中几个元素就是几列</li><li><strong>帧布局 FrameLayout</strong></li><li><strong>绝对布局 AbsoluteLayout</strong></li><li><strong>网格布局 GridLayout</strong></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;项目结构&quot;&gt;&lt;a href=&quot;#项目结构&quot; class=&quot;headerlink&quot; title=&quot;项目结构&quot;&gt;&lt;/a&gt;项目结构&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;java文件夹下：业务逻辑&lt;/li&gt;
+&lt;li&gt;AndroidManifest.xml：项目配置文件&lt;/li&gt;
+&lt;</summary>
+      
+    
+    
+    
+    <category term="移动端" scheme="http://princesaoke.github.io/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+    
+    <category term="Android" scheme="http://princesaoke.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Git提交规范</title>
     <link href="http://princesaoke.github.io/2023/09/18/Git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/"/>
     <id>http://princesaoke.github.io/2023/09/18/Git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/</id>
     <published>2023-09-18T06:27:36.000Z</published>
-    <updated>2023-09-18T06:47:26.842Z</updated>
+    <updated>2023-09-18T07:11:40.077Z</updated>
     
     <content type="html"><![CDATA[<h2 id="VSCode-插件：git-commit-plugin"><a href="#VSCode-插件：git-commit-plugin" class="headerlink" title="VSCode 插件：git-commit-plugin"></a>VSCode 插件：git-commit-plugin</h2><p><img src="/images/Git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/git-commit-plugin.png" alt="git-commit-plugin"></p><p>该插件可帮助你规范commit描述格式，便于生成易于阅读且美观的提交。</p><p><img src="/images/Git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/example.png" alt="效果"></p><h2 id="修改上次commit的描述"><a href="#修改上次commit的描述" class="headerlink" title="修改上次commit的描述"></a>修改上次commit的描述</h2><p>有时候我们提交的描述格式或内容填错了，想要覆盖掉之前的描述，只能重新commit一次，但这样就会多一个提交记录。</p><p>其实有一个不需要重新提交就可以修改上次commit描述的方法，详见<a href="https://www.jianshu.com/p/4bbff5508efc">这篇文章</a></p>]]></content>
     
@@ -33,6 +60,10 @@
     
     
     
+    <category term="整点花活" scheme="http://princesaoke.github.io/categories/%E6%95%B4%E7%82%B9%E8%8A%B1%E6%B4%BB/"/>
+    
+    
+    <category term="Git" scheme="http://princesaoke.github.io/tags/Git/"/>
     
   </entry>
   
