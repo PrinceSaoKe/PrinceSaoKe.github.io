@@ -17,21 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Android笔记 | 骚客.的个人博客</title>
-  <meta name="description" content="项目结构 java文件夹下：业务逻辑 AndroidManifest.xml：项目配置文件 res&#x2F;layout文件夹下：页面布局 res&#x2F;values文件夹下：全局常量 res&#x2F;drawable文件夹下：图片资源 res&#x2F;mipmap系列：不同分辨率的图片资源，根据屏幕大小使用不同规格的图片，一般放APP图标  单位   单位 说明    dp devic">
+  <title>Android中的RecyclerView | 骚客.的个人博客</title>
+  <meta name="description" content="RecyclerView 相当于加强版的 ListView ，比 ListView 更灵活、更高效。 声明依赖项在 app&#x2F;build.gradle.kts 中的 dependencies 添加： 123dependencies &amp;#123;    implementation(&quot;androidx.recyclerview:recyclerview:1.2.1&quot;)&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android笔记">
-<meta property="og:url" content="http://princesaoke.github.io/2023/09/20/Android%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="Android中的RecyclerView">
+<meta property="og:url" content="http://princesaoke.github.io/2023/09/30/Android%E4%B8%AD%E7%9A%84RecyclerView/index.html">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="项目结构 java文件夹下：业务逻辑 AndroidManifest.xml：项目配置文件 res&#x2F;layout文件夹下：页面布局 res&#x2F;values文件夹下：全局常量 res&#x2F;drawable文件夹下：图片资源 res&#x2F;mipmap系列：不同分辨率的图片资源，根据屏幕大小使用不同规格的图片，一般放APP图标  单位   单位 说明    dp devic">
+<meta property="og:description" content="RecyclerView 相当于加强版的 ListView ，比 ListView 更灵活、更高效。 声明依赖项在 app&#x2F;build.gradle.kts 中的 dependencies 添加： 123dependencies &amp;#123;    implementation(&quot;androidx.recyclerview:recyclerview:1.2.1&quot;)&amp;#">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-20T05:41:09.000Z">
-<meta property="article:modified_time" content="2023-09-30T07:37:08.171Z">
+<meta property="og:image" content="http://princesaoke.github.io/images/Android%E4%B8%AD%E7%9A%84RecyclerView/document.png">
+<meta property="article:published_time" content="2023-09-30T07:36:50.000Z">
+<meta property="article:modified_time" content="2023-09-30T09:07:30.728Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://princesaoke.github.io/images/Android%E4%B8%AD%E7%9A%84RecyclerView/document.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://princesaoke.github.io/2023/09/20/Android%E7%AC%94%E8%AE%B0/index.html">
+  <link rel="canonical" href="http://princesaoke.github.io/2023/09/30/Android%E4%B8%AD%E7%9A%84RecyclerView/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -335,14 +337,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Android笔记" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Android中的RecyclerView" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Android笔记
+      Android中的RecyclerView
     </h1>
   
 
@@ -350,8 +352,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2023/09/20/Android%E7%AC%94%E8%AE%B0/" class="article-date">
-	  <time datetime="2023-09-20T05:41:09.000Z" itemprop="datePublished">2023-09-20</time>
+	<a href="/2023/09/30/Android%E4%B8%AD%E7%9A%84RecyclerView/" class="article-date">
+	  <time datetime="2023-09-30T07:36:50.000Z" itemprop="datePublished">2023-09-30</time>
 	</a>
 </span>
         
@@ -376,10 +378,10 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/20/Android%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/30/Android%E4%B8%AD%E7%9A%84RecyclerView/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 831(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 659(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
@@ -389,268 +391,30 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><ul>
-<li>java文件夹下：业务逻辑</li>
-<li>AndroidManifest.xml：项目配置文件</li>
-<li>res&#x2F;layout文件夹下：页面布局</li>
-<li>res&#x2F;values文件夹下：全局常量</li>
-<li>res&#x2F;drawable文件夹下：图片资源</li>
-<li>res&#x2F;mipmap系列：不同分辨率的图片资源，根据屏幕大小使用不同规格的图片，一般放APP图标</li>
-</ul>
-<h2 id="单位"><a href="#单位" class="headerlink" title="单位"></a>单位</h2><table>
-<thead>
-<tr>
-<th align="center">单位</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">dp</td>
-<td>device independent pixels（设备独立像素），不同设备有不同的显示效果，推荐使用这个</td>
-</tr>
-<tr>
-<td align="center">px</td>
-<td>pixels（像素）</td>
-</tr>
-<tr>
-<td align="center">pt</td>
-<td>point，1pt &#x3D; 1&#x2F;72 英寸</td>
-</tr>
-<tr>
-<td align="center">sp</td>
-<td>scaled pixels（放大像素），字体大小一般用这个</td>
-</tr>
-</tbody></table>
-<h2 id="View-和-ViewGroup"><a href="#View-和-ViewGroup" class="headerlink" title="View 和 ViewGroup"></a>View 和 ViewGroup</h2><ul>
-<li>页面上的一个UI组件就是一个View，如<code>&lt;TextView&gt;</code>、<code>&lt;Button&gt;</code>等</li>
-<li>ViewGroup是一组View的布局方式，如<code>&lt;LinearLayout&gt;</code>、<code>&lt;RelativeLayout&gt;</code>等</li>
-</ul>
-<h2 id="六大基本布局"><a href="#六大基本布局" class="headerlink" title="六大基本布局"></a>六大基本布局</h2><ul>
-<li><strong>线性布局 LinearLayout</strong> ：View按水平或竖直排列</li>
-<li><strong>相对布局 RelativeLayout</strong> ：使用margin和padding相对父容器布局</li>
-<li><strong>表格布局 TableLayout</strong> ：<code>&lt;TableLayout&gt;</code>内使用<code>&lt;TableRow&gt;</code>定义一行，<code>&lt;TableRow&gt;</code>中几个元素就是几列</li>
-<li><strong>帧布局 FrameLayout</strong> ：即叠层布局。帧布局的大小由控件中最大的子控件决定</li>
-<li><strong>绝对布局 AbsoluteLayout</strong> ：已弃用，建议改用 ConstraintLayout</li>
-<li><strong>网格布局 GridLayout</strong> ：将视图按格子排列</li>
-</ul>
-<h2 id="线性布局-LinearLayout"><a href="#线性布局-LinearLayout" class="headerlink" title="线性布局 LinearLayout"></a>线性布局 LinearLayout</h2><table>
-<thead>
-<tr>
-<th align="center">xml参数</th>
-<th>取值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">layout_width</td>
-<td>“match_parent”、”wrap_content”</td>
-<td>线性布局的宽度</td>
-</tr>
-<tr>
-<td align="center">layout_height</td>
-<td>“match_parent”、”wrap_content”</td>
-<td>线性布局的高度</td>
-</tr>
-<tr>
-<td align="center">orientation</td>
-<td>“vertical”、”horizontal”</td>
-<td>内部视图排序方向</td>
-</tr>
-<tr>
-<td align="center">divider</td>
-<td>一个视图View</td>
-<td>内部每两个相邻视图之间都有一个View</td>
-</tr>
-</tbody></table>
-<h4 id="GridLayout-内视图参数"><a href="#GridLayout-内视图参数" class="headerlink" title="GridLayout 内视图参数"></a>GridLayout 内视图参数</h4><table>
-<thead>
-<tr>
-<th align="center">xml参数</th>
-<th>取值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">layout_width</td>
-<td>“match_parent”、”wrap_content”</td>
-<td>线性布局的宽度</td>
-</tr>
-<tr>
-<td align="center">layout_height</td>
-<td>“match_parent”、”wrap_content”</td>
-<td>线性布局的高度</td>
-</tr>
-<tr>
-<td align="center">layout_weight</td>
-<td>1、2、3、……</td>
-<td>该视图占整个线性布局大小的权重，使用该参数时注意 layout_width 与 layout_height 要有一个为 “wrap_content”</td>
-</tr>
-</tbody></table>
-<h2 id="网格布局-GridLayout"><a href="#网格布局-GridLayout" class="headerlink" title="网格布局 GridLayout"></a>网格布局 GridLayout</h2><table>
-<thead>
-<tr>
-<th align="center">xml参数</th>
-<th>取值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">rowCount</td>
-<td>1、2、3、……</td>
-<td>共有几行</td>
-</tr>
-<tr>
-<td align="center">columnCount</td>
-<td>1、2、3、……</td>
-<td>共有几列</td>
-</tr>
-<tr>
-<td align="center">orientation</td>
-<td>“horizontal”、”vertical”</td>
-<td>内部视图排序方向</td>
-</tr>
-</tbody></table>
-<h4 id="GridLayout-内视图参数-1"><a href="#GridLayout-内视图参数-1" class="headerlink" title="GridLayout 内视图参数"></a>GridLayout 内视图参数</h4><table>
-<thead>
-<tr>
-<th align="center">xml参数</th>
-<th>取值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">layout_rowSpan</td>
-<td>1、2、3、……</td>
-<td>该视图横跨几列</td>
-</tr>
-<tr>
-<td align="center">layout_columnSpan</td>
-<td>1、2、3、……</td>
-<td>该视图竖跨几行</td>
-</tr>
-<tr>
-<td align="center">layout_gravity</td>
-<td>“fill”、……</td>
-<td>有使用以上两参数，则该参数为”fill”</td>
-</tr>
-</tbody></table>
-<h2 id="表格布局-TableLayout"><a href="#表格布局-TableLayout" class="headerlink" title="表格布局 TableLayout"></a>表格布局 TableLayout</h2><table>
-<thead>
-<tr>
-<th align="center">xml参数</th>
-<th>取值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">stretchColumns</td>
-<td>0、1、2、……</td>
-<td>被拉伸的列序号</td>
-</tr>
-<tr>
-<td align="center">hint</td>
-<td>任意字符串</td>
-<td>输入框为空时的提示词，无该参数会报错</td>
-</tr>
-</tbody></table>
-<h2 id="TextView"><a href="#TextView" class="headerlink" title="TextView"></a>TextView</h2><table>
-<thead>
-<tr>
-<th align="center">xml参数</th>
-<th>取值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">textStyle</td>
-<td>bold、italic等</td>
-<td>字体样式，如加粗、斜体等</td>
-</tr>
-<tr>
-<td align="center">shadowRadius</td>
-<td>浮点数</td>
-<td>阴影模糊程度</td>
-</tr>
-<tr>
-<td align="center">singleLine</td>
-<td>true、false</td>
-<td>文本单行显示</td>
-</tr>
-<tr>
-<td align="center">ellipsize</td>
-<td>end等</td>
-<td>文本超出范围的省略方式</td>
-</tr>
-</tbody></table>
-<h2 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h2><table>
-<thead>
-<tr>
-<th align="center">xml参数</th>
-<th>取值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">inputType</td>
-<td>text、number等</td>
-<td>指明输入内容的类型以弹出对应键盘</td>
-</tr>
-<tr>
-<td align="center">hint</td>
-<td>任意字符串</td>
-<td>输入框为空时的提示词，无该参数会报错</td>
-</tr>
-<tr>
-<td align="center">drawableXXX</td>
-<td>Vector</td>
-<td>在输入框的指定方位添加icon或图片</td>
-</tr>
-<tr>
-<td align="center">hint</td>
-<td>任意字符串</td>
-<td>输入框为空时的提示词，无该参数会报错</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="center">kotlin方法</th>
-<th>返回值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">getText</td>
-<td></td>
-<td>返回输入框中的内容</td>
-</tr>
-</tbody></table>
-<h2 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h2><table>
-<thead>
-<tr>
-<th align="center">xml参数</th>
-<th>取值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">onClick</td>
-<td>字符串，为点击后要执行的方法名</td>
-<td>点击按钮后会调用对应的方法，与 setOnClickListener 相同</td>
-</tr>
-<tr>
-<td align="center">background</td>
-<td>selector</td>
-<td>按钮背景图片</td>
-</tr>
-<tr>
-<td align="center">backgroundTint</td>
-<td>selector</td>
-<td>按钮背景图片颜色</td>
-</tr>
-</tbody></table>
-<h2 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h2><p>详见我的另一篇文章：<a href="https://princesaoke.github.io/2023/09/24/Android%E4%B8%AD%E7%9A%84ListView">Android中的ListView</a></p>
-<h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><p>详见我的另一篇文章：<a href="https://princesaoke.github.io/2023/09/30/Android%E4%B8%AD%E7%9A%84RecyclerView">Android中的ListView</a></p>
+        <p>RecyclerView 相当于加强版的 ListView ，比 ListView 更灵活、更高效。</p>
+<h2 id="声明依赖项"><a href="#声明依赖项" class="headerlink" title="声明依赖项"></a>声明依赖项</h2><p>在 app&#x2F;build.gradle.kts 中的 dependencies 添加：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation(<span class="string">&quot;androidx.recyclerview:recyclerview:1.2.1&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可将 1.2.1 修改为你想要的版本（一般是最新的稳定版），详情见<a target="_blank" rel="noopener" href="https://developer.android.google.cn/jetpack/androidx/releases/recyclerview?hl=zh-cn">官方文档</a></p>
+<p><img src="/images/Android%E4%B8%AD%E7%9A%84RecyclerView/document.png" alt="官方文档"></p>
+<p>点击 Android Studio 右上角的 Sync Project with Gradle Files 同步依赖。</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>MainActivity.kt:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 要显示的数据</span></span><br><span class="line"><span class="keyword">val</span> <span class="keyword">data</span> = arrayOf(<span class="string">&quot;秦广王&quot;</span>, <span class="string">&quot;楚江王&quot;</span>, <span class="string">&quot;宋帝王&quot;</span>, <span class="string">&quot;仵官王&quot;</span>, <span class="string">&quot;阎罗王&quot;</span>, <span class="string">&quot;卞城王&quot;</span>, <span class="string">&quot;泰山王&quot;</span>, <span class="string">&quot;都市王&quot;</span>, <span class="string">&quot;平等王&quot;</span>, <span class="string">&quot;转轮王&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> recyclerView = findViewById&lt;RecyclerView&gt;(R.id.recycler_view)   <span class="comment">// 用 id 找到 RecyclerView</span></span><br><span class="line">recyclerView.layoutManager = LinearLayoutManager(<span class="keyword">this</span>)  <span class="comment">// 配置子视图的布局，可切换其他布局，如下一行</span></span><br><span class="line"><span class="comment">// recyclerView.layoutManager = GridLayoutManager(this, 3)  // 3表示一行有几个子视图</span></span><br><span class="line"><span class="keyword">val</span> recyclerAdapter = MyAdapter(<span class="keyword">this</span>, description.toMutableList());</span><br><span class="line">recyclerView.adapter = recyclerAdapter</span><br></pre></td></tr></table></figure>
+
+<p>RecyclerViewAdapter.java:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 自定义的 Adapter 类，继承 RecyclerView.Adapter</span></span><br><span class="line"><span class="comment">/// 其中的 RecyclerView.Adapter 是个泛型，需要传入 ViewHolder</span></span><br><span class="line"><span class="comment">/// 在 MyAdapter 类中实现一个自定义的 ViewHolder</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyAdapter</span> <span class="keyword">extends</span> <span class="title class_">RecyclerView</span>.Adapter&lt;MyAdapter.MyViewHolder&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Context context;</span><br><span class="line">    <span class="keyword">public</span> List&lt;String&gt; data;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyAdapter</span><span class="params">(Context context, List&lt;String&gt; data)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.context = context;</span><br><span class="line">        <span class="built_in">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 拿到 RecyclerView 子视图的布局</span></span><br><span class="line">    <span class="comment">/// 其中 R.layout.list_item 是配置子视图布局的 xml 文件</span></span><br><span class="line">    <span class="meta">@NonNull</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> MyViewHolder <span class="title function_">onCreateViewHolder</span><span class="params">(<span class="meta">@NonNull</span> ViewGroup viewGroup, <span class="type">int</span> i)</span> &#123;</span><br><span class="line">        <span class="type">View</span> <span class="variable">view</span> <span class="operator">=</span> View.inflate(context, R.layout.list_item, <span class="literal">null</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MyViewHolder</span>(view);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 将要显示的数据赋值给子视图</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onBindViewHolder</span><span class="params">(<span class="meta">@NonNull</span> MyViewHolder myViewHolder, <span class="type">int</span> i)</span> &#123;</span><br><span class="line">        myViewHolder.textView.setText(data.get(i));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 返回 RecyclerView 子视图的数量</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getItemCount</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> data == <span class="literal">null</span> ? <span class="number">0</span> : data.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 自定义的 ViewHolder ，继承 RecyclerView.ViewHolder</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">MyViewHolder</span> <span class="keyword">extends</span> <span class="title class_">RecyclerView</span>.ViewHolder &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> TextView textView;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">MyViewHolder</span><span class="params">(<span class="meta">@NonNull</span> View itemView)</span> &#123;</span><br><span class="line">            <span class="built_in">super</span>(itemView);</span><br><span class="line">            textView = itemView.findViewById(R.id.list_item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>res&#x2F;layout&#x2F;list_item.xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:paddingStart</span>=<span class="string">&quot;20dp&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:paddingEnd</span>=<span class="string">&quot;20dp&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:paddingTop</span>=<span class="string">&quot;10dp&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:paddingBottom</span>=<span class="string">&quot;10dp&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">&quot;vertical&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/list_item&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;20sp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textStyle</span>=<span class="string">&quot;bold&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>activity_main.xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">&quot;vertical&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">androidx.recyclerview.widget.RecyclerView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/recycler_view&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>&lt;RecyclerView&gt;</code>中加上<code>app:layoutManager=&quot;androidx.recyclerview.widget.LinearLayoutManager&quot;</code>可以设置其子视图的布局，与 MainActivity.kt 中的</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">recyclerView.layoutManager = LinearLayoutManager(<span class="keyword">this</span>)</span><br></pre></td></tr></table></figure>
+
+<p>起相同作用。</p>
+<p><em>大胆猜测Flutter中的ListView就是由RecyclerView实现的</em></p>
 
       
     </div>
@@ -660,7 +424,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://princesaoke.github.io/2023/09/20/Android%E7%AC%94%E8%AE%B0/" title="Android笔记" target="_blank" rel="external">http://princesaoke.github.io/2023/09/20/Android笔记/</a>
+      <a href="http://princesaoke.github.io/2023/09/30/Android%E4%B8%AD%E7%9A%84RecyclerView/" title="Android中的RecyclerView" target="_blank" rel="external">http://princesaoke.github.io/2023/09/30/Android中的RecyclerView/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -706,13 +470,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2023/09/22/%E8%BD%AC%E5%8F%91QQ%E8%AF%AD%E9%9F%B3/" title="转发QQ语音"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2023/09/18/Git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/" title="Git提交规范"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2023/09/24/Android%E4%B8%AD%E7%9A%84ListView/" title="Android中的ListView"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
