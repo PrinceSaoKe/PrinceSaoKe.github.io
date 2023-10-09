@@ -17,19 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>骚客.的个人博客</title>
-  <meta name="description" content="使用Hexo搭建，欢迎交流">
-<meta property="og:type" content="website">
-<meta property="og:title" content="骚客.的个人博客">
-<meta property="og:url" content="http://princesaoke.github.io/index.html">
+  <title>MySQL数据迁移部署 | 骚客.的个人博客</title>
+  <meta name="description" content="最近一个项目的服务器要过期了，将数据库里的数据迁移到另外一台云服务器。一路上问题很多但都比较顺利的完成了，发觉我解决问题的能力和使用搜索引擎的能力与一年前相比有了些许进步，特此记录。 安装MySQL在官方下载地址下载压缩包。  解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如D:\mysql-8.0.33-winx64\bi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL数据迁移部署">
+<meta property="og:url" content="http://princesaoke.github.io/2023/10/10/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="使用Hexo搭建，欢迎交流">
+<meta property="og:description" content="最近一个项目的服务器要过期了，将数据库里的数据迁移到另外一台云服务器。一路上问题很多但都比较顺利的完成了，发觉我解决问题的能力和使用搜索引擎的能力与一年前相比有了些许进步，特此记录。 安装MySQL在官方下载地址下载压缩包。  解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如D:\mysql-8.0.33-winx64\bi">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://princesaoke.github.io/images/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/mysql_download.png">
+<meta property="article:published_time" content="2023-10-09T16:18:50.000Z">
+<meta property="article:modified_time" content="2023-10-09T17:12:43.921Z">
 <meta property="article:author" content="骚客.">
-<meta property="article:tag" content="hexo,博客">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://princesaoke.github.io/images/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/mysql_download.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://princesaoke.github.io/index.html">
+  <link rel="canonical" href="http://princesaoke.github.io/2023/10/10/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -330,43 +334,52 @@
 </aside>
 
   
-  <main class="main" role="main">
   
-  <div class="content article-list">
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-MySQL数据迁移部署" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+    <div class="article-header">
+      
+        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/10/10/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/">MySQL数据迁移部署</a>
+    <h1 class="article-title" itemprop="name">
+      MySQL数据迁移部署
     </h1>
   
 
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
+      
+      <div class="article-meta">
+        <span class="article-date">
     <i class="icon icon-calendar-check"></i>
 	<a href="/2023/10/10/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/" class="article-date">
-	  <time datetime="2023-10-09T16:18:50.000Z" itemprop="datePublished">10月 10</time>
+	  <time datetime="2023-10-09T16:18:50.000Z" itemprop="datePublished">2023-10-10</time>
 	</a>
 </span>
-    
+        
   <span class="article-category">
     <i class="icon icon-folder"></i>
     <a class="article-category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
   </span>
 
-    
+        
   <span class="article-tag">
     <i class="icon icon-tags"></i>
 	<a class="article-tag-link-link" href="/tags/MySQL/" rel="tag">MySQL</a>
   </span>
 
 
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/10/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/#comments" class="article-comment-link">评论</a></span>
-    
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/10/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/#comments" class="article-comment-link">评论</a></span>
+        
 	
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 828(字)</span>
 	
@@ -374,435 +387,126 @@
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
-  </p>
-</article>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>最近一个项目的服务器要过期了，将数据库里的数据迁移到另外一台云服务器。一路上问题很多但都比较顺利的完成了，发觉我解决问题的能力和使用搜索引擎的能力与一年前相比有了些许进步，特此记录。</p>
+<h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><p>在<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/community/">官方下载地址</a>下载压缩包。</p>
+<p><img src="/images/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/mysql_download.png" alt="mysql_download"></p>
+<p>解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如<code>D:\mysql-8.0.33-winx64\bin</code>。</p>
+<p>在MySQL的bin文件夹里新建文件<code>my.ini</code>，文件内容为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"># 设置mysql的安装目录(能看到bin即可)</span><br><span class="line">basedir=D:\mysql-8.0.33-winx64\</span><br><span class="line"># 设置mysql的数据存放目录</span><br><span class="line">datadir=D:\mysql-8.0.33-winx64\data\</span><br><span class="line"># mysql端口</span><br><span class="line">port=3306</span><br><span class="line"># 跳过授权</span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure>
 
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/10/02/Android%E4%B8%AD%E7%9A%84ShapeableImageView/">Android中的ShapeableImageView</a>
-    </h1>
-  
+<p>记得把其中的路径换成你自己的安装路径。</p>
+<p>然后以管理员身份打开cmd，进入MySQL的bin目录，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 mysql 服务</span></span><br><span class="line">mysqld –install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 data 文件夹 （你可以初始化多次，但是每次必须清空data文件夹）</span></span><br><span class="line">mysqld --initialize-insecure --user=mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 mysql 服务</span></span><br><span class="line">net start mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录 mysql(让你输密码，直接回车即可)</span></span><br><span class="line">mysql -uroot -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 root 账户密码</span></span><br><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED WITH <span class="string">&#x27;mysql_native_password&#x27;</span> BY <span class="string">&#x27;新密码&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新权限，使之生效</span></span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
 
+<p>然后将my.ini里跳过授权给注释掉<code># skip-grant-tables</code></p>
+<p>输入<code>\q</code>退出登录MySQL，然后重启MySQL用新设置的密码登录即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br><span class="line">net start mysql</span><br><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+
+<p><code>mysql -uroot -p</code>这句意思是用户名为<code>root</code>，也可以在<code>-p</code>后直接跟密码，这样密码是可见的。</p>
+<h4 id="Windows-Server-2022-上遇到的问题"><a href="#Windows-Server-2022-上遇到的问题" class="headerlink" title="Windows Server 2022 上遇到的问题"></a>Windows Server 2022 上遇到的问题</h4><h6 id="安装MySQL和初始化data文件夹时报错：找不到MSVCP140-dll文件"><a href="#安装MySQL和初始化data文件夹时报错：找不到MSVCP140-dll文件" class="headerlink" title="安装MySQL和初始化data文件夹时报错：找不到MSVCP140.dll文件"></a>安装MySQL和初始化data文件夹时报错：找不到<code>MSVCP140.dll</code>文件</h6><p>解决方法：安装 Microsoft Visual C++ Redistributable 客户端库，<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">点击前往下载</a>。</p>
+<h6 id="输入net-start-mysql时报错：服务没有响应控制功能"><a href="#输入net-start-mysql时报错：服务没有响应控制功能" class="headerlink" title="输入net start mysql时报错：服务没有响应控制功能"></a>输入<code>net start mysql</code>时报错：服务没有响应控制功能</h6><p>解决方法：下载<a target="_blank" rel="noopener" href="https://cn.dll-files.com/vcruntime140_1.dll.html">VCRUNTIME140_1.dll</a>，解压后拷贝到MySQL的bin文件夹下。</p>
+<h2 id="MySQL数据的备份"><a href="#MySQL数据的备份" class="headerlink" title="MySQL数据的备份"></a>MySQL数据的备份</h2><p>将指定数据库导出成文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u用户名 -p密码 数据库名称 &gt; 保存的路径</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="MySQL备份数据的还原"><a href="#MySQL备份数据的还原" class="headerlink" title="MySQL备份数据的还原"></a>MySQL备份数据的还原</h2><p>登录MySQL后执行以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create database 数据库名称  // 创建一个新的数据库用于承载迁移来的数据</span><br><span class="line">use 数据库名称              // 切换到该数据库</span><br><span class="line"><span class="built_in">source</span> 文件路径             // 导入备份数据</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="远程连接数据库"><a href="#远程连接数据库" class="headerlink" title="远程连接数据库"></a>远程连接数据库</h2><h4 id="开放MySQL端口"><a href="#开放MySQL端口" class="headerlink" title="开放MySQL端口"></a>开放MySQL端口</h4><p>首先要确保服务器的MySQL端口是放行的，在my.ini中我们设置了3306端口。</p>
+<p>以阿里云服务器为例，在安全组中手动添加访问规则，目的端口3306，源0.0.0.0。</p>
+<p>若端口没有放行，则会有以下报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2003 (HY000): Can<span class="string">&#x27;t connect to MySQL server on &#x27;</span>XXX.XXX.XXX.XXX:3306<span class="string">&#x27; (10060)</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="设置远程登录权限"><a href="#设置远程登录权限" class="headerlink" title="设置远程登录权限"></a>设置远程登录权限</h4><p>在服务器上登录MySQL，然后输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">update user <span class="built_in">set</span> host=<span class="string">&#x27;%&#x27;</span> <span class="built_in">where</span> user=<span class="string">&#x27;root&#x27;</span>; // 开放远程登录权限</span><br><span class="line">flush privileges;   // 刷新权限</span><br></pre></td></tr></table></figure>
+
+<p>若没开启权限，则报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1130 (HY000): Host <span class="string">&#x27;XXX.XXX.XXX.XXX&#x27;</span> is not allowed to connect to this MySQL server</span><br></pre></td></tr></table></figure>
+
+<h4 id="远程登录MySQL"><a href="#远程登录MySQL" class="headerlink" title="远程登录MySQL"></a>远程登录MySQL</h4><p>在自己的电脑上打开cmd，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h主机地址 -u用户名 -p</span><br></pre></td></tr></table></figure>
+
+<p><em>附上<a target="_blank" rel="noopener" href="https://blog.csdn.net/select_myname/article/details/126314725">MySQL常用指令</a></em></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://princesaoke.github.io/2023/10/10/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/" title="MySQL数据迁移部署" target="_blank" rel="external">http://princesaoke.github.io/2023/10/10/MySQL数据迁移部署/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/PrinceSaoKe" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/PrinceSaoKe" target="_blank"><span class="text-dark">骚客.</span><small class="ml-1x">Frontend Developer</small></a></h3>
+        <div>参观我的个人网站：http://47.99.83.24</div>
+      </div>
+    </figure>
   </div>
+</div>
+
+
+    </div>
+  </article>
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/10/02/Android%E4%B8%AD%E7%9A%84ShapeableImageView/" class="article-date">
-	  <time datetime="2023-10-02T08:37:53.000Z" itemprop="datePublished">10月 2</time>
-	</a>
-</span>
     
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
-  </span>
-
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
     
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Android/" rel="tag">Android</a>
-  </span>
+  </section>
 
 
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/02/Android%E4%B8%AD%E7%9A%84ShapeableImageView/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 254(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/09/30/Android%E4%B8%AD%E7%9A%84RecyclerView/">Android中的RecyclerView</a>
-    </h1>
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
   
-
-  </div>
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2023/10/02/Android%E4%B8%AD%E7%9A%84ShapeableImageView/" title="Android中的ShapeableImageView"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/09/30/Android%E4%B8%AD%E7%9A%84RecyclerView/" class="article-date">
-	  <time datetime="2023-09-30T07:36:50.000Z" itemprop="datePublished">9月 30</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Android/" rel="tag">Android</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/30/Android%E4%B8%AD%E7%9A%84RecyclerView/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 659(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/09/24/Android%E4%B8%AD%E7%9A%84ListView/">Android中的ListView</a>
-    </h1>
   
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/09/24/Android%E4%B8%AD%E7%9A%84ListView/" class="article-date">
-	  <time datetime="2023-09-24T15:31:27.000Z" itemprop="datePublished">9月 24</time>
-	</a>
-</span>
+  <div class="bar-right">
     
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Android/" rel="tag">Android</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/24/Android%E4%B8%AD%E7%9A%84ListView/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 549(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/09/22/%E8%BD%AC%E5%8F%91QQ%E8%AF%AD%E9%9F%B3/">转发QQ语音</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/09/22/%E8%BD%AC%E5%8F%91QQ%E8%AF%AD%E9%9F%B3/" class="article-date">
-	  <time datetime="2023-09-22T13:27:26.000Z" itemprop="datePublished">9月 22</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E6%95%B4%E7%82%B9%E8%8A%B1%E6%B4%BB/">整点花活</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/QQ/" rel="tag">QQ</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/22/%E8%BD%AC%E5%8F%91QQ%E8%AF%AD%E9%9F%B3/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 704(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/09/20/Android%E7%AC%94%E8%AE%B0/">Android笔记</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/09/20/Android%E7%AC%94%E8%AE%B0/" class="article-date">
-	  <time datetime="2023-09-20T05:41:09.000Z" itemprop="datePublished">9月 20</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Android/" rel="tag">Android</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/20/Android%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 844(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/09/18/Git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/">Git提交规范</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/09/18/Git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/" class="article-date">
-	  <time datetime="2023-09-18T06:27:36.000Z" itemprop="datePublished">9月 18</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E6%95%B4%E7%82%B9%E8%8A%B1%E6%B4%BB/">整点花活</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Git/" rel="tag">Git</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/18/Git%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 120(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/09/17/%E5%85%B3%E4%BA%8EAndroidStudio%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于AndroidStudio的一些问题</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/09/17/%E5%85%B3%E4%BA%8EAndroidStudio%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" class="article-date">
-	  <time datetime="2023-09-17T07:11:53.000Z" itemprop="datePublished">9月 17</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Android/" rel="tag">Android</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/17/%E5%85%B3%E4%BA%8EAndroidStudio%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 339(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/09/14/Flutter%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2/">Flutter版本切换</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/09/14/Flutter%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2/" class="article-date">
-	  <time datetime="2023-09-14T05:40:25.000Z" itemprop="datePublished">9月 14</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Flutter/" rel="tag">Flutter</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/14/Flutter%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 154(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/09/14/Java%E7%AC%94%E8%AE%B0/">Java笔记</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2023/09/14/Java%E7%AC%94%E8%AE%B0/" class="article-date">
-	  <time datetime="2023-09-14T05:34:31.000Z" itemprop="datePublished">9月 14</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Java%E7%9B%B8%E5%85%B3/">Java相关</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/14/Java%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
-	
-
-  </p>
-</article>
-
+    <div class="share-component" data-sites="qq,wechat,qzone,weibo,facebook,twitter" data-mobile-sites="qq,wechat,qzone,weibo,facebook,twitter"></div>
     
   </div>
-
+  </div>
+</nav>
   
-    
-    <nav class="bar bar-footer clearfix" data-stick-bottom>
-        <div class="bar-inner">
-        <ul class="pager pull-left">
-            
-            <li class="prev disabled">
-                <a href="javascript:;">
-                    <i class="icon icon-angle-left"></i>
-                    上一页
-                </a>
-            </li>
-            
-            
-            <li class="next">
-                <a href="/page/2/">
-                    下一页
-                    <i class="icon icon-angle-right"></i>
-                </a>
-            </li>
-            
-        </ul>
-            <div class="total-article bar-right">Page 1 of 2</div>
-        </div>
-    </nav>
-    
- 
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -867,6 +571,33 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
