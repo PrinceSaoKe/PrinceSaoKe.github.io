@@ -212,7 +212,7 @@
   </url>
   
   <url>
-    <loc>http://princesaoke.github.io/tags/Java/</loc>
+    <loc>http://princesaoke.github.io/tags/Git/</loc>
     <lastmod>2023-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -226,6 +226,13 @@
   </url>
   
   <url>
+    <loc>http://princesaoke.github.io/tags/Java/</loc>
+    <lastmod>2023-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://princesaoke.github.io/tags/MySQL/</loc>
     <lastmod>2023-10-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -233,7 +240,7 @@
   </url>
   
   <url>
-    <loc>http://princesaoke.github.io/tags/Git/</loc>
+    <loc>http://princesaoke.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2023-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -241,13 +248,6 @@
   
   <url>
     <loc>http://princesaoke.github.io/tags/QQ/</loc>
-    <lastmod>2023-10-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://princesaoke.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2023-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
