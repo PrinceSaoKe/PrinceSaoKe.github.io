@@ -1,4 +1,4 @@
 {
-    "bookkeeping_base_url": "http://8.130.110.171:80/",
+    "bookkeeping_base_url": "http://47.99.83.24:11451/",
     "whispers_of_tea_base_url": "https://i5101b0918.oicp.vip"
 }
