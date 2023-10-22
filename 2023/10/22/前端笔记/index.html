@@ -18,15 +18,15 @@
   
   
   <title>前端笔记 | 骚客.的个人博客</title>
-  <meta name="description" content="均以Chrome浏览器为例。 事件循环 &#x2F; 消息循环浏览器的进程模型浏览器运行时有很多个进程，我们重点关注三大进程：  浏览器进程 网络进程 渲染进程（不止一个，每一个标签页就是一个渲染进程）  其中浏览器进程是打开浏览器后最先启动的，负责：  浏览器通用界面显示，如浏览器工具栏、浏览器设置等 用户交互，如监听点击、滚动等 子进程管理，浏览器其他进程均由浏览器进程开启  等功能。 网络进">
+  <meta name="description" content="均以Chrome浏览器为例。 事件循环 &#x2F; 消息循环浏览器的进程模型浏览器运行时有很多个进程，我们重点关注三大进程：  浏览器进程 网络进程 渲染进程（不止一个，每一个标签页就是一个渲染进程）  其中浏览器进程是打开浏览器后最先启动的，负责：  浏览器通用界面显示，如浏览器工具栏、浏览器设置等 用户交互，如监听点击、滚动等 子进程管理，浏览器其他进程均由浏览器进程开启 ……  网络进程负">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端笔记">
 <meta property="og:url" content="http://princesaoke.github.io/2023/10/22/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="均以Chrome浏览器为例。 事件循环 &#x2F; 消息循环浏览器的进程模型浏览器运行时有很多个进程，我们重点关注三大进程：  浏览器进程 网络进程 渲染进程（不止一个，每一个标签页就是一个渲染进程）  其中浏览器进程是打开浏览器后最先启动的，负责：  浏览器通用界面显示，如浏览器工具栏、浏览器设置等 用户交互，如监听点击、滚动等 子进程管理，浏览器其他进程均由浏览器进程开启  等功能。 网络进">
+<meta property="og:description" content="均以Chrome浏览器为例。 事件循环 &#x2F; 消息循环浏览器的进程模型浏览器运行时有很多个进程，我们重点关注三大进程：  浏览器进程 网络进程 渲染进程（不止一个，每一个标签页就是一个渲染进程）  其中浏览器进程是打开浏览器后最先启动的，负责：  浏览器通用界面显示，如浏览器工具栏、浏览器设置等 用户交互，如监听点击、滚动等 子进程管理，浏览器其他进程均由浏览器进程开启 ……  网络进程负">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-22T05:47:29.000Z">
-<meta property="article:modified_time" content="2023-10-22T08:16:31.979Z">
+<meta property="article:modified_time" content="2023-10-22T11:11:19.117Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="hexo,博客">
 <meta name="twitter:card" content="summary">
@@ -374,10 +374,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/22/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.4k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
@@ -396,8 +396,8 @@
 <li>浏览器通用界面显示，如浏览器工具栏、浏览器设置等</li>
 <li>用户交互，如监听点击、滚动等</li>
 <li>子进程管理，浏览器其他进程均由浏览器进程开启</li>
+<li>……</li>
 </ul>
-<p>等功能。</p>
 <p><code>网络进程</code>负责加载网络资源。网络进程内部会启动多个线程来处理不同的网络任务。</p>
 <p><code>渲染进程</code>可以有多个，每一个标签页就是一个渲染进程，该进程包括一个<code>渲染主线程</code>和其他多个子线程。</p>
 <h4 id="渲染主线程是如何工作的"><a href="#渲染主线程是如何工作的" class="headerlink" title="渲染主线程是如何工作的"></a>渲染主线程是如何工作的</h4><p>渲染主线程的任务包括但不限于：</p>
@@ -434,9 +434,19 @@
 <blockquote>
 <p>不行。<br>受事件循环的影响，计时器的回调函数只能在主线程空闲时运行，回调函数需要时间排队等待调度，因此带来了时间偏差。<br>操作系统的计时函数本身就有少量偏差，而JS的计时器最终调用的是操作系统的计时函数，因此也具有一定偏差。</p>
 </blockquote>
-<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Promise.resolve().then(fn) 会将函数fn加入微队列</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">    <span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>)</span><br><span class="line">    <span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(fn)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">4</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Promise.resolve().then(fn) 会将函数fn加入微队列</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn1</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">    <span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span> <span class="title function_">fn2</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> <span class="title function_">fn3</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>)</span><br><span class="line">    <span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(fn1)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span> <span class="title function_">fn4</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">4</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 
 <p>Q：浏览器执行以上js代码后输出是什么？</p>
+<p>解析：</p>
+<ol>
+<li><code>setTimeout</code>将函数<code>fn3</code>添加到计时线程，0秒后时间到，计时线程将<code>fn3</code>添加到延时队列中排队等待调度；</li>
+<li>全局js还未执行完，主线程继续执行，将<code>fn4</code>添加到微队列；</li>
+<li>输出<code>5</code>；</li>
+<li>全局js执行完毕，从消息队列中取出下一个任务。由于微队列优先级最高，因此取出<code>fn4</code>执行，输出<code>4</code></li>
+<li><code>fn4</code>执行完毕，取出<code>fn3</code>执行，输出<code>3</code>，然后将<code>fn1</code>加入微队列；</li>
+<li><code>fn3</code>执行完毕，取出<code>fn1</code>执行，输出<code>1</code>，然后将<code>fn2</code>加入微队列；</li>
+<li><code>fn1</code>执行完毕，取出<code>fn2</code>执行，输出<code>2</code></li>
+</ol>
 <p>A：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">4</span><br><span class="line">3</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
       
