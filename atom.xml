@@ -6,7 +6,7 @@
   <link href="http://princesaoke.github.io/atom.xml" rel="self"/>
   
   <link href="http://princesaoke.github.io/"/>
-  <updated>2023-10-27T07:21:40.235Z</updated>
+  <updated>2023-11-09T16:33:58.498Z</updated>
   <id>http://princesaoke.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Dart笔记</title>
+    <link href="http://princesaoke.github.io/2023/11/08/Dart%E7%AC%94%E8%AE%B0/"/>
+    <id>http://princesaoke.github.io/2023/11/08/Dart%E7%AC%94%E8%AE%B0/</id>
+    <published>2023-11-08T08:34:56.000Z</published>
+    <updated>2023-11-09T16:33:58.498Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="var-和-dynamic"><a href="#var-和-dynamic" class="headerlink" title="var 和 dynamic"></a>var 和 dynamic</h2><p><code>var</code>未赋初值时，默认值为<code>null</code>，赋值后数据类型可变。</p><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> variable;</span><br><span class="line"><span class="built_in">print</span>(variable);    <span class="comment">// null</span></span><br><span class="line">variable = <span class="string">&#x27;我是字符串&#x27;</span></span><br><span class="line">variable = <span class="number">10.00</span></span><br></pre></td></tr></table></figure><p><code>dynamic</code>未赋初值时，默认值为<code>null</code>，赋值后数据类型可变，同<code>var</code>。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;var-和-dynamic&quot;&gt;&lt;a href=&quot;#var-和-dynamic&quot; class=&quot;headerlink&quot; title=&quot;var 和 dynamic&quot;&gt;&lt;/a&gt;var 和 dynamic&lt;/h2&gt;&lt;p&gt;&lt;code&gt;var&lt;/code&gt;未赋初值时，默认值为</summary>
+      
+    
+    
+    
+    <category term="移动端" scheme="http://princesaoke.github.io/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+    
+    <category term="Flutter" scheme="http://princesaoke.github.io/tags/Flutter/"/>
+    
+  </entry>
   
   <entry>
     <title>Kotlin笔记</title>
