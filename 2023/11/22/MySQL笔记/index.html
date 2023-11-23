@@ -17,23 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>MySQL数据迁移部署 | 骚客.的个人博客</title>
-  <meta name="description" content="最近一个项目的服务器要过期了，将数据库里的数据迁移到另外一台云服务器。一路上问题很多但都比较顺利的完成了，发觉我解决问题的能力和使用搜索引擎的能力与一年前相比有了些许进步，特此记录。 安装MySQL在官方下载地址下载压缩包。  解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如D:\mysql-8.0.33-winx64\bi">
+  <title>MySQL笔记 | 骚客.的个人博客</title>
+  <meta name="description" content="很全的MySQL常用指令 安装MySQL在官方下载地址下载压缩包。  解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如D:\mysql-8.0.33-winx64\bin。 在MySQL的bin文件夹里新建文件my.ini，文件内容为： 123456789[mysqld]# 设置mysql的安装目录(能看到bin即可)bas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL数据迁移部署">
-<meta property="og:url" content="http://princesaoke.github.io/2023/10/10/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:title" content="MySQL笔记">
+<meta property="og:url" content="http://princesaoke.github.io/2023/11/22/MySQL%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="最近一个项目的服务器要过期了，将数据库里的数据迁移到另外一台云服务器。一路上问题很多但都比较顺利的完成了，发觉我解决问题的能力和使用搜索引擎的能力与一年前相比有了些许进步，特此记录。 安装MySQL在官方下载地址下载压缩包。  解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如D:\mysql-8.0.33-winx64\bi">
+<meta property="og:description" content="很全的MySQL常用指令 安装MySQL在官方下载地址下载压缩包。  解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如D:\mysql-8.0.33-winx64\bin。 在MySQL的bin文件夹里新建文件my.ini，文件内容为： 123456789[mysqld]# 设置mysql的安装目录(能看到bin即可)bas">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://princesaoke.github.io/images/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/mysql_download.png">
-<meta property="article:published_time" content="2023-10-09T16:18:50.000Z">
-<meta property="article:modified_time" content="2023-10-10T07:19:48.899Z">
+<meta property="og:image" content="http://princesaoke.github.io/images/MySQL%E7%AC%94%E8%AE%B0/mysql_download.png">
+<meta property="article:published_time" content="2023-11-22T08:03:48.000Z">
+<meta property="article:modified_time" content="2023-11-23T12:25:55.475Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://princesaoke.github.io/images/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/mysql_download.png">
+<meta name="twitter:image" content="http://princesaoke.github.io/images/MySQL%E7%AC%94%E8%AE%B0/mysql_download.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://princesaoke.github.io/2023/10/10/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/index.html">
+  <link rel="canonical" href="http://princesaoke.github.io/2023/11/22/MySQL%E7%AC%94%E8%AE%B0/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -237,7 +237,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">10</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -249,6 +249,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/11/22/MySQL%E7%AC%94%E8%AE%B0/" class="title">MySQL笔记</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-11-22T08:03:48.000Z" itemprop="datePublished">2023-11-22</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -309,21 +324,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
-              </p>
-              <p class="item-title">
-                <a href="/2023/10/17/Flutter%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" class="title">Flutter中的一些问题</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-10-17T09:57:05.000Z" itemprop="datePublished">2023-10-17</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -337,14 +337,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-MySQL数据迁移部署" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-MySQL笔记" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      MySQL数据迁移部署
+      MySQL笔记
     </h1>
   
 
@@ -352,8 +352,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2023/10/10/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/" class="article-date">
-	  <time datetime="2023-10-09T16:18:50.000Z" itemprop="datePublished">2023-10-10</time>
+	<a href="/2023/11/22/MySQL%E7%AC%94%E8%AE%B0/" class="article-date">
+	  <time datetime="2023-11-22T08:03:48.000Z" itemprop="datePublished">2023-11-22</time>
 	</a>
 </span>
         
@@ -378,22 +378,22 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/10/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/22/MySQL%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 828(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 977(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>最近一个项目的服务器要过期了，将数据库里的数据迁移到另外一台云服务器。一路上问题很多但都比较顺利的完成了，发觉我解决问题的能力和使用搜索引擎的能力与一年前相比有了些许进步，特此记录。</p>
+        <p><em><a target="_blank" rel="noopener" href="https://blog.csdn.net/select_myname/article/details/126314725">很全的MySQL常用指令</a></em></p>
 <h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><p>在<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/community/">官方下载地址</a>下载压缩包。</p>
-<p><img src="/images/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/mysql_download.png" alt="mysql_download"></p>
+<p><img src="/images/MySQL%E7%AC%94%E8%AE%B0/mysql_download.png" alt="mysql_download"></p>
 <p>解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如<code>D:\mysql-8.0.33-winx64\bin</code>。</p>
 <p>在MySQL的bin文件夹里新建文件<code>my.ini</code>，文件内容为：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"># 设置mysql的安装目录(能看到bin即可)</span><br><span class="line">basedir=D:\mysql-8.0.33-winx64\</span><br><span class="line"># 设置mysql的数据存放目录</span><br><span class="line">datadir=D:\mysql-8.0.33-winx64\data\</span><br><span class="line"># mysql端口</span><br><span class="line">port=3306</span><br><span class="line"># 跳过授权</span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure>
@@ -409,14 +409,6 @@
 <p><code>mysql -uroot -p</code>这句意思是用户名为<code>root</code>，也可以在<code>-p</code>后直接跟密码，这样密码是可见的。</p>
 <h3 id="Windows-Server-2022-上遇到的问题"><a href="#Windows-Server-2022-上遇到的问题" class="headerlink" title="Windows Server 2022 上遇到的问题"></a>Windows Server 2022 上遇到的问题</h3><h5 id="安装MySQL和初始化data文件夹时报错：找不到MSVCP140-dll文件"><a href="#安装MySQL和初始化data文件夹时报错：找不到MSVCP140-dll文件" class="headerlink" title="安装MySQL和初始化data文件夹时报错：找不到MSVCP140.dll文件"></a>安装MySQL和初始化data文件夹时报错：找不到<code>MSVCP140.dll</code>文件</h5><p>解决方法：安装 Microsoft Visual C++ Redistributable 客户端库，<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">点击前往下载</a>。</p>
 <h5 id="输入net-start-mysql时报错：服务没有响应控制功能"><a href="#输入net-start-mysql时报错：服务没有响应控制功能" class="headerlink" title="输入net start mysql时报错：服务没有响应控制功能"></a>输入<code>net start mysql</code>时报错：服务没有响应控制功能</h5><p>解决方法：下载<a target="_blank" rel="noopener" href="https://cn.dll-files.com/vcruntime140_1.dll.html">VCRUNTIME140_1.dll</a>，解压后拷贝到MySQL的bin文件夹下。</p>
-<h2 id="MySQL数据的备份"><a href="#MySQL数据的备份" class="headerlink" title="MySQL数据的备份"></a>MySQL数据的备份</h2><p>将指定数据库导出成文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u用户名 -p密码 数据库名称 &gt; 保存的路径;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="MySQL备份数据的还原"><a href="#MySQL备份数据的还原" class="headerlink" title="MySQL备份数据的还原"></a>MySQL备份数据的还原</h2><p>登录MySQL后执行以下指令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create database 数据库名称;  // 创建一个新的数据库用于承载迁移来的数据</span><br><span class="line">use 数据库名称;              // 切换到该数据库</span><br><span class="line">source 文件路径;             // 导入备份数据</span><br></pre></td></tr></table></figure>
-
-
 <h2 id="远程连接数据库"><a href="#远程连接数据库" class="headerlink" title="远程连接数据库"></a>远程连接数据库</h2><h4 id="开放MySQL端口"><a href="#开放MySQL端口" class="headerlink" title="开放MySQL端口"></a>开放MySQL端口</h4><p>首先要确保服务器的MySQL端口是放行的，在my.ini中我们设置了3306端口。</p>
 <p>以阿里云服务器为例，在安全组中手动添加访问规则，目的端口3306，源0.0.0.0。</p>
 <p>若端口没有放行，则会有以下报错：</p>
@@ -431,7 +423,23 @@
 <h4 id="远程登录MySQL"><a href="#远程登录MySQL" class="headerlink" title="远程登录MySQL"></a>远程登录MySQL</h4><p>在自己的电脑上打开cmd，输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h主机地址 -u用户名 -p</span><br></pre></td></tr></table></figure>
 
-<p><em>附上<a target="_blank" rel="noopener" href="https://blog.csdn.net/select_myname/article/details/126314725">MySQL常用指令</a></em></p>
+
+<h2 id="MySQL数据的备份"><a href="#MySQL数据的备份" class="headerlink" title="MySQL数据的备份"></a>MySQL数据的备份</h2><p>终端进入MySQL安装目录下的bin目录，执行指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -uroot -p 数据库名 &gt; 备份文件路径及文件名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如：</span></span><br><span class="line">mysqldump -uroot -p flower_shop &gt; flower_shop_backup.sql</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="MySQL备份数据的还原"><a href="#MySQL备份数据的还原" class="headerlink" title="MySQL备份数据的还原"></a>MySQL备份数据的还原</h2><p>登录MySQL后执行以下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create database 数据库名称;  // 创建一个新的数据库用于承载迁移来的数据</span><br><span class="line">use 数据库名称;              // 切换到该数据库</span><br><span class="line">source 文件路径;             // 导入备份数据</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="存储过程-Procedure"><a href="#存储过程-Procedure" class="headerlink" title="存储过程 &#x2F; Procedure"></a>存储过程 &#x2F; Procedure</h2><p>相当于编程语言中的方法，定义SQL语句模板，可以传参调用。</p>
+<p>创建一个存储过程，用于查询某种花的价格，调用后删除：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">delimiter $$</span><br><span class="line">create procedure getFlowerPrice(in name varchar(15))</span><br><span class="line">begin</span><br><span class="line">    select price from flower where flower.name=name;</span><br><span class="line">end $$</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line">call getFlowerPrice(&#x27;红玫瑰&#x27;);</span><br><span class="line"></span><br><span class="line">drop procedure getFlowerPrice;  # 删除存储过程</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>delimiter</code>作用是修改SQL语句结束符，避免存储过程中的<code>;</code>和语句结束符混淆。</p>
+<h2 id="触发器-Trigger"><a href="#触发器-Trigger" class="headerlink" title="触发器 &#x2F; Trigger"></a>触发器 &#x2F; Trigger</h2><p>在数据插入、修改、删除时自动执行某些操作，可用于数据库日志记录等。</p>
+<p>创建一个触发器，当录入一种花但未给出花语时，将花语设为“暂无”：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">delimiter $$</span><br><span class="line">create trigger my_trigger before insert on flower for each row</span><br><span class="line">begin</span><br><span class="line">    if new.flower_language is null then</span><br><span class="line">        set new.flower_language=&#x27;暂无&#x27;;</span><br><span class="line">    end if;</span><br><span class="line">end $$</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line">show triggers;  # 查看触发器</span><br><span class="line"></span><br><span class="line">drop trigger flower_shop.my_trigger;    # 删除触发器</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -441,7 +449,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://princesaoke.github.io/2023/10/10/MySQL%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E9%83%A8%E7%BD%B2/" title="MySQL数据迁移部署" target="_blank" rel="external">http://princesaoke.github.io/2023/10/10/MySQL数据迁移部署/</a>
+      <a href="http://princesaoke.github.io/2023/11/22/MySQL%E7%AC%94%E8%AE%B0/" title="MySQL笔记" target="_blank" rel="external">http://princesaoke.github.io/2023/11/22/MySQL笔记/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -487,13 +495,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2023/10/11/Flutter%E5%8F%96%E6%B6%88ListView%E8%BF%87%E5%BA%A6%E6%BB%91%E5%8A%A8%E6%95%88%E6%9E%9C/" title="Flutter取消ListView过度滑动效果"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2023/10/02/Android%E4%B8%AD%E7%9A%84ShapeableImageView/" title="Android中的ShapeableImageView"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2023/11/08/Dart%E7%AC%94%E8%AE%B0/" title="Dart笔记"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
