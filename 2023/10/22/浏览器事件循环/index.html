@@ -17,23 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>CSS笔记 | 骚客.的个人博客</title>
-  <meta name="description" content="盒子模型 元素的总宽度为：margin-left+border+padding-left+width+padding-right+border+margin-right 所以如果元素有margin、border、padding，实际大小会比CSS中写的width和height更大。 box-sizing属性可以令width和height直接包含padding和border。">
+  <title>浏览器事件循环 | 骚客.的个人博客</title>
+  <meta name="description" content="事件循环又称消息循环。 均以Chrome浏览器为例。 浏览器的进程模型浏览器运行时有很多个进程，我们重点关注三大进程：  浏览器进程 网络进程 渲染进程（不止一个，每一个标签页就是一个渲染进程）  其中浏览器进程是打开浏览器后最先启动的，负责：  浏览器通用界面显示，如浏览器工具栏、浏览器设置等 用户交互，如监听点击、滚动等 子进程管理，浏览器其他进程均由浏览器进程开启 ……  网络进程负责加载网">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS笔记">
-<meta property="og:url" content="http://princesaoke.github.io/2023/12/26/CSS%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="浏览器事件循环">
+<meta property="og:url" content="http://princesaoke.github.io/2023/10/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/index.html">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="盒子模型 元素的总宽度为：margin-left+border+padding-left+width+padding-right+border+margin-right 所以如果元素有margin、border、padding，实际大小会比CSS中写的width和height更大。 box-sizing属性可以令width和height直接包含padding和border。">
+<meta property="og:description" content="事件循环又称消息循环。 均以Chrome浏览器为例。 浏览器的进程模型浏览器运行时有很多个进程，我们重点关注三大进程：  浏览器进程 网络进程 渲染进程（不止一个，每一个标签页就是一个渲染进程）  其中浏览器进程是打开浏览器后最先启动的，负责：  浏览器通用界面显示，如浏览器工具栏、浏览器设置等 用户交互，如监听点击、滚动等 子进程管理，浏览器其他进程均由浏览器进程开启 ……  网络进程负责加载网">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://princesaoke.github.io/images/CSS%E7%AC%94%E8%AE%B0/box_model.png">
-<meta property="article:published_time" content="2023-12-25T16:37:29.000Z">
-<meta property="article:modified_time" content="2023-12-25T16:57:53.588Z">
+<meta property="article:published_time" content="2023-10-22T05:47:29.000Z">
+<meta property="article:modified_time" content="2024-03-12T16:46:01.691Z">
 <meta property="article:author" content="骚客.">
-<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="hexo,博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://princesaoke.github.io/images/CSS%E7%AC%94%E8%AE%B0/box_model.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://princesaoke.github.io/2023/12/26/CSS%E7%AC%94%E8%AE%B0/index.html">
+  <link rel="canonical" href="http://princesaoke.github.io/2023/10/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -337,14 +335,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-CSS笔记" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-浏览器事件循环" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      CSS笔记
+      浏览器事件循环
     </h1>
   
 
@@ -352,8 +350,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2023/12/26/CSS%E7%AC%94%E8%AE%B0/" class="article-date">
-	  <time datetime="2023-12-25T16:37:29.000Z" itemprop="datePublished">2023-12-26</time>
+	<a href="/2023/10/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" class="article-date">
+	  <time datetime="2023-10-22T05:47:29.000Z" itemprop="datePublished">2023-10-22</time>
 	</a>
 </span>
         
@@ -363,11 +361,6 @@
   </span>
 
         
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/CSS/" rel="tag">CSS</a>
-  </span>
-
 
         
 	<span class="article-read hidden-xs">
@@ -378,24 +371,85 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/12/26/CSS%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 58(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h2><p><img src="/images/CSS%E7%AC%94%E8%AE%B0/box_model.png" alt="盒子模型"></p>
-<p>元素的总宽度为：<code>margin-left</code>+<code>border</code>+<code>padding-left</code>+<code>width</code>+<code>padding-right</code>+<code>border</code>+<code>margin-right</code></p>
-<p>所以如果元素有margin、border、padding，实际大小会比CSS中写的width和height更大。</p>
-<p><code>box-sizing</code>属性可以令width和height直接包含padding和border。</p>
+        <p>事件循环又称消息循环。</p>
+<p>均以<code>Chrome</code>浏览器为例。</p>
+<h2 id="浏览器的进程模型"><a href="#浏览器的进程模型" class="headerlink" title="浏览器的进程模型"></a>浏览器的进程模型</h2><p>浏览器运行时有很多个进程，我们重点关注三大进程：</p>
+<ul>
+<li>浏览器进程</li>
+<li>网络进程</li>
+<li>渲染进程（不止一个，每一个标签页就是一个渲染进程）</li>
+</ul>
+<p>其中<code>浏览器进程</code>是打开浏览器后最先启动的，负责：</p>
+<ul>
+<li>浏览器通用界面显示，如浏览器工具栏、浏览器设置等</li>
+<li>用户交互，如监听点击、滚动等</li>
+<li>子进程管理，浏览器其他进程均由浏览器进程开启</li>
+<li>……</li>
+</ul>
+<p><code>网络进程</code>负责加载网络资源。网络进程内部会启动多个线程来处理不同的网络任务。</p>
+<p><code>渲染进程</code>可以有多个，每一个标签页就是一个渲染进程，该进程包括一个<code>渲染主线程</code>和其他多个子线程。</p>
+<h2 id="渲染主线程是如何工作的"><a href="#渲染主线程是如何工作的" class="headerlink" title="渲染主线程是如何工作的"></a>渲染主线程是如何工作的</h2><p>渲染主线程的任务包括但不限于：</p>
+<ul>
+<li>解析<code>HTML</code></li>
+<li>解析<code>CSS</code></li>
+<li>计算样式，如把<code>rem</code>转换为<code>px</code>等</li>
+<li>计算布局，如计算元素宽高</li>
+<li>处理图层，如根据<code>z-index</code>判断叠层关系</li>
+<li>每帧绘制页面</li>
+<li>执行<code>JavaSctipt</code></li>
+<li>执行事件处理函数</li>
+<li>执行计时器的回调函数</li>
+<li>……</li>
+</ul>
+<p>主线程每次执行一个任务，执行完后从消息队列中取出下一个任务。所有线程可以随时向消息队列中添加任务。这整个过程称为<code>事件循环</code>。</p>
+<p>若是需要等待的任务，如<code>setTimeout()</code>函数会在等待规定时间后才执行，则不能直接加入消息队列，否则会导致主线程要等待，而后面的任务也无法执行。</p>
+<p>主线程执行到js中的<code>setTimeout()</code>，会把要计时等待的任务交给计时线程，由计时线程到时间后将回调函数加入消息队列。</p>
+<p>Q：如何理解JS的异步？</p>
+<p>A：</p>
+<blockquote>
+<p>JS是一门单线程的语言，这是因为它运行在浏览器的渲染主线程中，而渲染主线程只有一个。<br>渲染主线程承担着诸多的工作，渲染页面、执行JS都在其中运行。<br>如果使用同步的方式，就极有可能导致主线程阻塞，从而导致消息队列中的很多其他任务无法得到执行。<br>这一方面会导致繁忙的主线程白白消耗时间，另一方面导致页面无法及时更新，给用户造成卡死现象。<br>所以浏览器采用异步方式来避免。具体做法是当某些任务发生时，比如计时器、网络、事件监听，主线程将任务交给其他线程去处理，自身立即结束任务的执行，转而执行后续代码。当其他线程完成时，将事先传递的回调函数包装成任务，加入到消息队列的末尾排队，等待主线程调度执行。<br>在这种异步模式下，浏览器永不阻塞，最大限度保证了单线程的流畅运行。</p>
+</blockquote>
+<h2 id="任务的优先级"><a href="#任务的优先级" class="headerlink" title="任务的优先级"></a>任务的优先级</h2><p>实际上消息队列不止一个队列，而是有多个队列：<code>微队列</code>、<code>延时队列</code>、<code>交互队列</code>等。</p>
+<p>在W3C标准中，规定<code>微队列</code>是优先级最高的，意味着只有当微队列中所有任务都执行完了才会轮到其他队列。</p>
+<p>在Chrome浏览器中，<code>延时队列</code>用于存放计时器到达后的回调函数，优先级为【中】；交互队列用于存放用户操作后产生的事件处理任务，优先级为【高】。</p>
+<p>Q：阐释一下JS的事件循环？</p>
+<p>A：</p>
+<blockquote>
+<p>事件循环又叫消息循环，是浏览器渲染主线程的工作方式。<br>在Chrome中，它开启一个不会结束的循环，每次循环从消息队列中取出第一个任务执行，而其他线程只要在合适的时候将任务加入到队列末尾即可。<br>过去把消息队列简单分为<code>宏队列</code>和<code>微队列</code>，这种方式已无法满足复杂的浏览器环境，取而代之的是一种更加灵活多变的处理方式。<br>根据W3C官方的规定，每个任务有不同的类型，同类型的任务必须在同一个队列。不同任务队列有不同的优先级，在一次事件循环中，由浏览器自行决定取哪一个队列的任务。但浏览器必须有一个微队列，微队列的任务优先级最高，必须优先调度。</p>
+</blockquote>
+<p>Q：JS中的计时器能做到精确计时吗？为什么？</p>
+<p>A：</p>
+<blockquote>
+<p>不行。<br>受事件循环的影响，计时器的回调函数只能在主线程空闲时运行，回调函数需要时间排队等待调度，因此带来了时间偏差。<br>操作系统的计时函数本身就有少量偏差，而JS的计时器最终调用的是操作系统的计时函数，因此也具有一定偏差。</p>
+</blockquote>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Promise.resolve().then(fn) 会将函数fn加入微队列</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn1</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">    <span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span> <span class="title function_">fn2</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> <span class="title function_">fn3</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>)</span><br><span class="line">    <span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(fn1)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span> <span class="title function_">fn4</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">4</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 
+<p>Q：浏览器执行以上js代码后输出是什么？</p>
+<p>解析：</p>
+<ol>
+<li><code>setTimeout</code>将函数<code>fn3</code>添加到计时线程，0秒后时间到，计时线程将<code>fn3</code>添加到延时队列中排队等待调度；</li>
+<li>全局js还未执行完，主线程继续执行，将<code>fn4</code>添加到微队列；</li>
+<li>输出<code>5</code>；</li>
+<li>全局js执行完毕，从消息队列中取出下一个任务。由于微队列优先级最高，因此取出<code>fn4</code>执行，输出<code>4</code>；</li>
+<li><code>fn4</code>执行完毕，取出<code>fn3</code>执行，输出<code>3</code>，然后将<code>fn1</code>加入微队列；</li>
+<li><code>fn3</code>执行完毕，取出<code>fn1</code>执行，输出<code>1</code>，然后将<code>fn2</code>加入微队列；</li>
+<li><code>fn1</code>执行完毕，取出<code>fn2</code>执行，输出<code>2</code>；</li>
+</ol>
+<p>A：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">4</span><br><span class="line">3</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
@@ -404,7 +458,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://princesaoke.github.io/2023/12/26/CSS%E7%AC%94%E8%AE%B0/" title="CSS笔记" target="_blank" rel="external">http://princesaoke.github.io/2023/12/26/CSS笔记/</a>
+      <a href="http://princesaoke.github.io/2023/10/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" title="浏览器事件循环" target="_blank" rel="external">http://princesaoke.github.io/2023/10/22/浏览器事件循环/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -451,12 +505,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2024/01/10/Web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/" title="Web安全漏洞"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2023/10/27/Kotlin%E7%AC%94%E8%AE%B0/" title="Kotlin笔记"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2023/12/12/%E6%99%BA%E5%85%83%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/" title="智元机器人客户端实习面经"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2023/10/17/Flutter%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" title="Flutter中的一些问题"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
