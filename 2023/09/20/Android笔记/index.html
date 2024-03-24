@@ -25,11 +25,15 @@
 <meta property="og:site_name" content="骚客.的个人博客">
 <meta property="og:description" content="项目结构 java文件夹下：业务逻辑 AndroidManifest.xml：项目配置文件 res&#x2F;layout文件夹下：页面布局 res&#x2F;values文件夹下：全局常量 res&#x2F;drawable文件夹下：图片资源 res&#x2F;mipmap系列：不同分辨率的图片资源，根据屏幕大小使用不同规格的图片，一般放APP图标  单位   单位 说明    dp devic">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://princesaoke.github.io/images/Android%E7%AC%94%E8%AE%B0/alibaba.png">
+<meta property="og:image" content="http://princesaoke.github.io/images/Android%E7%AC%94%E8%AE%B0/create_asset.png">
+<meta property="og:image" content="http://princesaoke.github.io/images/Android%E7%AC%94%E8%AE%B0/asset.png">
 <meta property="article:published_time" content="2023-09-20T05:41:09.000Z">
-<meta property="article:modified_time" content="2023-10-27T03:50:07.762Z">
+<meta property="article:modified_time" content="2024-03-24T15:16:37.270Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://princesaoke.github.io/images/Android%E7%AC%94%E8%AE%B0/alibaba.png">
   <!-- Canonical links -->
   <link rel="canonical" href="http://princesaoke.github.io/2023/09/20/Android%E7%AC%94%E8%AE%B0/index.html">
   
@@ -379,7 +383,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/20/Android%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.3k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
@@ -666,6 +670,14 @@
 <h2 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h2><p>详见我的另一篇文章：<a href="https://princesaoke.github.io/2023/09/24/Android%E4%B8%AD%E7%9A%84ListView">Android中的ListView</a></p>
 <h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><p>详见我的另一篇文章：<a href="https://princesaoke.github.io/2023/09/30/Android%E4%B8%AD%E7%9A%84RecyclerView">Android中的ListView</a></p>
 <h2 id="ShapeableImageView"><a href="#ShapeableImageView" class="headerlink" title="ShapeableImageView"></a>ShapeableImageView</h2><p>详见我的另一篇文章：<a href="https://princesaoke.github.io/2023/10/02/Android%E4%B8%AD%E7%9A%84ShapeableImageView">Android中的ShapeableImageView</a></p>
+<h2 id="使用阿里巴巴图标库"><a href="#使用阿里巴巴图标库" class="headerlink" title="使用阿里巴巴图标库"></a>使用阿里巴巴图标库</h2><p>首先在<a target="_blank" rel="noopener" href="https://www.iconfont.cn/">阿里巴巴图标库</a>下载svg图标，保存位置任意：</p>
+<p><img src="/images/Android%E7%AC%94%E8%AE%B0/alibaba.png" alt="下载svg图标"></p>
+<p>drawable文件夹右键创建 Vector Asset：</p>
+<p><img src="/images/Android%E7%AC%94%E8%AE%B0/create_asset.png" alt="创建xml文件"></p>
+<p>如图选择 Local file，选择svg文件的路径：</p>
+<p><img src="/images/Android%E7%AC%94%E8%AE%B0/asset.png" alt="创建asset"></p>
+<h2 id="报错：No-speakable-text-present"><a href="#报错：No-speakable-text-present" class="headerlink" title="报错：No speakable text present"></a>报错：No speakable text present</h2><p>程序期望有一些可以被说出来的文本，用于无障碍朗读模式之类的，但是在提供的数据中并没有找到可以被转化为语音的文本。</p>
+<p>解决方法：<code>tools:ignore=&quot;SpeakableTextPresentCheck&quot;</code></p>
 
       
     </div>
