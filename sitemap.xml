@@ -365,7 +365,7 @@
   </url>
   
   <url>
-    <loc>http://princesaoke.github.io/tags/Git/</loc>
+    <loc>http://princesaoke.github.io/tags/Github/</loc>
     <lastmod>2024-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -379,14 +379,14 @@
   </url>
   
   <url>
-    <loc>http://princesaoke.github.io/tags/Github/</loc>
+    <loc>http://princesaoke.github.io/tags/Git/</loc>
     <lastmod>2024-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://princesaoke.github.io/tags/Java/</loc>
+    <loc>http://princesaoke.github.io/tags/Hexo/</loc>
     <lastmod>2024-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -400,7 +400,14 @@
   </url>
   
   <url>
-    <loc>http://princesaoke.github.io/tags/Hexo/</loc>
+    <loc>http://princesaoke.github.io/tags/Java/</loc>
+    <lastmod>2024-04-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://princesaoke.github.io/tags/Kotlin/</loc>
     <lastmod>2024-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -415,13 +422,6 @@
   
   <url>
     <loc>http://princesaoke.github.io/tags/Vue3/</loc>
-    <lastmod>2024-04-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://princesaoke.github.io/tags/Kotlin/</loc>
     <lastmod>2024-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
