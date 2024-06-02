@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://PrinceSaoKe.github.io/2024/05/30/Android%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96/</loc>
-    <lastmod>2024-05-30</lastmod>
+    <lastmod>2024-06-02</lastmod>
+  </url>
+  <url>
+    <loc>http://PrinceSaoKe.github.io/2023/10/27/Kotlin%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2024-06-01</lastmod>
   </url>
   <url>
     <loc>http://PrinceSaoKe.github.io/2024/05/27/Android%E4%B8%AD%E7%9A%84Activity/</loc>
@@ -26,10 +30,6 @@
   </url>
   <url>
     <loc>http://PrinceSaoKe.github.io/2024/05/29/Android%E4%B8%AD%E7%9A%84BroadcastReceiver/</loc>
-    <lastmod>2024-05-29</lastmod>
-  </url>
-  <url>
-    <loc>http://PrinceSaoKe.github.io/2023/10/27/Kotlin%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-05-29</lastmod>
   </url>
   <url>

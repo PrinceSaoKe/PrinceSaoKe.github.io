@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/Kotlin%E7%AC%94%E8%AE%B0/visiblity.png">
 <meta property="article:published_time" content="2023-10-27T02:52:41.000Z">
-<meta property="article:modified_time" content="2024-05-29T04:17:09.120Z">
+<meta property="article:modified_time" content="2024-06-01T14:59:27.184Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Kotlin">
 <meta name="twitter:card" content="summary">
@@ -381,10 +381,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/27/Kotlin%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.3k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.6k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
 	
 
       </div>
@@ -400,8 +400,23 @@
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> max = <span class="keyword">if</span>(a &gt; b) &#123;</span><br><span class="line">    a</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h2><p><code>$</code>后花括号内可以是一个表达式：</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h4 id="字符串模板"><a href="#字符串模板" class="headerlink" title="字符串模板"></a>字符串模板</h4><p><code>$</code>后花括号内可以是一个表达式：</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> str = <span class="string">&quot;你好&quot;</span></span><br><span class="line">println(<span class="string">&quot;<span class="variable">$str</span>，<span class="subst">$&#123;str.replace(<span class="string">&quot;你好&quot;</span>, <span class="string">&quot;再见&quot;</span>)&#125;</span>！&quot;</span>)   <span class="comment">// 你好，再见！</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="多行字符串"><a href="#多行字符串" class="headerlink" title="多行字符串"></a>多行字符串</h4><p>三对双引号内的字符串可换行：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> poem = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    关关雎鸠，</span></span><br><span class="line"><span class="string">      在河之洲。</span></span><br><span class="line"><span class="string">    窈窕淑女，</span></span><br><span class="line"><span class="string">      君子好逑。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>.trimIndent()</span><br><span class="line"></span><br><span class="line">println(poem)</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>trimIndent</code>函数的作用是去除输入行的公共最小缩进（空行不影响）。输出为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">关关雎鸠，</span><br><span class="line">  在河之洲。</span><br><span class="line">窈窕淑女，</span><br><span class="line">  君子好逑。</span><br></pre></td></tr></table></figure>
+
+<p>有时为了让代码更清晰，我们可以使用<code>|</code>符号结合<code>trimMargin</code>函数来标记实际字符串的开始位置：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> poem = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    |  蒹葭苍苍，</span></span><br><span class="line"><span class="string">    |白露为霜。</span></span><br><span class="line"><span class="string">    |  所谓伊人，</span></span><br><span class="line"><span class="string">    |在水一方。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>.trimMargin()</span><br><span class="line"></span><br><span class="line">println(poem)</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>trimMargin</code>函数的作用是将多行字符串中的每行内容使用特定的前导字符（默认为<code>|</code>）进行标记，然后去除这些字符及其前面的空白。输出为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  蒹葭苍苍，</span><br><span class="line">白露为霜。</span><br><span class="line">  所谓伊人，</span><br><span class="line">在水一方。</span><br></pre></td></tr></table></figure>
+
+<p>也可指定不同的前导字符：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> poem = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    &gt;郎骑竹马来，</span></span><br><span class="line"><span class="string">    &gt;  绕床弄青梅。</span></span><br><span class="line"><span class="string">    &gt;同居长干里，</span></span><br><span class="line"><span class="string">    &gt;  两小无嫌猜。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span>.trimMargin(<span class="string">&quot;&gt;&quot;</span>)</span><br><span class="line"></span><br><span class="line">println(poem)</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="when"><a href="#when" class="headerlink" title="when"></a>when</h2><p>相当于<code>switch</code>，不过用起来更方便。</p>
