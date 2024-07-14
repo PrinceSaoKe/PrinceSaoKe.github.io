@@ -6,7 +6,7 @@
   <link href="http://princesaoke.github.io/atom.xml" rel="self"/>
   
   <link href="http://princesaoke.github.io/"/>
-  <updated>2024-06-26T15:12:03.407Z</updated>
+  <updated>2024-07-10T01:29:42.540Z</updated>
   <id>http://princesaoke.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flutter笔记</title>
+    <link href="http://princesaoke.github.io/2024/07/10/Flutter%E7%AC%94%E8%AE%B0/"/>
+    <id>http://princesaoke.github.io/2024/07/10/Flutter%E7%AC%94%E8%AE%B0/</id>
+    <published>2024-07-10T01:17:26.000Z</published>
+    <updated>2024-07-10T01:29:42.540Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Flutter与其他跨平台方案的区别"><a href="#Flutter与其他跨平台方案的区别" class="headerlink" title="Flutter与其他跨平台方案的区别"></a>Flutter与其他跨平台方案的区别</h2><p><code>ReactNative</code>之类的框架，只是通过<code>JavaScript</code>虚拟机扩展调用系统组件，由<code>Android</code>和<code>iOS</code>系统进行组件的渲染；<code>Flutter</code>则是自己实现了一套组件渲染的逻辑。</p><p>Flutter的底层图像渲染引擎是<code>Skia</code>（它同时也是Android官方的图像渲染引擎）。Skia 是一款用 C++ 开发的、性能彪悍的 2D 图像绘制引擎，因为其出色的绘制表现被广泛应用在 Chrome 和 Android 等核心产品上。Skia 在图形转换、文字渲染、位图渲染方面都表现卓越，并提供了开发者友好的 API。Skia 已经是 Android 官方的图像渲染引擎了，因此 Flutter Android SDK 无需内嵌 Skia 引擎就可以获得天然的 Skia 支持；而对于 iOS 平台来说，由于 Skia 是跨平台的，因此它作为 Flutter iOS 渲染引擎被嵌入到 Flutter 的 iOS SDK 中，替代了 iOS 闭源的 Core Graphics&#x2F;Core Animation&#x2F;Core Text，这也正是 Flutter iOS SDK 打包的 App 包体积比 Android 要大一些的原因。Skia 保证了同一套代码调用在 Android 和 iOS 平台上的渲染效果是完全一致的。</p><p><img src="/images/Flutter%E7%AC%94%E8%AE%B0/flutter_framework.png" alt="flutter架构"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Flutter与其他跨平台方案的区别&quot;&gt;&lt;a href=&quot;#Flutter与其他跨平台方案的区别&quot; class=&quot;headerlink&quot; title=&quot;Flutter与其他跨平台方案的区别&quot;&gt;&lt;/a&gt;Flutter与其他跨平台方案的区别&lt;/h2&gt;&lt;p&gt;&lt;code&gt;</summary>
+      
+    
+    
+    
+    <category term="移动端" scheme="http://princesaoke.github.io/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+    
+    <category term="Flutter" scheme="http://princesaoke.github.io/tags/Flutter/"/>
+    
+  </entry>
   
   <entry>
     <title>Java中的String</title>
@@ -469,26 +493,6 @@
     
     
     <category term="HTML" scheme="http://princesaoke.github.io/tags/HTML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Web安全漏洞</title>
-    <link href="http://princesaoke.github.io/2024/01/10/Web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/"/>
-    <id>http://princesaoke.github.io/2024/01/10/Web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/</id>
-    <published>2024-01-09T16:23:39.000Z</published>
-    <updated>2024-05-15T07:57:49.930Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h2><p><a href="https://zhuanlan.zhihu.com/p/22521378">CSRF是什么</a></p><h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p><a href="https://zhuanlan.zhihu.com/p/26177815">浅谈XSS攻击的那些事（附常用绕过姿势）</a></p><h4 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h4><h4 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h4>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;CSRF&quot;&gt;&lt;a href=&quot;#CSRF&quot; class=&quot;headerlink&quot; title=&quot;CSRF&quot;&gt;&lt;/a&gt;CSRF&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/22521378&quot;&gt;CSRF是什么&lt;/a&gt;&lt;/p</summary>
-      
-    
-    
-    
     
   </entry>
   
