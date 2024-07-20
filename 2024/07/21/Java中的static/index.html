@@ -17,30 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>排序算法总结 | 骚客.的个人博客</title>
-  <meta name="description" content="快速排序基于分治和递归。 其基本思路是，在数组中选择一个元素作为基准值，然后将数组中小于基准值的元素移动到它的左边，大于基准值的元素移动到它的右边。然后对左右两个子数组递归地重复这个过程，直到子数组的大小为1或0。 最好情况：每次划分左右两边的元素数量相同各为一半，则此时时间复杂度为O(nlogn) 最坏情况：每次划分所有元素都在一边，另一边为空，则此时与冒泡排序类似，时间复杂度为O(n²) 平均">
+  <title>Java中的static | 骚客.的个人博客</title>
+  <meta name="description" content="Java中的static关键字解析 静态方法不依赖于任何对象就可以进行访问，因此对于静态方法来说，是没有this的，因为它不依附于任何对象。既然没有对象，就谈不上this了。并且由于这个特性，在静态方法中不能访问类的非静态成员变量和非静态成员方法，因为非静态成员方法&#x2F;变量都是必须依赖具体的对象才能够被调用。 我们最常见的static方法就是main方法，而main方法必须是static的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法总结">
-<meta property="og:url" content="http://princesaoke.github.io/2024/05/14/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="Java中的static">
+<meta property="og:url" content="http://princesaoke.github.io/2024/07/21/Java%E4%B8%AD%E7%9A%84static/index.html">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="快速排序基于分治和递归。 其基本思路是，在数组中选择一个元素作为基准值，然后将数组中小于基准值的元素移动到它的左边，大于基准值的元素移动到它的右边。然后对左右两个子数组递归地重复这个过程，直到子数组的大小为1或0。 最好情况：每次划分左右两边的元素数量相同各为一半，则此时时间复杂度为O(nlogn) 最坏情况：每次划分所有元素都在一边，另一边为空，则此时与冒泡排序类似，时间复杂度为O(n²) 平均">
+<meta property="og:description" content="Java中的static关键字解析 静态方法不依赖于任何对象就可以进行访问，因此对于静态方法来说，是没有this的，因为它不依附于任何对象。既然没有对象，就谈不上this了。并且由于这个特性，在静态方法中不能访问类的非静态成员变量和非静态成员方法，因为非静态成员方法&#x2F;变量都是必须依赖具体的对象才能够被调用。 我们最常见的static方法就是main方法，而main方法必须是static的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://princesaoke.github.io/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_1.jpg">
-<meta property="og:image" content="http://princesaoke.github.io/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_2.jpg">
-<meta property="og:image" content="http://princesaoke.github.io/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_3.jpg">
-<meta property="og:image" content="http://princesaoke.github.io/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_4.jpg">
-<meta property="og:image" content="http://princesaoke.github.io/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_5.jpg">
-<meta property="og:image" content="http://princesaoke.github.io/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_6.jpg">
-<meta property="og:image" content="http://princesaoke.github.io/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_7.jpg">
-<meta property="og:image" content="http://princesaoke.github.io/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_8.jpg">
-<meta property="article:published_time" content="2024-05-14T12:47:03.000Z">
-<meta property="article:modified_time" content="2024-05-14T15:53:00.441Z">
+<meta property="article:published_time" content="2024-07-20T16:11:09.000Z">
+<meta property="article:modified_time" content="2024-07-20T16:11:37.729Z">
 <meta property="article:author" content="骚客.">
-<meta property="article:tag" content="hexo,博客">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://princesaoke.github.io/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_1.jpg">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://princesaoke.github.io/2024/05/14/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/index.html">
+  <link rel="canonical" href="http://princesaoke.github.io/2024/07/21/Java%E4%B8%AD%E7%9A%84static/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -344,14 +335,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-排序算法总结" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Java中的static" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      排序算法总结
+      Java中的static
     </h1>
   
 
@@ -359,17 +350,17 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2024/05/14/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" class="article-date">
-	  <time datetime="2024-05-14T12:47:03.000Z" itemprop="datePublished">2024-05-14</time>
+	<a href="/2024/07/21/Java%E4%B8%AD%E7%9A%84static/" class="article-date">
+	  <time datetime="2024-07-20T16:11:09.000Z" itemprop="datePublished">2024-07-21</time>
 	</a>
 </span>
         
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>
   </span>
 
-        
 
         
 	<span class="article-read hidden-xs">
@@ -380,48 +371,45 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/05/14/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/07/21/Java%E4%B8%AD%E7%9A%84static/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 634(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 993(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>基于<code>分治</code>和<code>递归</code>。</p>
-<p>其基本思路是，在数组中选择一个元素作为基准值，然后将数组中小于基准值的元素移动到它的左边，大于基准值的元素移动到它的右边。然后对左右两个子数组递归地重复这个过程，直到子数组的大小为1或0。</p>
-<p>最好情况：每次划分左右两边的元素数量相同各为一半，则此时时间复杂度为<code>O(nlogn)</code></p>
-<p>最坏情况：每次划分所有元素都在一边，另一边为空，则此时与冒泡排序类似，时间复杂度为<code>O(n²)</code></p>
-<p>平均情况：时间复杂度为<code>O(nlogn)</code></p>
-<p>因此关键在于每次基准值的选取。</p>
-<p>通过不同方式选取基准值，有以下几种衍生快排：</p>
-<ul>
-<li><p><strong>随机快速排序</strong>：即在数组中完全随机地挑选一个值作为基准值。</p>
-</li>
-<li><p><strong>三数取中快速排序</strong>：即取数组中第一个、中间、最后一个这三个元素的中位数作为基准值。</p>
-</li>
-<li><p><strong>三划分快速排序</strong>：适用于数组中有较多大小相同的数。对于等于基准值的数分为除左右外的第三部分，不用继续参与递归。</p>
-</li>
-</ul>
-<p>图解：</p>
-<p>以数组中第一个元素为基准值</p>
-<p><img src="/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_1.jpg" alt="快排1"></p>
-<p>左指针不断右移，直到找到比基准值大的元素停下；右指针不断左移，直到找到比基准值小的元素停下</p>
-<p><img src="/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_2.jpg" alt="快排2"></p>
-<p><img src="/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_3.jpg" alt="快排3"></p>
-<p><img src="/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_4.jpg" alt="快排4"></p>
-<p><img src="/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_5.jpg" alt="快排5"></p>
-<p>当两指针碰面或超过，说明已经全部遍历了</p>
-<p><img src="/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_6.jpg" alt="快排6"></p>
-<p><img src="/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_7.jpg" alt="快排7"></p>
-<p>交换后左边都小于基准值，右边都大于基准值</p>
-<p><img src="/images/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/quick_sort_8.jpg" alt="快排8"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 以数组中第一个元素为基准值，确定其位置</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">partition</span><span class="params">(T a[], <span class="type">int</span> begin, <span class="type">int</span> end)</span> &#123;</span><br><span class="line">    <span class="type">int</span> left = begin + <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> right = end;</span><br><span class="line">    T base = a[begin];</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span> (a[left++] &lt; base);   <span class="comment">// 左指针不断右移，直到找到比基准值大的元素</span></span><br><span class="line">        <span class="keyword">while</span> (a[right--] &gt; base);  <span class="comment">// 右指针不断左移，直到找到比基准值小的元素</span></span><br><span class="line">        <span class="keyword">if</span>(left &gt;= right) <span class="keyword">break</span>;    <span class="comment">// 当两指针碰面或超过，说明已经全部遍历了</span></span><br><span class="line">        swap(a[left], a[right]);</span><br><span class="line">    &#125;</span><br><span class="line">    swap(a[right], a[begin]);       <span class="comment">// 交换后right左边都小于base，右边都大于base</span></span><br><span class="line">    <span class="keyword">return</span> right;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">randomPartition</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> randomIndex = Random(begin, end);  <span class="comment">// 可取不同值作为基准值，这里随机一个下标</span></span><br><span class="line">    swap(a[randomIndex], a[begin]);</span><br><span class="line">    <span class="keyword">return</span> partition(a, begin, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">quickSort</span><span class="params">(T a[], <span class="type">int</span> begin, <span class="type">int</span> end)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (begin &lt; end) &#123;</span><br><span class="line">        <span class="type">int</span> middle = partition(a, begin, end);</span><br><span class="line">        quickSort(a, begin, middle - <span class="number">1</span>);</span><br><span class="line">        quickSort(a, middle + <span class="number">1</span>, end);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dolphin0520/p/3799052.html">Java中的static关键字解析</a></p>
+<p>静态方法不依赖于任何对象就可以进行访问，因此对于静态方法来说，是没有<code>this</code>的，因为它不依附于任何对象。既然没有对象，就谈不上this了。并且由于这个特性，在静态方法中不能访问类的非静态成员变量和非静态成员方法，因为非静态成员方法&#x2F;变量都是必须依赖具体的对象才能够被调用。</p>
+<p>我们最常见的static方法就是main方法，而main方法必须是static的，是因为程序在执行main方法的时候没有创建任何对象，因此只有通过类名来访问。</p>
+<p>Java规定static不能用来修饰局部变量。</p>
+<p>与C&#x2F;C++中的static不同，Java中的static关键字不会影响到变量或者方法的作用域</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Person.name = <span class="string">&quot;张三&quot;</span>;</span><br><span class="line">        Person.age = <span class="number">18</span>;    <span class="comment">// 报错</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Q：Java中可以通过<code>this</code>访问静态成员变量吗？下面的代码输出是什么？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Test</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test</span>();</span><br><span class="line">        test.printValue();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">printValue</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> <span class="number">1</span>;  <span class="comment">// 该value只是函数内部的局部变量，与this无关</span></span><br><span class="line">        System.out.println(<span class="built_in">this</span>.value); <span class="comment">// 访问的是静态成员变量value</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>A：可以，输出为<code>0</code>。</p>
+<p>Q：以下代码输出是什么？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Father中的main函数&quot;</span>);</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Son</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">Other</span> <span class="variable">other</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Other</span>(<span class="string">&quot;Father&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Father中的静态代码块1&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Father中的静态代码块2&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Father中的非静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Father</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Father中的构造函数&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Son</span> <span class="keyword">extends</span> <span class="title class_">Father</span> &#123;</span><br><span class="line">    <span class="type">Other</span> <span class="variable">other</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Other</span>(<span class="string">&quot;Son&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Son中的静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Son</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Son中的构造函数&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Other</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Other中的静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Other</span><span class="params">(String str)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Other中的构造函数，调用者：&quot;</span> + str);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Other中的非静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>A：输出为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Father中的静态代码块1</span><br><span class="line">Father中的静态代码块2</span><br><span class="line">Father中的main函数</span><br><span class="line">Son中的静态代码块</span><br><span class="line">Other中的静态代码块</span><br><span class="line">Other中的非静态代码块</span><br><span class="line">Other中的构造函数，调用者：Father</span><br><span class="line">Father中的非静态代码块</span><br><span class="line">Father中的构造函数</span><br><span class="line">Other中的非静态代码块</span><br><span class="line">Other中的构造函数，调用者：Son</span><br><span class="line">Son中的构造函数</span><br></pre></td></tr></table></figure>
+
+<p>要运行静态函数main，首先要加载<code>Father</code>类。加载Father类时按顺序执行<code>static</code>块，输出前两行。</p>
+<p>随后执行<code>main</code>函数，输出第三行。</p>
+<p>再实例化<code>Son</code>。实例化前要先加载Son类，又因Son继承Father，则要先加载Father和Son，而Father已经加载了，于是加载Son，执行Son中的static块，输出第四行。</p>
+<p>接着要实例化Son，在构造函数前要先初始化成员变量。因为继承Father所以要先初始化Father，Father有个<code>Other</code>类型的成员变量和一个非static块，按照先后顺序执行，又需要先加载并实例化Other。</p>
+<p>于是加载Other，static块输出第五行。Other的非static块输出第六行，构造函数输出第七行。</p>
+<p>接着Father初始化完成员变量继续按顺序执行非static块，输出第八行。</p>
+<p>现在Son的父类Father成员变量已经初始化，于是Father的构造函数输出第九行。</p>
+<p>Son的父类结束，轮到Son初始化成员变量，非static块每次实例化一个对象都会执行一次，因此Other的非static块再次执行输出第十行。其构造函数再输出第十一行。</p>
+<p>最后Son的构造函数输出最后一行。Son实例化结束，main函数结束。</p>
 
       
     </div>
@@ -431,7 +419,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://princesaoke.github.io/2024/05/14/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="排序算法总结" target="_blank" rel="external">http://princesaoke.github.io/2024/05/14/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</a>
+      <a href="http://princesaoke.github.io/2024/07/21/Java%E4%B8%AD%E7%9A%84static/" title="Java中的static" target="_blank" rel="external">http://princesaoke.github.io/2024/07/21/Java%E4%B8%AD%E7%9A%84static/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -477,13 +465,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2024/05/15/%E9%98%BF%E9%87%8C%E6%99%BA%E8%83%BD%E4%BF%A1%E6%81%AF%E5%89%8D%E7%AB%AF%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/" title="阿里智能信息前端实习面经"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2024/05/07/%E9%A5%BF%E4%BA%86%E4%B9%88%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/" title="饿了么客户端实习面经"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2024/07/10/Flutter%E7%AC%94%E8%AE%B0/" title="Flutter笔记"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
