@@ -18,12 +18,12 @@
   
   
   <title>Java中的String | 骚客.的个人博客</title>
-  <meta name="description" content="从零开始学Java之StringBuilder与StringBuffer使用及源码解读 String为什么设计为不可变？如何保证String不可变？一旦一个String对象被创建，其存储的文本内容就不能被改变。这是因为：  不可变性使得String对象在使用中更加安全。因为字符串经常用作参数传递给其他Java方法，例如网络连接、打开文件等。如果String是可变的，这些方法调用的参数值就可能在不知">
+  <meta name="description" content="从零开始学Java之StringBuilder与StringBuffer使用及源码解读 String为什么设计为不可变？如何保证String不可变？一旦一个String对象被创建，其存储的文本内容就不能被改变。这是因为：  让并发编程变得更简单。引起线程安全问题的根本原因在于：多个线程需要同时访问同一个共享资源，修改资源，容易出现问题。如果共享资源在创建之后就完全不再变更，如同一个常量，有修改则返">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java中的String">
 <meta property="og:url" content="http://princesaoke.github.io/2024/06/25/Java%E4%B8%AD%E7%9A%84String/index.html">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="从零开始学Java之StringBuilder与StringBuffer使用及源码解读 String为什么设计为不可变？如何保证String不可变？一旦一个String对象被创建，其存储的文本内容就不能被改变。这是因为：  不可变性使得String对象在使用中更加安全。因为字符串经常用作参数传递给其他Java方法，例如网络连接、打开文件等。如果String是可变的，这些方法调用的参数值就可能在不知">
+<meta property="og:description" content="从零开始学Java之StringBuilder与StringBuffer使用及源码解读 String为什么设计为不可变？如何保证String不可变？一旦一个String对象被创建，其存储的文本内容就不能被改变。这是因为：  让并发编程变得更简单。引起线程安全问题的根本原因在于：多个线程需要同时访问同一个共享资源，修改资源，容易出现问题。如果共享资源在创建之后就完全不再变更，如同一个常量，有修改则返">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84String/append1.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84String/append2.png">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84String/ensure_capacity_internal.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84String/new_capacity.png">
 <meta property="article:published_time" content="2024-06-25T15:01:34.000Z">
-<meta property="article:modified_time" content="2024-06-26T15:12:03.407Z">
+<meta property="article:modified_time" content="2024-07-25T08:38:51.570Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/" rel="tag">Kotlin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue3/" rel="tag">Vue3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/" rel="tag">Kotlin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue3/" rel="tag">Vue3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -241,7 +241,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">10</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -253,6 +253,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2024/07/26/Java%E4%B8%AD%E7%9A%84HashMap/" class="title">Java中的HashMap</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-07-26T15:30:21.000Z" itemprop="datePublished">2024-07-26</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -313,21 +328,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/2024/06/07/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/" class="title">进程、线程和协程</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2024-06-07T09:34:04.000Z" itemprop="datePublished">2024-06-07</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -380,7 +380,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/06/25/Java%E4%B8%AD%E7%9A%84String/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 859(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 855(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
@@ -393,7 +393,7 @@
         <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7235628080219488293">从零开始学Java之StringBuilder与StringBuffer使用及源码解读</a></p>
 <h2 id="String为什么设计为不可变？如何保证String不可变？"><a href="#String为什么设计为不可变？如何保证String不可变？" class="headerlink" title="String为什么设计为不可变？如何保证String不可变？"></a>String为什么设计为不可变？如何保证String不可变？</h2><p>一旦一个<code>String</code>对象被创建，其存储的文本内容就不能被改变。这是因为：</p>
 <ul>
-<li>不可变性使得String对象在使用中更加安全。因为字符串经常用作参数传递给其他Java方法，例如网络连接、打开文件等。如果String是可变的，这些方法调用的参数值就可能在不知不觉中被改变，从而导致网络连接被篡改、文件被莫名其妙地修改等问题。</li>
+<li>让并发编程变得更简单。引起线程安全问题的根本原因在于：多个线程需要同时访问同一个共享资源，修改资源，容易出现问题。如果共享资源在创建之后就完全不再变更，如同一个常量，有修改则返回一个新对象，则可以保证线程安全</li>
 <li>不可变的对象因为状态不会改变，所以更容易进行缓存和重用。字符串常量池的出现正是基于这个原因。当代码中出现相同的字符串字面量时，JVM会确保所有的引用都指向常量池中的同一个对象，从而节约内存。</li>
 <li>因为String的内容不会改变，所以它的哈希值也就固定不变。这使得String对象特别适合作为<code>HashMap</code>或<code>HashSet</code>等集合的键，因为计算哈希值只需要进行一次，提高了哈希表操作的效率。</li>
 </ul>
