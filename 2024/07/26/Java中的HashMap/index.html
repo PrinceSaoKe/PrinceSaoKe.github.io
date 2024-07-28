@@ -18,12 +18,12 @@
   
   
   <title>Java中的HashMap | 骚客.的个人博客</title>
-  <meta name="description" content="实现原理HashMap用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似桶排序的结构。  当调用HashMap的put方法新增键值对时，会根据HashMap类的静态方法hash，用键值对的键来计算出哈希值，并用散列表大小n - 1 &amp; 哈希值的值作为散列表数组下标，将新增的键值对放入。   为解决哈希碰撞，每个散列表数组槽位内是一个链表或红黑树。当链表长度大于8，且散列表">
+  <meta name="description" content="实现原理HashMap用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似桶排序的结构。  当调用HashMap的put方法新增键值对时，会根据HashMap类的静态方法hash，用键值对的键来计算出哈希值，并用(散列表大小n - 1) &amp; hash的值作为散列表数组下标，将新增的键值对放入。   为解决哈希碰撞，每个散列表数组槽位内是一个链表或红黑树。当链表长度大于8，且">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java中的HashMap">
 <meta property="og:url" content="http://princesaoke.github.io/2024/07/26/Java%E4%B8%AD%E7%9A%84HashMap/index.html">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="实现原理HashMap用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似桶排序的结构。  当调用HashMap的put方法新增键值对时，会根据HashMap类的静态方法hash，用键值对的键来计算出哈希值，并用散列表大小n - 1 &amp; 哈希值的值作为散列表数组下标，将新增的键值对放入。   为解决哈希碰撞，每个散列表数组槽位内是一个链表或红黑树。当链表长度大于8，且散列表">
+<meta property="og:description" content="实现原理HashMap用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似桶排序的结构。  当调用HashMap的put方法新增键值对时，会根据HashMap类的静态方法hash，用键值对的键来计算出哈希值，并用(散列表大小n - 1) &amp; hash的值作为散列表数组下标，将新增的键值对放入。   为解决哈希碰撞，每个散列表数组槽位内是一个链表或红黑树。当链表长度大于8，且">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84HashMap/hash_map.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84HashMap/put.png">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84HashMap/threshold.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84HashMap/hash.png">
 <meta property="article:published_time" content="2024-07-26T15:30:21.000Z">
-<meta property="article:modified_time" content="2024-07-26T16:28:15.084Z">
+<meta property="article:modified_time" content="2024-07-28T09:33:02.978Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -380,10 +380,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/07/26/Java%E4%B8%AD%E7%9A%84HashMap/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 244(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 804(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
@@ -392,14 +392,29 @@
       
         <h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p><code>HashMap</code>用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似<strong>桶排序</strong>的结构。</p>
 <p><img src="/images/Java%E4%B8%AD%E7%9A%84HashMap/hash_map.png" alt="HashMap"></p>
-<p>当调用HashMap的<code>put</code>方法新增键值对时，会根据HashMap类的静态方法<code>hash</code>，用键值对的键来计算出哈希值，并用<code>散列表大小n - 1 &amp; 哈希值</code>的值作为散列表数组下标，将新增的键值对放入。</p>
+<p>当调用HashMap的<code>put</code>方法新增键值对时，会根据HashMap类的静态方法<code>hash</code>，用键值对的键来计算出哈希值，并用<code>(散列表大小n - 1) &amp; hash</code>的值作为散列表数组下标，将新增的键值对放入。</p>
 <p><img src="/images/Java%E4%B8%AD%E7%9A%84HashMap/put.png" alt="put"></p>
 <p><img src="/images/Java%E4%B8%AD%E7%9A%84HashMap/put_val.png" alt="put"></p>
 <p>为解决哈希碰撞，每个散列表数组槽位内是一个链表或红黑树。当链表长度大于8，且散列表数组长度大于等64时，链表转化为红黑树；当红黑树节点小于6时退化成链表。</p>
 <p><img src="/images/Java%E4%B8%AD%E7%9A%84HashMap/threshold.png" alt="阈值"></p>
 <p>来说计算哈希值的<code>hashCode</code>方法。当键不为<code>null</code>时，将键的<code>hashCode</code>方法的值，和自身右移16位的值进行异或，结果作为计算后的哈希值返回。键为空则结果为0。</p>
 <p><img src="/images/Java%E4%B8%AD%E7%9A%84HashMap/hash.png" alt="hash"></p>
-<h2 id="扩容机制"><a href="#扩容机制" class="headerlink" title="扩容机制"></a>扩容机制</h2>
+<p>再来说说<code>(n - 1) &amp; hash</code>这个式子。其实就等同于hash的值对散列表长度n求模：<code>hash % n</code>。这样能确保计算出的哈希值不会超出散列表下标范围。</p>
+<p>这里使用与运算<code>&amp;</code>而不是模运算，是因为位运算是直接对内存数据进行操作，不需要转成十进制，因此处理速度非常快。</p>
+<p>且：<br>$$ x &#x2F; 2^n &#x3D; x &gt;&gt;&gt; n $$<br>$$ x % 2^n &#x3D; x &amp; (2^n - 1) $$</p>
+<p>当除数是2的n次方时，x除的结果就等于二进制直接右移n位，模的结果就等于x和除数减一的二进制进行与运算。</p>
+<p>例：$ 21 &#x2F; 8 $ 和 $ 21 % 8 $</p>
+<p>21的二进制：10101， 8的二进制：01000， 7的二进制：00111</p>
+<p>$ 21 &#x2F; 8 &#x3D; 21右移三位 &#x3D; 00010 &#x3D; 2 $ ， $ 21 % 8 &#x3D; 21 &amp; 7 &#x3D; 00101 &#x3D; 5 $</p>
+<h2 id="扩容机制"><a href="#扩容机制" class="headerlink" title="扩容机制"></a>扩容机制</h2><p>虽然解决了哈希碰撞的问题，但若散列表太小，键值对太多，频繁出现哈希碰撞，链表或红黑树就会变得很长，此时就需要对散列表扩容。</p>
+<p>前面提到，键值对放在散列表中的哪个位置，是由<code>(散列表大小n - 1) &amp; hash</code>决定的，与散列表大小有关。现在散列表大小改变了，意味着键值对存放的位置可能发生改变，要计算出扩容后所有键值对的新位置。</p>
+<p>JDK1.7 中的做法是每个键值对重新hash映射到新的散列表，在 JDK1.8 进行了改进：</p>
+<p>根据之前的结论，散列表长度必须是 $ 2^n $ ，每次扩容为之前的两倍。这样的好处是，扩容后计算<code>(n - 1) &amp; hash</code>，有变化的只有扩容前的n那一位。</p>
+<p>例：原本散列表长度为8，下标为2处有一键值对，现长度扩容为16</p>
+<p>8-1的二进制为<code>00111</code>，16-1的二进制为<code>01111</code></p>
+<p>则对于<code>(n - 1) &amp; hash</code>，原先的值就是下标2，即<code>00010</code>，说明hash为<code>??010</code>，扩容后的值应该为<code>0?010</code>。</p>
+<p>若<code>?</code>为0，则扩容后位置也不变，无需迁移。若<code>?</code>为1，则扩容后的新位置就是原先的下标加上扩容前的散列表长度。</p>
+
       
     </div>
     <div class="article-footer">
