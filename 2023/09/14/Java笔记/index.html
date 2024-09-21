@@ -18,17 +18,18 @@
   
   
   <title>Java笔记 | 骚客.的个人博客</title>
-  <meta name="description" content="简单记一下 static详见Java中的static。 面向对象父类中的方法默认可以被子类重写，加上final则只能被继承不能被重写。而加了final的类无法被继承。 父类的构造方法不能被继承，但子类会调用父类的构造方法。Java虚拟机构造子类对象前会先构造父类对象，父类对象构造完成之后再来构造子类特有的属性，这被称为内存叠加。而Java虚拟机构造父类对象会执行父类的构造方法，所以子类构造方法必须">
+  <meta name="description" content="简单记一下 Java版本   Java SE 版本 JDK版本 发布时间 开发代号    Oak  1995-05-23 Oak（橡树）   Java 1.0 JDK 1.0 1996-01-23    Java 1.1 JDK 1.1 1997-02-18    J2SE 1.2 JDK 1.2 1998-12-04 Playerground（运动场）   J2SE 1.3 JDK 1.3 20">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java笔记">
 <meta property="og:url" content="http://princesaoke.github.io/2023/09/14/Java%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="简单记一下 static详见Java中的static。 面向对象父类中的方法默认可以被子类重写，加上final则只能被继承不能被重写。而加了final的类无法被继承。 父类的构造方法不能被继承，但子类会调用父类的构造方法。Java虚拟机构造子类对象前会先构造父类对象，父类对象构造完成之后再来构造子类特有的属性，这被称为内存叠加。而Java虚拟机构造父类对象会执行父类的构造方法，所以子类构造方法必须">
+<meta property="og:description" content="简单记一下 Java版本   Java SE 版本 JDK版本 发布时间 开发代号    Oak  1995-05-23 Oak（橡树）   Java 1.0 JDK 1.0 1996-01-23    Java 1.1 JDK 1.1 1997-02-18    J2SE 1.2 JDK 1.2 1998-12-04 Playerground（运动场）   J2SE 1.3 JDK 1.3 20">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E7%AC%94%E8%AE%B0/struct_type.png">
+<meta property="og:image" content="http://princesaoke.github.io/images/Java%E7%AC%94%E8%AE%B0/string_jvm.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E7%AC%94%E8%AE%B0/thread.jpg">
 <meta property="article:published_time" content="2023-09-14T05:34:31.000Z">
-<meta property="article:modified_time" content="2024-07-26T09:23:39.739Z">
+<meta property="article:modified_time" content="2024-08-13T07:12:22.870Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -238,7 +239,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">10</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -250,6 +251,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2024/09/21/%E7%BE%8E%E5%9B%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/" class="title">美团客户端秋招面经</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-09-21T04:03:22.000Z" itemprop="datePublished">2024-09-21</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -310,21 +326,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
-              </p>
-              <p class="item-title">
-                <a href="/2024/06/09/Android%E4%B8%AD%E7%9A%84Service/" class="title">Android中的Service</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2024-06-09T09:21:24.000Z" itemprop="datePublished">2024-06-09</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -377,10 +378,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/14/Java%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.2k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.7k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 11(分)</span>
 	
 
       </div>
@@ -388,6 +389,100 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <p>简单记一下</p>
+<h2 id="Java版本"><a href="#Java版本" class="headerlink" title="Java版本"></a>Java版本</h2><table>
+<thead>
+<tr>
+<th align="center">Java SE 版本</th>
+<th align="center">JDK版本</th>
+<th align="center">发布时间</th>
+<th align="center">开发代号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Oak</td>
+<td align="center"></td>
+<td align="center">1995-05-23</td>
+<td align="center">Oak（橡树）</td>
+</tr>
+<tr>
+<td align="center">Java 1.0</td>
+<td align="center">JDK 1.0</td>
+<td align="center">1996-01-23</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Java 1.1</td>
+<td align="center">JDK 1.1</td>
+<td align="center">1997-02-18</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">J2SE 1.2</td>
+<td align="center">JDK 1.2</td>
+<td align="center">1998-12-04</td>
+<td align="center">Playerground（运动场）</td>
+</tr>
+<tr>
+<td align="center">J2SE 1.3</td>
+<td align="center">JDK 1.3</td>
+<td align="center">2000-05-08</td>
+<td align="center">Kestrel（美洲红隼）</td>
+</tr>
+<tr>
+<td align="center">J2SE 1.4</td>
+<td align="center">JDK 1.4</td>
+<td align="center">2002-02-13</td>
+<td align="center">Merlin（灰背隼）</td>
+</tr>
+<tr>
+<td align="center">Java SE 5.0</td>
+<td align="center">JDK 1.5</td>
+<td align="center">2004-09-29</td>
+<td align="center">Tiger（老虎）</td>
+</tr>
+<tr>
+<td align="center">Java SE 6</td>
+<td align="center">JDK 1.6</td>
+<td align="center">2006-12-11</td>
+<td align="center">Mustang（野马）</td>
+</tr>
+<tr>
+<td align="center">Java SE 7</td>
+<td align="center">JDK 1.7</td>
+<td align="center">2011-07-28</td>
+<td align="center">Dolphin（海豚）</td>
+</tr>
+<tr>
+<td align="center">Java SE 8</td>
+<td align="center">JDK 1.8</td>
+<td align="center">2014-03-18</td>
+<td align="center">Spider（蜘蛛）</td>
+</tr>
+<tr>
+<td align="center">Java SE 9</td>
+<td align="center">JDK 1.9</td>
+<td align="center">2017-09-21</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Java SE 10</td>
+<td align="center">JDK 10</td>
+<td align="center">2018-03-21</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Java SE 11</td>
+<td align="center">JDK 11</td>
+<td align="center">2018-09-25</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Java SE 12</td>
+<td align="center">JDK 12</td>
+<td align="center">2019-03-20</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
 <h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p>详见<a href="https://princesaoke.github.io/2024/07/21/Java%E4%B8%AD%E7%9A%84static/">Java中的static</a>。</p>
 <h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>父类中的方法默认可以被子类重写，加上<code>final</code>则只能被继承不能被重写。而加了final的类无法被继承。</p>
 <p>父类的构造方法不能被继承，但子类会调用父类的构造方法。Java虚拟机构造子类对象前会先构造父类对象，父类对象构造完成之后再来构造子类特有的属性，这被称为<code>内存叠加</code>。而Java虚拟机构造父类对象会执行父类的构造方法，所以子类构造方法必须调用<code>super()</code>即父类的构造方法。如果子类的构造方法中没有显示地调用父类构造方法，则系统默认调用父类无参数的构造方法。</p>
@@ -402,9 +497,10 @@
 </ul>
 <h2 id="和-equals"><a href="#和-equals" class="headerlink" title="&#x3D;&#x3D; 和 equals()"></a>&#x3D;&#x3D; 和 equals()</h2><p>对于基本数据类型如，<code>==</code>比较的是值，且基本类型没有<code>equals</code>方法。</p>
 <p>对于包装类等对象，<code>==</code>比较的是地址，<code>equals</code>方法默认比较的也是地址，但可以重写来自定义比较逻辑。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Integer</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line">    <span class="type">Integer</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line">    System.out.println(a == b);         <span class="comment">// false</span></span><br><span class="line">    System.out.println(a.equals(b));    <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 范围在 -128 ~ 127 内的数，用 == 比较为 true</span></span><br><span class="line">    <span class="type">Integer</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">127</span>;</span><br><span class="line">    <span class="type">Integer</span> <span class="variable">d</span> <span class="operator">=</span> <span class="number">127</span>;</span><br><span class="line">    System.out.println(c == d);         <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">e</span> <span class="operator">=</span> <span class="string">&quot;你好，世界&quot;</span>;</span><br><span class="line">    <span class="type">String</span> <span class="variable">f</span> <span class="operator">=</span> <span class="string">&quot;你好，世界&quot;</span>;</span><br><span class="line">    System.out.println(e == f);         <span class="comment">// true</span></span><br><span class="line">    System.out.println(e.equals(f));    <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">g</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;你好，世界&quot;</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">h</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;你好，世界&quot;</span>);</span><br><span class="line">    System.out.println(g == h);         <span class="comment">// false</span></span><br><span class="line">    System.out.println(g.equals(h));    <span class="comment">// true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Integer</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line">    <span class="type">Integer</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">128</span>;</span><br><span class="line">    System.out.println(a == b);         <span class="comment">// false</span></span><br><span class="line">    System.out.println(a.equals(b));    <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 范围在 -128 ~ 127 内的数，用 == 比较为 true</span></span><br><span class="line">    <span class="type">Integer</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">127</span>;</span><br><span class="line">    <span class="type">Integer</span> <span class="variable">d</span> <span class="operator">=</span> <span class="number">127</span>;</span><br><span class="line">    System.out.println(c == d);         <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">e</span> <span class="operator">=</span> <span class="string">&quot;你好，世界&quot;</span>;</span><br><span class="line">    <span class="type">String</span> <span class="variable">f</span> <span class="operator">=</span> <span class="string">&quot;你好，世界&quot;</span>;</span><br><span class="line">    System.out.println(e == f);         <span class="comment">// true</span></span><br><span class="line">    System.out.println(e.equals(f));    <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">g</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;你好，世界&quot;</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">h</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;你好，世界&quot;</span>);</span><br><span class="line">    System.out.println(g == h);         <span class="comment">// false</span></span><br><span class="line">    System.out.println(g.equals(h));    <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;你好，世界&quot;</span>;</span><br><span class="line">    <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;你好，世界&quot;</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;你好，世界&quot;</span>);</span><br><span class="line">    System.out.println(s1 == s2);       <span class="comment">// false</span></span><br><span class="line">    System.out.println(s2 == s3);       <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
+<p>双引号直接写的字符串是在常量池之中，而new的对象则不在池之中。</p>
+<p><img src="/images/Java%E7%AC%94%E8%AE%B0/string_jvm.png" alt="数据类型"></p>
 <h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><table>
 <thead>
 <tr>
@@ -487,6 +583,12 @@
 </tr>
 </tbody></table>
 <p><em>floor是地板的意思，ceil是天花板，就很好记了</em></p>
+<h2 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try &amp; catch &amp; finally"></a>try &amp; catch &amp; finally</h2><p>在<code>try</code>中存在<code>return</code>的情况下，会把try中return的值存到栈帧的局部变量表中，然后去执行<code>finally</code>语句块，最后再从局部变量表中取回return的值返回。</p>
+<p>当try和finally里都有return时，会忽略try的return，而使用finally的return。</p>
+<p>正常情况下，finally中的代码一定会得到执行。但是如果我们将执行try-catch-finally代码块的线程设置为守护线程，或者在fianlly之前调用<code>System.exit</code>结束当前虚拟机，那么finally则不会得到执行：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在fianlly之前调用 System.exit 结束当前虚拟机</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    System.exit(<span class="number">0</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    <span class="comment">// TODO</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">// TODO</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// try-catch-finally</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">thread.setDaemon(<span class="literal">true</span>); <span class="comment">// 将 thread 设为守护线程</span></span><br><span class="line">thread.start();</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="throw-throws"><a href="#throw-throws" class="headerlink" title="throw &amp; throws"></a>throw &amp; throws</h2><p>throw用于主动抛出异常：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="title function_">divide</span><span class="params">(<span class="type">double</span> x, <span class="type">double</span> y)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (y == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ArithmeticException</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> x / y;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ArithmeticException exception) &#123;</span><br><span class="line">        exception.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -519,11 +621,6 @@
 </li>
 </ul>
 <h2 id="String相关"><a href="#String相关" class="headerlink" title="String相关"></a>String相关</h2><p>详见<a href="https://princesaoke.github.io/2024/06/25/Java%E4%B8%AD%E7%9A%84String/">Java中的String</a>。</p>
-<h2 id="LocalDateTime-LocalDate-LocalTime"><a href="#LocalDateTime-LocalDate-LocalTime" class="headerlink" title="LocalDateTime &amp; LocalDate &amp; LocalTime"></a>LocalDateTime &amp; LocalDate &amp; LocalTime</h2><p><em>参考的是<a target="_blank" rel="noopener" href="https://blog.csdn.net/LiuQQ567/article/details/131269552">这篇文章</a></em></p>
-<p>三者区别是，LocalDate只能存日期，LocalTime只能存时间，LocalDateTime既可以存日期又可以存时间。这里只介绍LocalDateTime。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实例化</span></span><br><span class="line"><span class="type">var</span> <span class="variable">localDateTime1</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">var</span> <span class="variable">localDateTime2</span> <span class="operator">=</span> LocalDateTime.of(<span class="number">2023</span>, <span class="number">9</span>, <span class="number">11</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">00</span>);     <span class="comment">// 2023-09-11 22:23:00</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串转LocalDateTime</span></span><br><span class="line"><span class="type">var</span> <span class="variable">localDateTime3</span> <span class="operator">=</span> LocalDateTime.parse(<span class="string">&quot;2023-09-11T22:23:00&quot;</span>);    <span class="comment">// 必须要有T</span></span><br><span class="line"><span class="type">DateTimeFormatter</span> <span class="variable">formatter</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line"><span class="type">var</span> <span class="variable">localDateTime4</span> <span class="operator">=</span> LocalDateTime.parse(<span class="string">&quot;2023-09-11 22:23:00&quot;</span>, formatter);     <span class="comment">// 将字符串按照formatter中规定的格式转化</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取星期</span></span><br><span class="line"><span class="type">DayOfWeek</span> <span class="variable">dayOfWeek</span> <span class="operator">=</span> localDateTime1.getDayOfWeek();    <span class="comment">// 假设为星期天</span></span><br><span class="line">System.out.println(dayOfWeek.getValue());   <span class="comment">// 7</span></span><br><span class="line"><span class="comment">// TextStyle.FULL(星期全称), Locale.CHINA(用中文输出)</span></span><br><span class="line">System.out.println(dayOfWeek.getDisplayName(TextStyle.FULL, Locale.CHINA));     <span class="comment">// 星期日</span></span><br><span class="line"><span class="comment">// TextStyle.FULL(星期全称), Locale.CHINA(用中文输出)</span></span><br><span class="line">System.out.println(dayOfWeek.getDisplayName(TextStyle.Short, Locale.CHINA));    <span class="comment">// 周日</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取月份同上</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 增加日期</span></span><br><span class="line">localDateTime1 = localDateTime1.plus(<span class="number">5</span>, ChronoUnit.DAYS);   <span class="comment">// 日期+5，下同</span></span><br><span class="line">localDateTime1 = localDateTime1.plusDays(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
-
-
 <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p><img src="/images/Java%E7%AC%94%E8%AE%B0/thread.jpg" alt="线程状态转换图"></p>
 <h4 id="继承-Thread-类"><a href="#继承-Thread-类" class="headerlink" title="继承 Thread 类"></a>继承 Thread 类</h4><p>自定义一个类继承<code>Thread</code>，重写其<code>run</code>方法，实例化后调用其<code>start</code>方法开启线程：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// MyThread.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line"></span><br><span class="line">    MyThread(String name) &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.run();</span><br><span class="line">        System.out.println(<span class="string">&quot;我是线程&quot;</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// main</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">MyThread</span> <span class="variable">threadA</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">    <span class="type">MyThread</span> <span class="variable">threadB</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>(<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    threadA.start();</span><br><span class="line">    threadB.start();</span><br><span class="line">    System.out.println(<span class="string">&quot;主线程结束&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -536,6 +633,11 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// MyCallable.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyCallable</span>&lt;V&gt; <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;V&gt; &#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">private</span> V data;</span><br><span class="line"></span><br><span class="line">    MyCallable(V data) &#123;</span><br><span class="line">        <span class="built_in">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> V <span class="title function_">call</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// main</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">MyThread</span> <span class="variable">threadA</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">    threadA.start();</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;主线程开始实例化Callable&quot;</span>);</span><br><span class="line"></span><br><span class="line">    MyCallable&lt;String&gt; myCallable = <span class="keyword">new</span> <span class="title class_">MyCallable</span>&lt;&gt;(<span class="string">&quot;E&quot;</span>);</span><br><span class="line">    FutureTask&lt;String&gt; myFutureTask = <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;&gt;(myCallable);</span><br><span class="line">    <span class="type">Thread</span> <span class="variable">threadE</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(myFutureTask);</span><br><span class="line">    threadE.start();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">data</span> <span class="operator">=</span> myFutureTask.get();</span><br><span class="line">        System.out.println(<span class="string">&quot;我是线程&quot;</span> + data);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException | ExecutionException e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;主线程结束&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>输出结果：<code>我是线程E</code>在<code>主线程开始实例化Callable</code>之后，在<code>主线程结束</code>之前。</p>
+<h2 id="LocalDateTime-LocalDate-LocalTime"><a href="#LocalDateTime-LocalDate-LocalTime" class="headerlink" title="LocalDateTime &amp; LocalDate &amp; LocalTime"></a>LocalDateTime &amp; LocalDate &amp; LocalTime</h2><p><em>参考的是<a target="_blank" rel="noopener" href="https://blog.csdn.net/LiuQQ567/article/details/131269552">这篇文章</a></em></p>
+<p>三者区别是，LocalDate只能存日期，LocalTime只能存时间，LocalDateTime既可以存日期又可以存时间。这里只介绍LocalDateTime。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实例化</span></span><br><span class="line"><span class="type">var</span> <span class="variable">localDateTime1</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">var</span> <span class="variable">localDateTime2</span> <span class="operator">=</span> LocalDateTime.of(<span class="number">2023</span>, <span class="number">9</span>, <span class="number">11</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">00</span>);     <span class="comment">// 2023-09-11 22:23:00</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串转LocalDateTime</span></span><br><span class="line"><span class="type">var</span> <span class="variable">localDateTime3</span> <span class="operator">=</span> LocalDateTime.parse(<span class="string">&quot;2023-09-11T22:23:00&quot;</span>);    <span class="comment">// 必须要有T</span></span><br><span class="line"><span class="type">DateTimeFormatter</span> <span class="variable">formatter</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line"><span class="type">var</span> <span class="variable">localDateTime4</span> <span class="operator">=</span> LocalDateTime.parse(<span class="string">&quot;2023-09-11 22:23:00&quot;</span>, formatter);     <span class="comment">// 将字符串按照formatter中规定的格式转化</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取星期</span></span><br><span class="line"><span class="type">DayOfWeek</span> <span class="variable">dayOfWeek</span> <span class="operator">=</span> localDateTime1.getDayOfWeek();    <span class="comment">// 假设为星期天</span></span><br><span class="line">System.out.println(dayOfWeek.getValue());   <span class="comment">// 7</span></span><br><span class="line"><span class="comment">// TextStyle.FULL(星期全称), Locale.CHINA(用中文输出)</span></span><br><span class="line">System.out.println(dayOfWeek.getDisplayName(TextStyle.FULL, Locale.CHINA));     <span class="comment">// 星期日</span></span><br><span class="line"><span class="comment">// TextStyle.FULL(星期全称), Locale.CHINA(用中文输出)</span></span><br><span class="line">System.out.println(dayOfWeek.getDisplayName(TextStyle.Short, Locale.CHINA));    <span class="comment">// 周日</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取月份同上</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 增加日期</span></span><br><span class="line">localDateTime1 = localDateTime1.plus(<span class="number">5</span>, ChronoUnit.DAYS);   <span class="comment">// 日期+5，下同</span></span><br><span class="line">localDateTime1 = localDateTime1.plusDays(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="Date-Calendar-（已弃用）"><a href="#Date-Calendar-（已弃用）" class="headerlink" title="Date &amp; Calendar （已弃用）"></a><del>Date &amp; Calendar</del> （已弃用）</h2><p><em>看完一问chatGPT，才知道这俩已经被LocalDateTime取代了，旧教程害人啊……笔记都做完了，就不删了吧</em></p>
 <p>按自定义格式输出时间：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">SimpleDateFormat</span> <span class="variable">format</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyy-MM-dd HH:mm:ss E&quot;</span>);</span><br><span class="line">System.out.println(format.format(date));</span><br><span class="line"><span class="comment">// 2023-09-09 19:54:33 周六</span></span><br></pre></td></tr></table></figure>

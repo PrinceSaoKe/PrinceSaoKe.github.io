@@ -18,12 +18,12 @@
   
   
   <title>Java中的HashMap | 骚客.的个人博客</title>
-  <meta name="description" content="实现原理HashMap用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似桶排序的结构。  当调用HashMap的put方法新增键值对时，会根据HashMap类的静态方法hash，用键值对的键来计算出哈希值，并用(散列表大小n - 1) &amp; hash的值作为散列表数组下标，将新增的键值对放入。   为解决哈希碰撞，每个散列表数组槽位内是一个链表或红黑树。当链表长度大于8，且">
+  <meta name="description" content="为啥HashMap的默认容量是16？ 实现原理HashMap用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似桶排序的结构。  当调用HashMap的put方法新增键值对时，会根据HashMap类的静态方法hash，用键值对的键来计算出哈希值，并用(散列表大小n - 1) &amp; hash的值作为散列表数组下标，将新增的键值对放入。   为解决哈希碰撞，每个散列表数组槽位内是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java中的HashMap">
 <meta property="og:url" content="http://princesaoke.github.io/2024/07/26/Java%E4%B8%AD%E7%9A%84HashMap/index.html">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="实现原理HashMap用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似桶排序的结构。  当调用HashMap的put方法新增键值对时，会根据HashMap类的静态方法hash，用键值对的键来计算出哈希值，并用(散列表大小n - 1) &amp; hash的值作为散列表数组下标，将新增的键值对放入。   为解决哈希碰撞，每个散列表数组槽位内是一个链表或红黑树。当链表长度大于8，且">
+<meta property="og:description" content="为啥HashMap的默认容量是16？ 实现原理HashMap用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似桶排序的结构。  当调用HashMap的put方法新增键值对时，会根据HashMap类的静态方法hash，用键值对的键来计算出哈希值，并用(散列表大小n - 1) &amp; hash的值作为散列表数组下标，将新增的键值对放入。   为解决哈希碰撞，每个散列表数组槽位内是">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84HashMap/hash_map.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84HashMap/put.png">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84HashMap/threshold.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84HashMap/hash.png">
 <meta property="article:published_time" content="2024-07-26T15:30:21.000Z">
-<meta property="article:modified_time" content="2024-07-28T09:33:02.978Z">
+<meta property="article:modified_time" content="2024-08-19T08:52:46.934Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -241,7 +241,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">10</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">七月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">六月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">五月 2024</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">四月 2024</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">三月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">一月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">十二月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -253,6 +253,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2024/09/21/%E7%BE%8E%E5%9B%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/" class="title">美团客户端秋招面经</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-09-21T04:03:22.000Z" itemprop="datePublished">2024-09-21</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -313,21 +328,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
-              </p>
-              <p class="item-title">
-                <a href="/2024/06/09/Android%E4%B8%AD%E7%9A%84Service/" class="title">Android中的Service</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2024-06-09T09:21:24.000Z" itemprop="datePublished">2024-06-09</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -380,7 +380,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/07/26/Java%E4%B8%AD%E7%9A%84HashMap/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 804(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 968(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
@@ -390,7 +390,8 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p><code>HashMap</code>用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似<strong>桶排序</strong>的结构。</p>
+        <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hollischuang/p/12009172.html">为啥HashMap的默认容量是16？</a></p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p><code>HashMap</code>用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似<strong>桶排序</strong>的结构。</p>
 <p><img src="/images/Java%E4%B8%AD%E7%9A%84HashMap/hash_map.png" alt="HashMap"></p>
 <p>当调用HashMap的<code>put</code>方法新增键值对时，会根据HashMap类的静态方法<code>hash</code>，用键值对的键来计算出哈希值，并用<code>(散列表大小n - 1) &amp; hash</code>的值作为散列表数组下标，将新增的键值对放入。</p>
 <p><img src="/images/Java%E4%B8%AD%E7%9A%84HashMap/put.png" alt="put"></p>
@@ -414,6 +415,13 @@
 <p>8-1的二进制为<code>00111</code>，16-1的二进制为<code>01111</code></p>
 <p>则对于<code>(n - 1) &amp; hash</code>，原先的值就是下标2，即<code>00010</code>，说明hash为<code>??010</code>，扩容后的值应该为<code>0?010</code>。</p>
 <p>若<code>?</code>为0，则扩容后位置也不变，无需迁移。若<code>?</code>为1，则扩容后的新位置就是原先的下标加上扩容前的散列表长度。</p>
+<h2 id="HashMap-和-Hashtable-的区别"><a href="#HashMap-和-Hashtable-的区别" class="headerlink" title="HashMap 和 Hashtable 的区别"></a>HashMap 和 Hashtable 的区别</h2><ul>
+<li>父类不同：HashMap继承抽象类<code>AbstractMap</code>；而Hashtable实现<code>Dictionary</code>类。二者都实现<code>Map</code>接口</li>
+<li>线程安全不同：Hashtable是线程安全的，而HashMap不是</li>
+<li>能否有null：Hashtable中key和value都不允许出现null；而HashMap允许有一个为null的key，value可以有多个null，因此不能用<code>get()</code>返回null来判断HashMap中是否有某个键</li>
+<li>哈希值的使用不同：Hashtable直接使用对象的<code>hashCode</code>；而HashMap重新计算哈希值</li>
+<li>扩容方式不同：HashMap内散列表默认大小为16，扩容后一定为2<sup>n</sup>；Hashtable初始大小为11，扩容方式为<code>old * 2 + 1</code></li>
+</ul>
 
       
     </div>
@@ -468,6 +476,10 @@
   <div class="bar-inner">
   
   <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2024/09/21/%E7%BE%8E%E5%9B%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/" title="美团客户端秋招面经"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
     
     
     <li class="next">
