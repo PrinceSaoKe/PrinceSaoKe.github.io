@@ -26,7 +26,7 @@
 <meta property="og:description" content="并发和并行并发就是同一时刻只有一条指令在执行，但由于CPU时间片很小，多个指令间能快速切换，宏观上形成同时执行的效果。 并行则是真正意义上的同时进行。 并发三要素 原子性：在一个操作中，CPU 不可以在中途暂停然后再调度，即不被中断操作，要么执行完成，要么就不执行 可见性：多个线程访问同一个变量时，一个线程修改了这个变量的值，其他线程能够立即看得到修改的值 有序性：程序执行的顺序按照代码的先后顺序">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-07T09:34:04.000Z">
-<meta property="article:modified_time" content="2024-09-27T09:37:48.523Z">
+<meta property="article:modified_time" content="2024-10-17T16:37:22.713Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="hexo,博客">
 <meta name="twitter:card" content="summary">
@@ -369,7 +369,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/06/07/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 654(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 660(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
@@ -407,7 +407,7 @@
 <li><strong>公平锁</strong>、<strong>非公平锁</strong>：公平锁按申请锁的顺序获取，如<code>ReentrantLock</code>；非公平锁不保证顺序</li>
 <li><strong>自旋锁</strong>：线程循环等待直到获取锁</li>
 <li><strong>可重入锁</strong>、<strong>不可重入锁</strong>：可重入锁允许内层使用锁，不会产生死锁；不可重入锁不允许</li>
-<li><strong>共享锁</strong>、<strong>独享锁</strong>：共享锁允许多个执行单元同时获取锁，独享锁只允许一个</li>
+<li><strong>共享锁&#x2F;读锁</strong>、<strong>独享锁&#x2F;写锁</strong>：共享锁允许多个执行单元同时获取锁，独享锁只允许一个</li>
 </ul>
 
       
