@@ -6,7 +6,7 @@
   <link href="http://princesaoke.github.io/atom.xml" rel="self"/>
   
   <link href="http://princesaoke.github.io/"/>
-  <updated>2024-10-20T07:17:57.325Z</updated>
+  <updated>2024-10-22T07:13:45.043Z</updated>
   <id>http://princesaoke.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>百度秋招面经</title>
+    <link href="http://princesaoke.github.io/2024/10/20/%E7%99%BE%E5%BA%A6%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/"/>
+    <id>http://princesaoke.github.io/2024/10/20/%E7%99%BE%E5%BA%A6%E7%A7%8B%E6%8B%9B%E9%9D%A2%E7%BB%8F/</id>
+    <published>2024-10-20T15:43:16.000Z</published>
+    <updated>2024-10-22T07:13:45.043Z</updated>
+    
+    <content type="html"><![CDATA[<p>这一天是部门群面，要等通过后再决定部门和岗位。是移动生态相关的部门，包括百度文库、百度贴吧、百度APP等。</p><p>一个下午连面三场，都通过了</p><h2 id="一面-10-20-16-00"><a href="#一面-10-20-16-00" class="headerlink" title="一面 10.20 16:00"></a>一面 10.20 16:00</h2><p>30分钟左右。</p><ul><li><span style="color: green">✔</span> 实习做了什么</li><li><span style="color: red">❌</span> Flutter和Android交互</li><li><span style="color: green">✔</span> HTTPS加密过程，可以被抓包破解吗？</li><li><span style="color: green">✔</span> DNS的解析过程</li><li><span style="color: green">✔</span> String、StringBuilder、StringBuffer的区别</li><li><span style="color: red">❌</span> StringBuffer是如何实现线程安全的？</li><li><span style="color: green">✔</span> 抽象类和接口的区别</li><li><span style="color: red">❌</span> 泛型的优点</li><li><span style="color: red">❌</span> Java反射</li><li><span style="color: green">✔</span> 线程和进程的区别</li><li><span style="color: green">✔</span> Java中如何保证线程的有序性和原子性？volatile的原理</li><li><span style="color: red">❌</span> Java反射</li><li><span style="color: red">❌</span> Java线程池的优点？有几种常用线程池？</li><li><span style="color: green">✔</span> 线程池的工作流程</li><li><span style="color: green">✔</span> synchronized的使用场景</li><li><span style="color: red">❌</span> synchronized和lock的区别</li><li><span style="color: green">✔</span> Android四大组件</li><li><span style="color: green">✔</span> Activity生命周期</li><li><span style="color: green">✔</span> Activity启动模式</li><li><span style="color: green">✔</span> Android中的几种本地存储方式</li><li><span style="color: red">❌</span> MVP、MVC和MVVM的区别</li><li><span style="color: green">✔</span> 编程题：长度为n+1的无序数组，元素值为1~n，只有一个元素重复，找出该数，要求时间复杂度小于O(n^2)，空间复杂度为O(1)</li></ul><p>反问哪块比较薄弱，面试官说我安卓方面掌握的在候选人中算比较好，Java一些更底层的原理可以再学习，基本上都ok。当场就让我过了，马上紧接着二面。</p><h2 id="二面-10-20-16-30"><a href="#二面-10-20-16-30" class="headerlink" title="二面 10.20 16:30"></a>二面 10.20 16:30</h2><p>30分钟左右。</p><ul><li><span style="color: green">✔</span> Flutter的渲染机制</li><li><span style="color: green">✔</span> Flutter用自己的绘制方案，和其他跨端框架使用原生控件相比，有哪些优缺点？</li><li><span style="color: red">❌</span> 鸿蒙了解过吗</li><li><span style="color: green">✔</span> 使用Flutter时，有对网络请求进行封装吗？</li><li><span style="color: green">✔</span> 本地数据持久化有哪些方式？</li><li><span style="color: red">❌</span> 路由机制的底层实现，底层是什么数据结构</li><li><span style="color: red">❌</span> OCR接口的凭证如何存储？有做加密吗？</li><li><span style="color: green">✔</span> 柱状图是如何实现的？</li><li><span style="color: green">✔</span> Android为什么要改为动态授权？</li><li><span style="color: red">❌</span> Vue3和Vue2的区别</li><li><span style="color: red">❌</span> 响应拦截器中处理了拦截的数据，后续的拦截器还能否收到数据？</li><li><span style="color: green">✔</span> MMKV为什么比SharedPreferences更快</li><li><span style="color: green">✔</span> 编程题：翻转链表</li></ul><p>反问哪块比较薄弱，面试官说我有Android和Flutter的经验比较好，实践方面可以更深入，总的来说也挺好的。当场就让我过了，马上紧接着三面。</p><h2 id="三面-10-20-17-10"><a href="#三面-10-20-17-10" class="headerlink" title="三面 10.20 17:10"></a>三面 10.20 17:10</h2><p>30分钟左右。</p><ul><li><span style="color: green">✔</span> 有哪些跨平台框架，Flutter和Android相比有哪些优劣</li><li><span style="color: red">❌</span> 既然Flutter有诸多优势，为什么还是有很多项目不使用Flutter？</li><li><span style="color: red">❌</span> Flutter性能上和原生差在哪？</li><li><span style="color: green">✔</span> 为什么选择移动端方向？</li><li><span style="color: green">✔</span> 有哪些本地持久化方案</li><li><span style="color: green">✔</span> 为什么放弃转正</li><li><span style="color: green">✔</span> 了解过鸿蒙吗？有实践吗？</li><li><span style="color: green">✔</span> 说一下实践中比较有挑战性的部分</li><li><span style="color: green">✔</span> Vue学习了多久，掌握了多少</li><li><span style="color: green">✔</span> 市面上的AI用过吗？你觉得国内的大语言模型存在哪些问题</li><li><span style="color: green">✔</span> 开放题：你觉得AI在未来可能在哪些领域</li><li><span style="color: green">✔</span> 有哪些企业的Offer</li></ul><p>面试官负责的部门是百度APP的技术中台，包括账号相关、SDK、前端、消息中台、交易保障等基础服务</p><p>反问哪块比较薄弱，面试官说我移动端的技术栈比较match，实践方面和二面面试官一样，觉得企业级的深度不够。</p><p>当场就让我过了，过几天hr会联系。最后面试官说如果她能优选的话，希望我可以去她那个部门。激动</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这一天是部门群面，要等通过后再决定部门和岗位。是移动生态相关的部门，包括百度文库、百度贴吧、百度APP等。&lt;/p&gt;
+&lt;p&gt;一个下午连面三场，都通过了&lt;/p&gt;
+&lt;h2 id=&quot;一面-10-20-16-00&quot;&gt;&lt;a href=&quot;#一面-10-20-16-00&quot; class=&quot;h</summary>
+      
+    
+    
+    
+    <category term="面经" scheme="http://princesaoke.github.io/categories/%E9%9D%A2%E7%BB%8F/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>虾皮秋招面经</title>
@@ -460,30 +484,6 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;span style=&quot;color: green&quot;&gt;✔&lt;/span&gt; 自我介绍&lt;/li&gt;
 &lt;li&gt;&lt;span style=&quot;color: green&quot;&gt;✔&lt;/span&gt; 详</summary>
-      
-    
-    
-    
-    <category term="面经" scheme="http://princesaoke.github.io/categories/%E9%9D%A2%E7%BB%8F/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>美团客户端实习面经</title>
-    <link href="http://princesaoke.github.io/2024/04/28/%E7%BE%8E%E5%9B%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/"/>
-    <id>http://princesaoke.github.io/2024/04/28/%E7%BE%8E%E5%9B%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/</id>
-    <published>2024-04-28T14:08:43.000Z</published>
-    <updated>2024-09-21T05:06:05.119Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="笔试-4-27"><a href="#笔试-4-27" class="headerlink" title="笔试 4.27"></a>笔试 4.27</h2><p>题型：30题单选题，2题编程题</p><p>时间：2小时</p><p>单选题主要有计算机网络、操作系统、数据结构、数字找规律、三元一次方程应用题等。</p><p>记录单选题涉及到的知识点</p><ul><li>有效的子网掩码</li><li>SQL共享锁和排它锁，其他事务能否读写</li><li>HTTP2 和 HTTP3 的区别</li></ul><p>编程题AC第一题，第二题是一个九宫格魔法阵，周围的数值改变怎么怎么样的，没一点思路。</p><p>当时没记录，现在忘了。。</p><h2 id="一面-5-16"><a href="#一面-5-16" class="headerlink" title="一面 5.16"></a>一面 5.16</h2><ul><li><span style="color: green">✔</span> C和C++的区别</li><li><span style="color: red">❌</span> 子结构体对父结构体函数的重写</li><li><span style="color: green">✔</span> 进程和线程的区别</li><li><span style="color: green">✔</span> 同步和异步的区别？为什么需要异步？多线程操作时可能出现什么问题？</li><li><span style="color: red">❌</span> OSI七层网络模型</li><li><span style="color: green">✔</span> HTTP和HTTPS的区别？HTTP全称是什么？HTTPS的S指什么？</li><li><span style="color: green">✔</span> TCP和UDP的区别</li><li><span style="color: green">✔</span> 为什么要三次握手</li><li><span style="color: green">✔</span> 服务器如何知道请求中的不同类型的数据格式？</li><li><span style="color: red">❌</span> 编程题：翻转链表</li></ul><p>全都是考基础，没问项目没问实习。</p><p>开头自我介绍，然后问我熟悉什么语言，C++或Java会吗，一开始就是打算考编程语言。</p><p>C和C++的区别，答：一个是面向对象一个是面向过程，C++有输入输出流</p><p>然后出了个题：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span> &#123;</span></span><br><span class="line">    f() &#123; <span class="built_in">printf</span>(<span class="string">&#x27;A&#x27;</span>); &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">B</span> :</span> A &#123;</span><br><span class="line">    f() &#123; <span class="built_in">printf</span>(<span class="string">&#x27;B&#x27;</span>); &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    A a = A();</span><br><span class="line">    B b = B();</span><br><span class="line">    a.f();</span><br><span class="line">    b.f();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>问输出是什么。又问给<code>B</code>的<code>f()</code>加上<code>virtual</code>，输出是什么。</p><p>最后一题考编程题，两非递减数组原地排序，LeetCode上刷过，心中窃喜，结果语言切到C++，判题器有点问题没给提交模板，判不了题直接编译错误，面试官也弄不明白，就给我换了一题翻转链表，结果没做出来，被自己的抽象操作蠢哭了…… T^T</p><p>最后面试官还指出了我的不足。在我做编程题的时候他看了我的Github和博客，说我项目是足够的，但是要注重基础，编程语言的基础和底层，计网、数据结构四大件的基础等。</p><p>还是第一次有面试官给我提建议，发觉不同面试官之间面试方式还是有挺大差距的，有的没怎么问编程语言，有的不怎么问实践。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;笔试-4-27&quot;&gt;&lt;a href=&quot;#笔试-4-27&quot; class=&quot;headerlink&quot; title=&quot;笔试 4.27&quot;&gt;&lt;/a&gt;笔试 4.27&lt;/h2&gt;&lt;p&gt;题型：30题单选题，2题编程题&lt;/p&gt;
-&lt;p&gt;时间：2小时&lt;/p&gt;
-&lt;p&gt;单选题主要有计算机网络、操</summary>
       
     
     
