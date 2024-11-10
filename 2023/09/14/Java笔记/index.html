@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E7%AC%94%E8%AE%B0/exception_and_error.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E7%AC%94%E8%AE%B0/thread.jpg">
 <meta property="article:published_time" content="2023-09-14T05:34:31.000Z">
-<meta property="article:modified_time" content="2024-10-20T06:41:49.882Z">
+<meta property="article:modified_time" content="2024-10-30T08:19:18.382Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -379,10 +379,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/14/Java%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.7k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.8k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 11(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 12(分)</span>
 	
 
       </div>
@@ -621,6 +621,14 @@
 </li>
 </ul>
 <h2 id="String相关"><a href="#String相关" class="headerlink" title="String相关"></a>String相关</h2><p>详见<a href="https://princesaoke.github.io/2024/06/25/Java%E4%B8%AD%E7%9A%84String/">Java中的String</a>。</p>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型的优点：</p>
+<ul>
+<li>类型安全：泛型在编译时提供了类型检查，可以在编译阶段捕获类型错误，而不是在运行时抛出异常</li>
+<li>更好的性能：泛型的类型检查是在编译时进行的，不需要运行时的类型检查，因此可以提高程序的性能</li>
+<li>代码复用：泛型可以编写更通用、可复用的代码，减少代码的冗余</li>
+<li>可读性：使用泛型可以在代码中看到操作的数据类型，提高代码的可读性</li>
+</ul>
+<p>泛型擦除：泛型信息在编译后会被擦除，在运行时，所有的泛型类型参数都会被视为<code>Object</code>类型</p>
 <h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p><img src="/images/Java%E7%AC%94%E8%AE%B0/thread.jpg" alt="线程状态转换图"></p>
 <h4 id="继承-Thread-类"><a href="#继承-Thread-类" class="headerlink" title="继承 Thread 类"></a>继承 Thread 类</h4><p>自定义一个类继承<code>Thread</code>，重写其<code>run</code>方法，实例化后调用其<code>start</code>方法开启线程：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// MyThread.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line"></span><br><span class="line">    MyThread(String name) &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.run();</span><br><span class="line">        System.out.println(<span class="string">&quot;我是线程&quot;</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// main</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">MyThread</span> <span class="variable">threadA</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">    <span class="type">MyThread</span> <span class="variable">threadB</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>(<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    threadA.start();</span><br><span class="line">    threadB.start();</span><br><span class="line">    System.out.println(<span class="string">&quot;主线程结束&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

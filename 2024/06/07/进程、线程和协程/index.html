@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://princesaoke.github.io/images/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/diagram.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/step.png">
 <meta property="article:published_time" content="2024-06-07T09:34:04.000Z">
-<meta property="article:modified_time" content="2024-10-19T04:07:24.473Z">
+<meta property="article:modified_time" content="2024-11-10T09:12:54.380Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="hexo,博客">
 <meta name="twitter:card" content="summary">
@@ -372,10 +372,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/06/07/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 844(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
@@ -395,12 +395,22 @@
 <li>一个进程可以有多个线程，至少有一个主线程</li>
 <li>一个进程崩溃后，在保护模式下不会对其他进程产生影响；但一个线程崩溃整个进程都死掉。所以多进程要比多线程健壮。</li>
 </ul>
+<p>Q：为什么进程切换的消耗比线程切换大？</p>
+<p>A：</p>
+<blockquote>
+<p>进程拥有独立的内存空间和资源管理机制，每次切换时需要保存和恢复更多的上下文信息；<br>而线程共享同一进程的内存和大部分资源，切换时涉及的上下文信息较少。<br>且进程切换更多发生在内核态，而同一进程内的线程切换更多发生在用户态，因此开销相对较小。</p>
+</blockquote>
 <h2 id="多进程和多线程分别有何优势？"><a href="#多进程和多线程分别有何优势？" class="headerlink" title="多进程和多线程分别有何优势？"></a>多进程和多线程分别有何优势？</h2><ul>
 <li>线程之间可以更轻松的共享数据</li>
 <li>系统创建进程需要为该进程重新分配系统资源，故创建线程代价比较小</li>
 <li>线程崩溃可能导致整个进程崩溃，而进程崩溃不会影响到另一个进程</li>
 </ul>
-<h2 id="哪些是线程共享的，哪些是进程共享的？"><a href="#哪些是线程共享的，哪些是进程共享的？" class="headerlink" title="哪些是线程共享的，哪些是进程共享的？"></a>哪些是线程共享的，哪些是进程共享的？</h2><p>Q：Java三种创建线程的方法有什么区别？</p>
+<h2 id="哪些是线程共享的？"><a href="#哪些是线程共享的？" class="headerlink" title="哪些是线程共享的？"></a>哪些是线程共享的？</h2><p>线程共享：</p>
+<ul>
+<li>全局变量和堆</li>
+<li>文件描述符，包括打开的文件、网络连接、输入输出流等，这些都是进程级别的资源</li>
+</ul>
+<p>Q：Java三种创建线程的方法有什么区别？</p>
 <p>A：</p>
 <blockquote>
 <p>……</p>
