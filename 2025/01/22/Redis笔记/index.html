@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://princesaoke.github.io/images/Redis%E7%AC%94%E8%AE%B0/hcjc_hcs.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Redis%E7%AC%94%E8%AE%B0/hcjc_ljgq.png">
 <meta property="article:published_time" content="2025-01-22T15:46:18.000Z">
-<meta property="article:modified_time" content="2025-02-10T16:00:45.503Z">
+<meta property="article:modified_time" content="2025-05-01T09:45:02.893Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
@@ -482,6 +482,7 @@
 <p><img src="/images/Redis%E7%AC%94%E8%AE%B0/hcjc_ljgq.png" alt="逻辑过期"></p>
 <p>这里的互斥锁可以用Redis中的<code>setnx</code>指令实现（SpringDataRedis中是<code>setIfAbsent</code>），只有在该键不存在时才能写入。<code>setnx</code>相当于获取锁，<code>del</code>删除相当于释放锁。</p>
 <p>这种方法的优点是线程无需等待性能较好，缺点是实现复杂，不能保证一致性。</p>
+<h2 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41125219/article/details/119982158">布隆(Bloom Filter)过滤器——全面讲解，建议收藏</a></p>
 
       
     </div>
