@@ -412,10 +412,7 @@
 <h2 id="AbsorbPointer"><a href="#AbsorbPointer" class="headerlink" title="AbsorbPointer"></a>AbsorbPointer</h2><p>可对children统一设置是否接收手势</p>
 <h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><h2 id="AspectRatio"><a href="#AspectRatio" class="headerlink" title="AspectRatio"></a>AspectRatio</h2><p>指定子组件的宽高比</p>
 <h2 id="ConstrainedBox"><a href="#ConstrainedBox" class="headerlink" title="ConstrainedBox"></a>ConstrainedBox</h2><p>对其子项施加附加约束，如：</p>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">return</span> <span class="token class-name">ConstrainedBox</span><span class="token punctuation">(</span>
-    minWidth<span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
-    child<span class="token punctuation">:</span> <span class="token class-name">Container</span><span class="token punctuation">(</span>width<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">,</span>    <span class="token comment">// 宽度小于最大宽度则不生效，宽度仍为100</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> ConstrainedBox(</span><br><span class="line">    minWidth: <span class="number">100</span>,</span><br><span class="line">    child: Container(width: <span class="number">50</span>),    <span class="comment">// 宽度小于最大宽度则不生效，宽度仍为100</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <h2 id="Baseline"><a href="#Baseline" class="headerlink" title="Baseline"></a>Baseline</h2><p>根据子项的基线对它们的位置进行定位</p>
 <h2 id="Visibility"><a href="#Visibility" class="headerlink" title="Visibility"></a>Visibility</h2><p>根据传入的布尔值决定是否显示子组件</p>

@@ -382,7 +382,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/15/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 669(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 686(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
@@ -395,45 +395,22 @@
         <h1 id="Windows-Server-远程桌面连接"><a href="#Windows-Server-远程桌面连接" class="headerlink" title="Windows Server 远程桌面连接"></a>Windows Server 远程桌面连接</h1><p>如果你的服务器装的操作系统是 Windows Server ，那么可以在自己的 Windows 电脑上直接远程控制图形化界面。</p>
 <p>Win+R输入<code>mstsc</code>运行，进入远程桌面连接，在计算机一栏中填写要连接的服务器IP地址或域名，用户名即服务器登录的用户名，输入密码连接，可以将记录保存在本地这样下次就不用再输密码了。</p>
 <h1 id="终端SSH远程连接服务器"><a href="#终端SSH远程连接服务器" class="headerlink" title="终端SSH远程连接服务器"></a>终端SSH远程连接服务器</h1><p>要求本地主机装有SSH客户端，服务器装有SSH服务器。可在 PowerShell 输入以下命令查看是否安装：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Get-WindowsCapability <span class="token parameter variable">-Online</span> <span class="token operator">|</span> Where-Object Name <span class="token parameter variable">-like</span> <span class="token string">'OpenSSH*'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-WindowsCapability -Online | Where-Object Name -like <span class="string">&#x27;OpenSSH*&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p>若均未安装则输出</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Name  <span class="token builtin class-name">:</span> OpenSSH.Client~~~~0.0.1.0
-State <span class="token builtin class-name">:</span> NotPresent
-
-Name  <span class="token builtin class-name">:</span> OpenSSH.Server~~~~0.0.1.0
-State <span class="token builtin class-name">:</span> NotPresent<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Name  : OpenSSH.Client~~~~0.0.1.0</span><br><span class="line">State : NotPresent</span><br><span class="line"></span><br><span class="line">Name  : OpenSSH.Server~~~~0.0.1.0</span><br><span class="line">State : NotPresent</span><br></pre></td></tr></table></figure>
 
 <p>SSH客户端不用特地安装，安装git时自带。</p>
 <p>Windows Server 2022 没有SSH服务器，需要自行安装。</p>
 <h2 id="用-PowerShell-安装"><a href="#用-PowerShell-安装" class="headerlink" title="用 PowerShell 安装"></a>用 PowerShell 安装</h2><p>管理员权限运行 PowerShell ，执行：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 OpenSSH 客户端</span>
-Add-WindowsCapability <span class="token parameter variable">-Online</span> <span class="token parameter variable">-Name</span> OpenSSH.Client~~~~0.0.1.0
-
-<span class="token comment"># 安装 OpenSSH 服务器</span>
-Add-WindowsCapability <span class="token parameter variable">-Online</span> <span class="token parameter variable">-Name</span> OpenSSH.Server~~~~0.0.1.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 OpenSSH 客户端</span></span><br><span class="line">Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 OpenSSH 服务器</span></span><br><span class="line">Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0</span><br></pre></td></tr></table></figure>
 
 <p>安装完成后继续运行：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 启动 SSH 服务器</span>
-Start-Service sshd
-
-<span class="token comment"># OPTIONAL but recommended:</span>
-Set-Service <span class="token parameter variable">-Name</span> sshd <span class="token parameter variable">-StartupType</span> <span class="token string">'Automatic'</span>
-
-<span class="token comment"># 确认防火墙规则已配置。它应该由安装程序自动创建。运行以下程序进行验证</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>Get-NetFirewallRule <span class="token parameter variable">-Name</span> <span class="token string">"OpenSSH-Server-In-TCP"</span> <span class="token parameter variable">-ErrorAction</span> SilentlyContinue <span class="token operator">|</span> Select-Object Name, Enabled<span class="token punctuation">))</span> <span class="token punctuation">&#123;</span>
-    Write-Output <span class="token string">"防火墙规则 'OpenSSH-Server-In-TCP' 不存在，正在创建..."</span>
-    New-NetFirewallRule <span class="token parameter variable">-Name</span> <span class="token string">'OpenSSH-Server-In-TCP'</span> <span class="token parameter variable">-DisplayName</span> <span class="token string">'OpenSSH Server (sshd)'</span> <span class="token parameter variable">-Enabled</span> True <span class="token parameter variable">-Direction</span> Inbound <span class="token parameter variable">-Protocol</span> TCP <span class="token parameter variable">-Action</span> Allow <span class="token parameter variable">-LocalPort</span> <span class="token number">22</span>
-<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-    Write-Output <span class="token string">"防火墙规则 'OpenSSH-Server-In-TCP' 已存在。"</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动 SSH 服务器</span></span><br><span class="line">Start-Service sshd</span><br><span class="line"></span><br><span class="line"><span class="comment"># OPTIONAL but recommended:</span></span><br><span class="line">Set-Service -Name sshd -StartupType <span class="string">&#x27;Automatic&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 确认防火墙规则已配置。它应该由安装程序自动创建。运行以下程序进行验证</span></span><br><span class="line"><span class="keyword">if</span> (!(Get-NetFirewallRule -Name <span class="string">&quot;OpenSSH-Server-In-TCP&quot;</span> -ErrorAction SilentlyContinue | Select-Object Name, Enabled)) &#123;</span><br><span class="line">    Write-Output <span class="string">&quot;防火墙规则 &#x27;OpenSSH-Server-In-TCP&#x27; 不存在，正在创建...&quot;</span></span><br><span class="line">    New-NetFirewallRule -Name <span class="string">&#x27;OpenSSH-Server-In-TCP&#x27;</span> -DisplayName <span class="string">&#x27;OpenSSH Server (sshd)&#x27;</span> -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Write-Output <span class="string">&quot;防火墙规则 &#x27;OpenSSH-Server-In-TCP&#x27; 已存在。&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>记得开放端口，默认为<code>22</code>端口。</p>
 <p>一切都完成后，在本地计算机终端中运行：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ssh</span> 服务器登录用户名@IP地址 <span class="token parameter variable">-p</span> 连接端口
-
-<span class="token comment"># 举例如下，端口可省略</span>
-<span class="token function">ssh</span> Administrator@123.123.123.123 <span class="token parameter variable">-p</span> <span class="token number">22</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh 服务器登录用户名@IP地址 -p 连接端口</span><br><span class="line"></span><br><span class="line"><span class="comment"># 举例如下，端口可省略</span></span><br><span class="line">ssh Administrator@123.123.123.123 -p 22</span><br></pre></td></tr></table></figure>
 
 <p>然后输入密码即可连接成功。</p>
 <h2 id="Windows-设置中安装-OpenSSH"><a href="#Windows-设置中安装-OpenSSH" class="headerlink" title="Windows 设置中安装 OpenSSH"></a>Windows 设置中安装 OpenSSH</h2><p><img src="/images/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/install_OpenSSH.png" alt="设置中安装OpenSSH"></p>
@@ -441,10 +418,7 @@ Set-Service <span class="token parameter variable">-Name</span> sshd <span class
 <p>VSCode 安装拓展<code>Remote - SSH</code>，左侧菜单会多出一个远程资源管理器图标。如图操作进入<code>.ssh\config</code>。</p>
 <p><img src="/images/%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B9%E6%B3%95/vscode.png" alt="vscode"></p>
 <p><code>.ssh\config</code>中这样填写：</p>
-<pre class="line-numbers language-none"><code class="language-none">Host my_server
-    HostName 123.123.123.123
-    User Administrator
-    Port 22<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host my_server</span><br><span class="line">    HostName 123.123.123.123</span><br><span class="line">    User Administrator</span><br><span class="line">    Port 22</span><br></pre></td></tr></table></figure>
 
 <p>其中<code>my_server</code>是给服务器起的名称，随便填，<code>HostName</code>是服务器IP地址，<code>User</code>是服务器登录用户名，<code>Port</code>是连接端口，可省略，默认为22。</p>
 <p>保存后左侧出现对应的服务器，选择在新窗口连接，输入密码，选择服务器操作系统，即可像在本地工作区一样对远程工作区进行操作。</p>

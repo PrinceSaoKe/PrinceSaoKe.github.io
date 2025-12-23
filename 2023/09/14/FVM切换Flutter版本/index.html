@@ -18,12 +18,12 @@
   
   
   <title>FVM切换Flutter版本 | 骚客.的个人博客</title>
-  <meta name="description" content="使用FVM（推荐）全称 Flutter Version Manager，FVM官方文档 安装FVMcmd中运行指令： dart pub global activate fvm  下载完会警告你要将其路径C:\Users\用户名\AppData\Local\Pub\Cache\bin添加到环境变量。 安装指定版本的Flutter在下载Flutter SDK前，最好先修改SDK的默认存放路径： fvm">
+  <meta name="description" content="使用FVM（推荐）全称 Flutter Version Manager，FVM官方文档 安装FVMcmd中运行指令： 1dart pub global activate fvm  下载完会警告你要将其路径C:\Users\用户名\AppData\Local\Pub\Cache\bin添加到环境变量。 安装指定版本的Flutter在下载Flutter SDK前，最好先修改SDK的默认存放路径： 12">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FVM切换Flutter版本">
 <meta property="og:url" content="http://princesaoke.github.io/2023/09/14/FVM%E5%88%87%E6%8D%A2Flutter%E7%89%88%E6%9C%AC/">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="使用FVM（推荐）全称 Flutter Version Manager，FVM官方文档 安装FVMcmd中运行指令： dart pub global activate fvm  下载完会警告你要将其路径C:\Users\用户名\AppData\Local\Pub\Cache\bin添加到环境变量。 安装指定版本的Flutter在下载Flutter SDK前，最好先修改SDK的默认存放路径： fvm">
+<meta property="og:description" content="使用FVM（推荐）全称 Flutter Version Manager，FVM官方文档 安装FVMcmd中运行指令： 1dart pub global activate fvm  下载完会警告你要将其路径C:\Users\用户名\AppData\Local\Pub\Cache\bin添加到环境变量。 安装指定版本的Flutter在下载Flutter SDK前，最好先修改SDK的默认存放路径： 12">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/FVM%E5%88%87%E6%8D%A2Flutter%E7%89%88%E6%9C%AC/fvm_dir.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/FVM%E5%88%87%E6%8D%A2Flutter%E7%89%88%E6%9C%AC/%E5%88%87%E6%8D%A2sdk%E7%89%88%E6%9C%AC.png">
@@ -383,7 +383,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/09/14/FVM%E5%88%87%E6%8D%A2Flutter%E7%89%88%E6%9C%AC/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 448(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 447(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -395,30 +395,20 @@
       
         <h1 id="使用FVM（推荐）"><a href="#使用FVM（推荐）" class="headerlink" title="使用FVM（推荐）"></a>使用FVM（推荐）</h1><p>全称 Flutter Version Manager，<a target="_blank" rel="noopener" href="https://fvm.app/">FVM官方文档</a></p>
 <h2 id="安装FVM"><a href="#安装FVM" class="headerlink" title="安装FVM"></a>安装FVM</h2><p>cmd中运行指令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dart pub global activate fvm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dart pub global activate fvm</span><br></pre></td></tr></table></figure>
 
 <p>下载完会警告你要将其路径<code>C:\Users\用户名\AppData\Local\Pub\Cache\bin</code>添加到环境变量。</p>
 <h1 id="安装指定版本的Flutter"><a href="#安装指定版本的Flutter" class="headerlink" title="安装指定版本的Flutter"></a>安装指定版本的Flutter</h1><p>在下载Flutter SDK前，最好先修改SDK的默认存放路径：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">fvm config --cache-path <span class="token operator">&lt;</span>CACHE_PATH<span class="token operator">></span>
-
-<span class="token comment"># 如我的配置</span>
-fvm config --cache-path D:<span class="token punctuation">\</span>fvm<span class="token punctuation">\</span>versions<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fvm config --cache-path &lt;CACHE_PATH&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如我的配置</span></span><br><span class="line">fvm config --cache-path D:\fvm\versions</span><br></pre></td></tr></table></figure>
 
 <p>查看配置：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">fvm config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fvm config</span><br></pre></td></tr></table></figure>
 
 <p>安装FlutterSDK：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">fvm <span class="token function">install</span> <span class="token punctuation">&#123;</span>version<span class="token punctuation">&#125;</span>
-
-<span class="token comment"># 如：</span>
-fvm <span class="token function">install</span> <span class="token number">3.10</span>.5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fvm install &#123;version&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如：</span></span><br><span class="line">fvm install 3.10.5</span><br></pre></td></tr></table></figure>
 
 <p>查询所有Flutter版本并切换Flutter版本</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">fvm list                <span class="token comment"># 查看所有Flutter版本</span>
-
-fvm global <span class="token punctuation">&#123;</span>version<span class="token punctuation">&#125;</span>    <span class="token comment"># 设置全局Flutter版本</span>
-
-fvm doctor              <span class="token comment"># 检查</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fvm list                <span class="comment"># 查看所有Flutter版本</span></span><br><span class="line"></span><br><span class="line">fvm global &#123;version&#125;    <span class="comment"># 设置全局Flutter版本</span></span><br><span class="line"></span><br><span class="line">fvm doctor              <span class="comment"># 检查</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="处理原先的SDK和配置"><a href="#处理原先的SDK和配置" class="headerlink" title="处理原先的SDK和配置"></a>处理原先的SDK和配置</h2><p>此时fvm目录下文件结构应该是：</p>
 <p><img src="/images/FVM%E5%88%87%E6%8D%A2Flutter%E7%89%88%E6%9C%AC/fvm_dir.png" alt="fvm目录"></p>
@@ -428,16 +418,16 @@ fvm doctor              <span class="token comment"># 检查</span><span aria-hi
 <p>fvm还支持不同项目的自定义配置，更多指令详见<a target="_blank" rel="noopener" href="https://fvm.app/">FVM官方文档</a></p>
 <h1 id="直接拉取新版本仓库"><a href="#直接拉取新版本仓库" class="headerlink" title="直接拉取新版本仓库"></a>直接拉取新版本仓库</h1><p>参考文章：<a target="_blank" rel="noopener" href="http://www.taodudu.cc/news/show-3618721.html">http://www.taodudu.cc/news/show-3618721.html</a></p>
 <h2 id="切换-Flutter-SDK-分支"><a href="#切换-Flutter-SDK-分支" class="headerlink" title="切换 Flutter SDK 分支"></a>切换 Flutter SDK 分支</h2><p>进入安装 flutter sdk 的文件夹，终端输入</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout <span class="token number">3.10</span>.1     <span class="token comment"># 3.10.1 换成要切换到的版本号</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 3.10.1     <span class="comment"># 3.10.1 换成要切换到的版本号</span></span><br></pre></td></tr></table></figure>
 
 <p>将sdk切换到其他版本。</p>
 <p><img src="/images/FVM%E5%88%87%E6%8D%A2Flutter%E7%89%88%E6%9C%AC/%E5%88%87%E6%8D%A2sdk%E7%89%88%E6%9C%AC.png" alt="切换sdk版本"></p>
 <h2 id="Flutter-Doctor-更新-Dart-SDK-及工具包"><a href="#Flutter-Doctor-更新-Dart-SDK-及工具包" class="headerlink" title="Flutter Doctor 更新 Dart SDK 及工具包"></a>Flutter Doctor 更新 Dart SDK 及工具包</h2><p>终端输入</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">flutter doctor<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor</span><br></pre></td></tr></table></figure>
 
 <p>进行flutter检查，会自动帮你装上与flutter版本对应的 dart sdk 及相关的工具包。</p>
 <p>最后终端输入</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">flutter <span class="token parameter variable">--version</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter --version</span><br></pre></td></tr></table></figure>
 
 <p>检查版本是否切换成功。</p>
 <p><img src="/images/FVM%E5%88%87%E6%8D%A2Flutter%E7%89%88%E6%9C%AC/flutter_doctor.png" alt="flutter_doctor"></p>

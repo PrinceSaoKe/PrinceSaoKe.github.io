@@ -18,12 +18,12 @@
   
   
   <title>MySQL笔记 | 骚客.的个人博客</title>
-  <meta name="description" content="很全的MySQL常用指令 安装MySQL在官方下载地址下载压缩包。  解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如D:\mysql-8.0.33-winx64\bin。 在MySQL的bin文件夹里新建文件my.ini，文件内容为： [mysqld] # 设置mysql的安装目录(能看到bin即可) basedir&amp;#x">
+  <meta name="description" content="很全的MySQL常用指令 安装MySQL在官方下载地址下载压缩包。  解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如D:\mysql-8.0.33-winx64\bin。 在MySQL的bin文件夹里新建文件my.ini，文件内容为： 123456789[mysqld]# 设置mysql的安装目录(能看到bin即可)bas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL笔记">
 <meta property="og:url" content="http://princesaoke.github.io/2023/11/22/MySQL%E7%AC%94%E8%AE%B0/">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="很全的MySQL常用指令 安装MySQL在官方下载地址下载压缩包。  解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如D:\mysql-8.0.33-winx64\bin。 在MySQL的bin文件夹里新建文件my.ini，文件内容为： [mysqld] # 设置mysql的安装目录(能看到bin即可) basedir&amp;#x">
+<meta property="og:description" content="很全的MySQL常用指令 安装MySQL在官方下载地址下载压缩包。  解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如D:\mysql-8.0.33-winx64\bin。 在MySQL的bin文件夹里新建文件my.ini，文件内容为： 123456789[mysqld]# 设置mysql的安装目录(能看到bin即可)bas">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/MySQL%E7%AC%94%E8%AE%B0/mysql_download.png">
 <meta property="article:published_time" content="2023-11-22T08:03:48.000Z">
@@ -381,7 +381,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/11/22/MySQL%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 982(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 977(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
@@ -396,41 +396,15 @@
 <p><img src="/images/MySQL%E7%AC%94%E8%AE%B0/mysql_download.png" alt="mysql_download"></p>
 <p>解压到要保存的路径，在 环境变量 -&gt; 系统变量 -&gt; Path 里面添加一行，指向MySQL的bin目录，如<code>D:\mysql-8.0.33-winx64\bin</code>。</p>
 <p>在MySQL的bin文件夹里新建文件<code>my.ini</code>，文件内容为：</p>
-<pre class="line-numbers language-none"><code class="language-none">[mysqld]
-# 设置mysql的安装目录(能看到bin即可)
-basedir&#x3D;D:\mysql-8.0.33-winx64\
-# 设置mysql的数据存放目录
-datadir&#x3D;D:\mysql-8.0.33-winx64\data\
-# mysql端口
-port&#x3D;3306
-# 跳过授权
-skip-grant-tables<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"># 设置mysql的安装目录(能看到bin即可)</span><br><span class="line">basedir=D:\mysql-8.0.33-winx64\</span><br><span class="line"># 设置mysql的数据存放目录</span><br><span class="line">datadir=D:\mysql-8.0.33-winx64\data\</span><br><span class="line"># mysql端口</span><br><span class="line">port=3306</span><br><span class="line"># 跳过授权</span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure>
 
 <p>记得把其中的路径换成你自己的安装路径。</p>
 <p>然后以管理员身份打开cmd，进入MySQL的bin目录，输入：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装 mysql 服务</span>
-mysqld –install
-
-<span class="token comment"># 初始化 data 文件夹 （你可以初始化多次，但是每次必须清空data文件夹）</span>
-mysqld --initialize-insecure <span class="token parameter variable">--user</span><span class="token operator">=</span>mysql
-
-<span class="token comment"># 启动 mysql 服务</span>
-net start mysql
-
-<span class="token comment"># 登录 mysql(让你输密码，直接回车即可)</span>
-mysql <span class="token parameter variable">-uroot</span> <span class="token parameter variable">-p</span>
-
-<span class="token comment"># 修改 root 账户密码</span>
-ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'localhost'</span> IDENTIFIED WITH <span class="token string">'mysql_native_password'</span> BY <span class="token string">'新密码'</span><span class="token punctuation">;</span>
-
-<span class="token comment"># 刷新权限，使之生效</span>
-flush privileges<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 mysql 服务</span></span><br><span class="line">mysqld –install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 data 文件夹 （你可以初始化多次，但是每次必须清空data文件夹）</span></span><br><span class="line">mysqld --initialize-insecure --user=mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 mysql 服务</span></span><br><span class="line">net start mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录 mysql(让你输密码，直接回车即可)</span></span><br><span class="line">mysql -uroot -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 root 账户密码</span></span><br><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED WITH <span class="string">&#x27;mysql_native_password&#x27;</span> BY <span class="string">&#x27;新密码&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 刷新权限，使之生效</span></span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
 
 <p>然后将my.ini里跳过授权给注释掉<code># skip-grant-tables</code></p>
 <p>输入<code>\q</code>退出登录MySQL，然后重启MySQL用新设置的密码登录即可：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">net stop mysql
-net start mysql
-mysql <span class="token parameter variable">-uroot</span> <span class="token parameter variable">-p</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br><span class="line">net start mysql</span><br><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
 
 <p><code>mysql -uroot -p</code>这句意思是用户名为<code>root</code>，也可以在<code>-p</code>后直接跟密码，这样密码是可见的。</p>
 <h2 id="Windows-Server-2022-上遇到的问题"><a href="#Windows-Server-2022-上遇到的问题" class="headerlink" title="Windows Server 2022 上遇到的问题"></a>Windows Server 2022 上遇到的问题</h2><h3 id="安装MySQL和初始化data文件夹时报错：找不到MSVCP140-dll文件"><a href="#安装MySQL和初始化data文件夹时报错：找不到MSVCP140-dll文件" class="headerlink" title="安装MySQL和初始化data文件夹时报错：找不到MSVCP140.dll文件"></a>安装MySQL和初始化data文件夹时报错：找不到<code>MSVCP140.dll</code>文件</h3><p>解决方法：安装 Microsoft Visual C++ Redistributable 客户端库，<a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/download/details.aspx?id=48145">点击前往下载</a>。</p>
@@ -438,61 +412,34 @@ mysql <span class="token parameter variable">-uroot</span> <span class="token pa
 <h1 id="远程连接数据库"><a href="#远程连接数据库" class="headerlink" title="远程连接数据库"></a>远程连接数据库</h1><h2 id="开放MySQL端口"><a href="#开放MySQL端口" class="headerlink" title="开放MySQL端口"></a>开放MySQL端口</h2><p>首先要确保服务器的MySQL端口是放行的，在my.ini中我们设置了3306端口。</p>
 <p>以阿里云服务器为例，在安全组中手动添加访问规则，目的端口3306，源0.0.0.0。</p>
 <p>若端口没有放行，则会有以下报错：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ERROR <span class="token number">2003</span> <span class="token punctuation">(</span>HY000<span class="token punctuation">)</span>: Can<span class="token string">'t connect to MySQL server on '</span>XXX.XXX.XXX.XXX:3306' <span class="token punctuation">(</span><span class="token number">10060</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 2003 (HY000): Can<span class="string">&#x27;t connect to MySQL server on &#x27;</span>XXX.XXX.XXX.XXX:3306<span class="string">&#x27; (10060)</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="设置远程登录权限"><a href="#设置远程登录权限" class="headerlink" title="设置远程登录权限"></a>设置远程登录权限</h2><p>在服务器上登录MySQL，然后输入：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">use mysql;
-update user set host&#x3D;&#39;%&#39; where user&#x3D;&#39;root&#39;; &#x2F;&#x2F; 开放远程登录权限
-flush privileges;   &#x2F;&#x2F; 刷新权限<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">update user set host=&#x27;%&#x27; where user=&#x27;root&#x27;; // 开放远程登录权限</span><br><span class="line">flush privileges;   // 刷新权限</span><br></pre></td></tr></table></figure>
 
 <p>若没开启权限，则报错：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ERROR <span class="token number">1130</span> <span class="token punctuation">(</span>HY000<span class="token punctuation">)</span>: Host <span class="token string">'XXX.XXX.XXX.XXX'</span> is not allowed to connect to this MySQL server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1130 (HY000): Host <span class="string">&#x27;XXX.XXX.XXX.XXX&#x27;</span> is not allowed to connect to this MySQL server</span><br></pre></td></tr></table></figure>
 
 <h2 id="远程登录MySQL"><a href="#远程登录MySQL" class="headerlink" title="远程登录MySQL"></a>远程登录MySQL</h2><p>在自己的电脑上打开cmd，输入：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysql -h主机地址 -u用户名 <span class="token parameter variable">-p</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h主机地址 -u用户名 -p</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="MySQL数据的备份"><a href="#MySQL数据的备份" class="headerlink" title="MySQL数据的备份"></a>MySQL数据的备份</h1><p>终端进入MySQL安装目录下的bin目录，执行指令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mysqldump <span class="token parameter variable">-uroot</span> <span class="token parameter variable">-p</span> 数据库名 <span class="token operator">></span> 备份文件路径及文件名
-
-<span class="token comment"># 如：</span>
-mysqldump <span class="token parameter variable">-uroot</span> <span class="token parameter variable">-p</span> flower_shop <span class="token operator">></span> flower_shop_backup.sql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -uroot -p 数据库名 &gt; 备份文件路径及文件名</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如：</span></span><br><span class="line">mysqldump -uroot -p flower_shop &gt; flower_shop_backup.sql</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="MySQL备份数据的还原"><a href="#MySQL备份数据的还原" class="headerlink" title="MySQL备份数据的还原"></a>MySQL备份数据的还原</h1><p>登录MySQL后执行以下指令：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">create database 数据库名称;  &#x2F;&#x2F; 创建一个新的数据库用于承载迁移来的数据
-use 数据库名称;              &#x2F;&#x2F; 切换到该数据库
-source 文件路径;             &#x2F;&#x2F; 导入备份数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create database 数据库名称;  // 创建一个新的数据库用于承载迁移来的数据</span><br><span class="line">use 数据库名称;              // 切换到该数据库</span><br><span class="line">source 文件路径;             // 导入备份数据</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="存储过程-Procedure"><a href="#存储过程-Procedure" class="headerlink" title="存储过程 &#x2F; Procedure"></a>存储过程 &#x2F; Procedure</h1><p>相当于编程语言中的方法，定义SQL语句模板，可以传参调用。</p>
 <p>创建一个存储过程，用于查询某种花的价格，调用后删除：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">delimiter $$
-create procedure getFlowerPrice(in name varchar(15))
-begin
-    select price from flower where flower.name&#x3D;name;
-end $$
-delimiter ;
-
-call getFlowerPrice(&#39;红玫瑰&#39;);
-
-drop procedure getFlowerPrice;  # 删除存储过程<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">delimiter $$</span><br><span class="line">create procedure getFlowerPrice(in name varchar(15))</span><br><span class="line">begin</span><br><span class="line">    select price from flower where flower.name=name;</span><br><span class="line">end $$</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line">call getFlowerPrice(&#x27;红玫瑰&#x27;);</span><br><span class="line"></span><br><span class="line">drop procedure getFlowerPrice;  # 删除存储过程</span><br></pre></td></tr></table></figure>
 
 <p>其中<code>delimiter</code>作用是修改SQL语句结束符，避免存储过程中的<code>;</code>和语句结束符混淆。</p>
 <h1 id="触发器-Trigger"><a href="#触发器-Trigger" class="headerlink" title="触发器 &#x2F; Trigger"></a>触发器 &#x2F; Trigger</h1><p>在数据插入、修改、删除时自动执行某些操作，可用于数据库日志记录等。</p>
 <p>创建一个触发器，当录入一种花但未给出花语时，将花语设为“暂无”：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">delimiter $$
-create trigger my_trigger before insert on flower for each row
-begin
-    if new.flower_language is null then
-        set new.flower_language&#x3D;&#39;暂无&#39;;
-    end if;
-end $$
-delimiter ;
-
-show triggers;  # 查看触发器
-
-drop trigger flower_shop.my_trigger;    # 删除触发器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">delimiter $$</span><br><span class="line">create trigger my_trigger before insert on flower for each row</span><br><span class="line">begin</span><br><span class="line">    if new.flower_language is null then</span><br><span class="line">        set new.flower_language=&#x27;暂无&#x27;;</span><br><span class="line">    end if;</span><br><span class="line">end $$</span><br><span class="line">delimiter ;</span><br><span class="line"></span><br><span class="line">show triggers;  # 查看触发器</span><br><span class="line"></span><br><span class="line">drop trigger flower_shop.my_trigger;    # 删除触发器</span><br></pre></td></tr></table></figure>
 
       
     </div>

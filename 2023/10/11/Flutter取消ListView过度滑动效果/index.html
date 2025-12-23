@@ -18,12 +18,12 @@
   
   
   <title>Flutter取消ListView过度滑动效果 | 骚客.的个人博客</title>
-  <meta name="description" content="不止ListView，GridView、PageView等组件同样适用。 Flutter 3.10.1 方法在ListView外包裹一个ScrollConfiguration，设置behavior参数，child就是ListView： ScrollConfiguration(   behavior: ScrollConfiguration.of(context).copyWith(overscro">
+  <meta name="description" content="不止ListView，GridView、PageView等组件同样适用。 Flutter 3.10.1 方法在ListView外包裹一个ScrollConfiguration，设置behavior参数，child就是ListView： 1234ScrollConfiguration(  behavior: ScrollConfiguration.of(context).copyWith(overs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flutter取消ListView过度滑动效果">
 <meta property="og:url" content="http://princesaoke.github.io/2023/10/11/Flutter%E5%8F%96%E6%B6%88ListView%E8%BF%87%E5%BA%A6%E6%BB%91%E5%8A%A8%E6%95%88%E6%9E%9C/">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="不止ListView，GridView、PageView等组件同样适用。 Flutter 3.10.1 方法在ListView外包裹一个ScrollConfiguration，设置behavior参数，child就是ListView： ScrollConfiguration(   behavior: ScrollConfiguration.of(context).copyWith(overscro">
+<meta property="og:description" content="不止ListView，GridView、PageView等组件同样适用。 Flutter 3.10.1 方法在ListView外包裹一个ScrollConfiguration，设置behavior参数，child就是ListView： 1234ScrollConfiguration(  behavior: ScrollConfiguration.of(context).copyWith(overs">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-11T07:09:38.000Z">
 <meta property="article:modified_time" content="2025-12-21T07:11:37.875Z">
@@ -379,7 +379,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/11/Flutter%E5%8F%96%E6%B6%88ListView%E8%BF%87%E5%BA%A6%E6%BB%91%E5%8A%A8%E6%95%88%E6%9E%9C/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 221(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 222(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -391,46 +391,15 @@
       
         <p>不止ListView，GridView、PageView等组件同样适用。</p>
 <h1 id="Flutter-3-10-1-方法"><a href="#Flutter-3-10-1-方法" class="headerlink" title="Flutter 3.10.1 方法"></a>Flutter 3.10.1 方法</h1><p>在ListView外包裹一个<code>ScrollConfiguration</code>，设置<code>behavior</code>参数，<code>child</code>就是ListView：</p>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">ScrollConfiguration</span><span class="token punctuation">(</span>
-  behavior<span class="token punctuation">:</span> <span class="token class-name">ScrollConfiguration</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">copyWith</span><span class="token punctuation">(</span>overscroll<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  child<span class="token punctuation">:</span> <span class="token class-name">ListView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ScrollConfiguration(</span><br><span class="line">  behavior: ScrollConfiguration.of(context).copyWith(overscroll: <span class="keyword">false</span>),</span><br><span class="line">  child: ListView(),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="Flutter-3-3-3-方法"><a href="#Flutter-3-3-3-方法" class="headerlink" title="Flutter 3.3.3 方法"></a>Flutter 3.3.3 方法</h1><p>在早些时候的3.3.3版本我是用下面这个方法的，发现换到3.10.1后失效了。依然会有过度滑动的波纹效果，但变成了白色。</p>
 <p>自定义一个类，继承ScrollBehavior，如下：</p>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token keyword">import</span> <span class="token string-literal"><span class="token string">'package:flutter/material.dart'</span></span><span class="token punctuation">;</span>
-
-<span class="token comment">// 取消ListView过度滑动的水波纹效果</span>
-<span class="token keyword">class</span> <span class="token class-name">OverScrollBehavior</span> <span class="token keyword">extends</span> <span class="token class-name">ScrollBehavior</span> <span class="token punctuation">&#123;</span>
-  <span class="token metadata function">@override</span>
-  <span class="token class-name">Widget</span> <span class="token function">buildViewportChrome</span><span class="token punctuation">(</span>
-      <span class="token class-name">BuildContext</span> context<span class="token punctuation">,</span> <span class="token class-name">Widget</span> child<span class="token punctuation">,</span> <span class="token class-name">AxisDirection</span> axisDirection<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token function">getPlatform</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      <span class="token keyword">case</span> <span class="token class-name">TargetPlatform</span><span class="token punctuation">.</span>iOS<span class="token punctuation">:</span>
-        <span class="token keyword">return</span> child<span class="token punctuation">;</span>
-      <span class="token keyword">case</span> <span class="token class-name">TargetPlatform</span><span class="token punctuation">.</span>android<span class="token punctuation">:</span>
-      <span class="token keyword">case</span> <span class="token class-name">TargetPlatform</span><span class="token punctuation">.</span>fuchsia<span class="token punctuation">:</span>
-      <span class="token keyword">default</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> <span class="token class-name">GlowingOverscrollIndicator</span><span class="token punctuation">(</span>
-          <span class="token comment">// 不显示头部水波纹</span>
-          showLeading<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-          <span class="token comment">// 不显示尾部水波纹</span>
-          showTrailing<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-
-          axisDirection<span class="token punctuation">:</span> axisDirection<span class="token punctuation">,</span>
-          color<span class="token punctuation">:</span> <span class="token class-name">Theme</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">.</span>colorScheme<span class="token punctuation">.</span>secondary<span class="token punctuation">,</span>
-          child<span class="token punctuation">:</span> child<span class="token punctuation">,</span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-  <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:flutter/material.dart&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消ListView过度滑动的水波纹效果</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OverScrollBehavior</span> <span class="keyword">extends</span> <span class="title">ScrollBehavior</span> </span>&#123;</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget buildViewportChrome(</span><br><span class="line">      BuildContext context, Widget child, AxisDirection axisDirection) &#123;</span><br><span class="line">    <span class="keyword">switch</span> (getPlatform(context)) &#123;</span><br><span class="line">      <span class="keyword">case</span> TargetPlatform.iOS:</span><br><span class="line">        <span class="keyword">return</span> child;</span><br><span class="line">      <span class="keyword">case</span> TargetPlatform.android:</span><br><span class="line">      <span class="keyword">case</span> TargetPlatform.fuchsia:</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> GlowingOverscrollIndicator(</span><br><span class="line">          <span class="comment">// 不显示头部水波纹</span></span><br><span class="line">          showLeading: <span class="keyword">false</span>,</span><br><span class="line">          <span class="comment">// 不显示尾部水波纹</span></span><br><span class="line">          showTrailing: <span class="keyword">false</span>,</span><br><span class="line"></span><br><span class="line">          axisDirection: axisDirection,</span><br><span class="line">          color: Theme.of(context).colorScheme.secondary,</span><br><span class="line">          child: child,</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>使用时在ListView外包裹一个<code>ScrollConfiguration</code>，<code>behavior</code>参数里实例化一个<code>OverScrollBehavior</code>即可：</p>
-<pre class="line-numbers language-dart" data-language="dart"><code class="language-dart"><span class="token class-name">ScrollConfiguration</span><span class="token punctuation">(</span>
-    behavior<span class="token punctuation">:</span> <span class="token class-name">OverScrollBehavior</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    child<span class="token punctuation">:</span> <span class="token class-name">ListView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ScrollConfiguration(</span><br><span class="line">    behavior: OverScrollBehavior(),</span><br><span class="line">    child: ListView(),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
