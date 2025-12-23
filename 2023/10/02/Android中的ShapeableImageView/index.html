@@ -18,17 +18,17 @@
   
   
   <title>Android中的ShapeableImageView | 骚客.的个人博客</title>
-  <meta name="description" content="效果如下：  声明依赖项在 app&#x2F;build.gradle.kts 中的 dependencies 添加： 123dependencies &amp;#123;    implementation(&quot;com.google.android.material:material:1.8.0&quot;)&amp;#125;  除了 ShapeableImageView ， Android Mate">
+  <meta name="description" content="效果如下：  声明依赖项在 app&#x2F;build.gradle.kts 中的 dependencies 添加： dependencies &amp;#123;     implementation(&quot;com.google.android.material:material:1.8.0&quot;) &amp;#125;  除了 ShapeableImageView ， Android Material 中还有很多其">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android中的ShapeableImageView">
-<meta property="og:url" content="http://princesaoke.github.io/2023/10/02/Android%E4%B8%AD%E7%9A%84ShapeableImageView/index.html">
+<meta property="og:url" content="http://princesaoke.github.io/2023/10/02/Android%E4%B8%AD%E7%9A%84ShapeableImageView/">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="效果如下：  声明依赖项在 app&#x2F;build.gradle.kts 中的 dependencies 添加： 123dependencies &amp;#123;    implementation(&quot;com.google.android.material:material:1.8.0&quot;)&amp;#125;  除了 ShapeableImageView ， Android Mate">
+<meta property="og:description" content="效果如下：  声明依赖项在 app&#x2F;build.gradle.kts 中的 dependencies 添加： dependencies &amp;#123;     implementation(&quot;com.google.android.material:material:1.8.0&quot;) &amp;#125;  除了 ShapeableImageView ， Android Material 中还有很多其">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/Android%E4%B8%AD%E7%9A%84ShapeableImageView/preview.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Android%E4%B8%AD%E7%9A%84ShapeableImageView/circle_image.jpg">
 <meta property="article:published_time" content="2023-10-02T08:37:53.000Z">
-<meta property="article:modified_time" content="2023-10-02T11:56:26.099Z">
+<meta property="article:modified_time" content="2025-12-21T07:09:09.780Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   
   
   
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="骚客.的个人博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="骚客.的个人博客" type="application/atom+xml">
 </head>
 
 
@@ -382,7 +382,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/02/Android%E4%B8%AD%E7%9A%84ShapeableImageView/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 254(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 205(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -394,15 +394,38 @@
       
         <p>效果如下：</p>
 <p><img src="/images/Android%E4%B8%AD%E7%9A%84ShapeableImageView/preview.png" alt="preview"></p>
-<h2 id="声明依赖项"><a href="#声明依赖项" class="headerlink" title="声明依赖项"></a>声明依赖项</h2><p>在 app&#x2F;build.gradle.kts 中的 dependencies 添加：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation(<span class="string">&quot;com.google.android.material:material:1.8.0&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="声明依赖项"><a href="#声明依赖项" class="headerlink" title="声明依赖项"></a>声明依赖项</h1><p>在 app&#x2F;build.gradle.kts 中的 dependencies 添加：</p>
+<pre class="line-numbers language-kotlin" data-language="kotlin"><code class="language-kotlin">dependencies <span class="token punctuation">&#123;</span>
+    <span class="token function">implementation</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"com.google.android.material:material:1.8.0"</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>除了 ShapeableImageView ， Android Material 中还有很多其他有用的东西，以后接触到再慢慢记录。</p>
-<h2 id="添加-style"><a href="#添加-style" class="headerlink" title="添加 style"></a>添加 style</h2><p>在 res&#x2F;values&#x2F;styles.xml 中添加：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 圆形图片 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;circle_image&quot;</span>&gt;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;cornerFamily&quot;</span>&gt;</span>rounded<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;cornerSize&quot;</span>&gt;</span>50%<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 圆角图片 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;round_image&quot;</span>&gt;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;cornerFamily&quot;</span>&gt;</span>rounded<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;cornerSize&quot;</span>&gt;</span>10dp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="添加-style"><a href="#添加-style" class="headerlink" title="添加 style"></a>添加 style</h1><p>在 res&#x2F;values&#x2F;styles.xml 中添加：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>resources</span><span class="token punctuation">></span></span>
+
+    <span class="token comment">&lt;!-- 圆形图片 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>circle_image<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+        &lt;item name=<span class="token string">"cornerFamily"</span>>rounded&lt;/item>
+        &lt;item name=<span class="token string">"cornerSize"</span>>50%&lt;/item>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+
+    <span class="token comment">&lt;!-- 圆角图片 --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>round_image<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+        &lt;item name=<span class="token string">"cornerFamily"</span>>rounded&lt;/item>
+        &lt;item name=<span class="token string">"cornerSize"</span>>10dp&lt;/item>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>resources</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h2 id="使用-ShapeableImageView"><a href="#使用-ShapeableImageView" class="headerlink" title="使用 ShapeableImageView"></a>使用 ShapeableImageView</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">com.google.android.material.imageview.ShapeableImageView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">&quot;@+id/circle_image&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;64dp&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;64dp&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:contentDescription</span>=<span class="string">&quot;@null&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:scaleType</span>=<span class="string">&quot;centerCrop&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:shapeAppearance</span>=<span class="string">&quot;@style/circle_image&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="使用-ShapeableImageView"><a href="#使用-ShapeableImageView" class="headerlink" title="使用 ShapeableImageView"></a>使用 ShapeableImageView</h1><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>com.google.android.material.imageview.ShapeableImageView</span>
+    <span class="token attr-name"><span class="token namespace">android:</span>id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@+id/circle_image<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>64dp<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>64dp<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">android:</span>contentDescription</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@null<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">android:</span>scaleType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>centerCrop<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">app:</span>shapeAppearance</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@style/circle_image<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>若要描边效果，则加上以下属性：</p>
 <table>

@@ -18,19 +18,19 @@
   
   
   <title>Redis笔记 | 骚客.的个人博客</title>
-  <meta name="description" content="Redis官方文档 Redis速成（小白也可掌握） 安装Linux终端输入： 12345sudo apt install redis-server   # 安装Redisredis-cli --version             # 安装后查看Redis版本sudo nano &#x2F;etc&#x2F;redis&#x2F;redis.conf # 修改Redis配置  在redis.conf文件中进行如下修改： 12">
+  <meta name="description" content="Redis官方文档 Redis速成（小白也可掌握） 安装Linux终端输入： sudo apt install redis-server   # 安装Redis  redis-cli --version             # 安装后查看Redis版本  sudo nano &#x2F;etc&#x2F;redis&#x2F;redis.conf # 修改Redis配置  在redis.conf文件中进行如下修改： # 将">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis笔记">
-<meta property="og:url" content="http://princesaoke.github.io/2025/01/22/Redis%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="http://princesaoke.github.io/2025/01/22/Redis%E7%AC%94%E8%AE%B0/">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="Redis官方文档 Redis速成（小白也可掌握） 安装Linux终端输入： 12345sudo apt install redis-server   # 安装Redisredis-cli --version             # 安装后查看Redis版本sudo nano &#x2F;etc&#x2F;redis&#x2F;redis.conf # 修改Redis配置  在redis.conf文件中进行如下修改： 12">
+<meta property="og:description" content="Redis官方文档 Redis速成（小白也可掌握） 安装Linux终端输入： sudo apt install redis-server   # 安装Redis  redis-cli --version             # 安装后查看Redis版本  sudo nano &#x2F;etc&#x2F;redis&#x2F;redis.conf # 修改Redis配置  在redis.conf文件中进行如下修改： # 将">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/Redis%E7%AC%94%E8%AE%B0/cache_db.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Redis%E7%AC%94%E8%AE%B0/db_cache.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Redis%E7%AC%94%E8%AE%B0/hcjc_hcs.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Redis%E7%AC%94%E8%AE%B0/hcjc_ljgq.png">
 <meta property="article:published_time" content="2025-01-22T15:46:18.000Z">
-<meta property="article:modified_time" content="2025-05-01T09:45:02.893Z">
+<meta property="article:modified_time" content="2025-12-22T07:10:21.503Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
@@ -48,7 +48,7 @@
   
   
   
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="骚客.的个人博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="骚客.的个人博客" type="application/atom+xml">
 </head>
 
 
@@ -384,7 +384,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2025/01/22/Redis%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.6k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
@@ -396,16 +396,30 @@
       
         <p><a target="_blank" rel="noopener" href="https://redis.io/commands">Redis官方文档</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_50569789/article/details/126218139">Redis速成（小白也可掌握）</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Linux终端输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install redis-server   # 安装Redis</span><br><span class="line"></span><br><span class="line">redis-cli --version             # 安装后查看Redis版本</span><br><span class="line"></span><br><span class="line">sudo nano /etc/redis/redis.conf # 修改Redis配置</span><br></pre></td></tr></table></figure>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>Linux终端输入：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> redis-server   <span class="token comment"># 安装Redis</span>
+
+redis-cli <span class="token parameter variable">--version</span>             <span class="token comment"># 安装后查看Redis版本</span>
+
+<span class="token function">sudo</span> <span class="token function">nano</span> /etc/redis/redis.conf <span class="token comment"># 修改Redis配置</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在<code>redis.conf</code>文件中进行如下修改：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 将绑定地址改为 0.0.0.0，让Redis可远程访问</span><br><span class="line"># bind 127.0.0.1 ::1</span><br><span class="line">bind 0.0.0.0</span><br><span class="line"></span><br><span class="line">#取消注释 requirepass 启动密码认证，后面跟Redis密码</span><br><span class="line">requirepass 自定义密码</span><br><span class="line"></span><br><span class="line"># 以守护进程运行Redis</span><br><span class="line">daemonize yes</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-conf" data-language="conf"><code class="language-conf"># 将绑定地址改为 0.0.0.0，让Redis可远程访问
+# bind 127.0.0.1 ::1
+bind 0.0.0.0
+
+#取消注释 requirepass 启动密码认证，后面跟Redis密码
+requirepass 自定义密码
+
+# 以守护进程运行Redis
+daemonize yes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>修改保存后重新启动Redis并登录：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart redis-server  # 启动Redis</span><br><span class="line"></span><br><span class="line">redis-cli -h 127.0.0.1 -p 6379 -a 密码  # 登录</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl restart redis-server  <span class="token comment"># 启动Redis</span>
 
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>Redis有5种最常用的数据类型：</p>
+redis-cli <span class="token parameter variable">-h</span> <span class="token number">127.0</span>.0.1 <span class="token parameter variable">-p</span> <span class="token number">6379</span> <span class="token parameter variable">-a</span> 密码  <span class="token comment"># 登录</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>Redis有5种最常用的数据类型：</p>
 <table>
 <thead>
 <tr>
@@ -440,29 +454,91 @@
 <td align="left">有序集合，元素不可重复</td>
 </tr>
 </tbody></table>
-<h2 id="操作命令"><a href="#操作命令" class="headerlink" title="操作命令"></a>操作命令</h2><p>可以在<a target="_blank" rel="noopener" href="https://redis.io/commands">Redis官方文档</a>查询。</p>
-<h4 id="String-类型"><a href="#String-类型" class="headerlink" title="String 类型"></a>String 类型</h4><p>存储：<code>set key value</code></p>
+<h1 id="操作命令"><a href="#操作命令" class="headerlink" title="操作命令"></a>操作命令</h1><p>可以在<a target="_blank" rel="noopener" href="https://redis.io/commands">Redis官方文档</a>查询。</p>
+<h2 id="String-类型"><a href="#String-类型" class="headerlink" title="String 类型"></a>String 类型</h2><p>存储：<code>set key value</code></p>
 <p>获取</p>
-<h2 id="SpringBoot-操作-Redis"><a href="#SpringBoot-操作-Redis" class="headerlink" title="SpringBoot 操作 Redis"></a>SpringBoot 操作 Redis</h2><p>可使用<code>SpringDataRedis</code>。 引入依赖：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-pool2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="SpringBoot-操作-Redis"><a href="#SpringBoot-操作-Redis" class="headerlink" title="SpringBoot 操作 Redis"></a>SpringBoot 操作 Redis</h1><p>可使用<code>SpringDataRedis</code>。 引入依赖：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-data-redis<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.commons<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>commons-pool2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>SpringDataRedis为了能使用对象作为键和值，实现了自动的序列化与反序列化。如果不经过自主配置，默认会对字符串键进行繁琐的序列化操作。</p>
 <p>配置序列化方式：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RedisConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> RedisTemplate&lt;String, Object&gt; <span class="title function_">redisTemplate</span><span class="params">(RedisConnectionFactory connectionFactory)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建 Template</span></span><br><span class="line">        RedisTemplate&lt;String, Object&gt; template = <span class="keyword">new</span> <span class="title class_">RedisTemplate</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置连接工厂</span></span><br><span class="line">        template.setConnectionFactory(connectionFactory);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// key 和 value 使用 string 序列化</span></span><br><span class="line">        template.setKeySerializer(RedisSerializer.string());</span><br><span class="line">        template.setHashKeySerializer(RedisSerializer.string());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// value 和 hashValue 使用 json 序列化</span></span><br><span class="line">        <span class="type">GenericJackson2JsonRedisSerializer</span> <span class="variable">jsonSerializer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">GenericJackson2JsonRedisSerializer</span>();</span><br><span class="line">        template.setValueSerializer(jsonSerializer);</span><br><span class="line">        template.setHashValueSerializer(jsonSerializer);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> template;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RedisConfig</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">RedisTemplate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> <span class="token function">redisTemplate</span><span class="token punctuation">(</span><span class="token class-name">RedisConnectionFactory</span> connectionFactory<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 创建 Template</span>
+        <span class="token class-name">RedisTemplate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> template <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RedisTemplate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// 设置连接工厂</span>
+        template<span class="token punctuation">.</span><span class="token function">setConnectionFactory</span><span class="token punctuation">(</span>connectionFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// key 和 value 使用 string 序列化</span>
+        template<span class="token punctuation">.</span><span class="token function">setKeySerializer</span><span class="token punctuation">(</span><span class="token class-name">RedisSerializer</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        template<span class="token punctuation">.</span><span class="token function">setHashKeySerializer</span><span class="token punctuation">(</span><span class="token class-name">RedisSerializer</span><span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// value 和 hashValue 使用 json 序列化</span>
+        <span class="token class-name">GenericJackson2JsonRedisSerializer</span> jsonSerializer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GenericJackson2JsonRedisSerializer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        template<span class="token punctuation">.</span><span class="token function">setValueSerializer</span><span class="token punctuation">(</span>jsonSerializer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        template<span class="token punctuation">.</span><span class="token function">setHashValueSerializer</span><span class="token punctuation">(</span>jsonSerializer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> template<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>但由于使用JSON序列化器需要Redis中额外记录包名用于反序列化，占用了太多空间，实际开发中一般直接使用<code>StringRedisTemplate</code>，程序员自己利用fastJson等工具转换JSON。</p>
 <p>代码示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RedisTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> StringRedisTemplate stringRedisTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RedisTemplate&lt;String, Object&gt; jsonRedisTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">stringRedisTemplateTest</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// String 类型操作</span></span><br><span class="line">        stringRedisTemplate.opsForValue().set(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;骚客&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> stringRedisTemplate.opsForValue().get(<span class="string">&quot;name&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Hash 类型操作</span></span><br><span class="line">        HashMap&lt;String, String&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;telephone&quot;</span>, <span class="string">&quot;13888888888&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;password&quot;</span>, <span class="string">&quot;123456&quot;</span>);</span><br><span class="line">        stringRedisTemplate.opsForHash().putAll(<span class="string">&quot;admin&quot;</span>, map);</span><br><span class="line">        Map&lt;Object, Object&gt; mapResult = stringRedisTemplate.opsForHash().entries(<span class="string">&quot;admin&quot;</span>);</span><br><span class="line"></span><br><span class="line">        stringRedisTemplate.opsForHash().put(<span class="string">&quot;key&quot;</span>, <span class="string">&quot;field&quot;</span>, <span class="string">&quot;value&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">fieldResult</span> <span class="operator">=</span> (String) stringRedisTemplate.opsForHash().get(<span class="string">&quot;key&quot;</span>, <span class="string">&quot;field&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">jsonSerializerTest</span><span class="params">()</span> &#123;</span><br><span class="line">        jsonRedisTemplate.opsForValue().set(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;骚客&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> (String) jsonRedisTemplate.opsForValue().get(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SpringBootTest</span>
+<span class="token keyword">class</span> <span class="token class-name">RedisTest</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">StringRedisTemplate</span> stringRedisTemplate<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> <span class="token class-name">RedisTemplate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> jsonRedisTemplate<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">stringRedisTemplateTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// String 类型操作</span>
+        stringRedisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"骚客"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> name <span class="token operator">=</span> stringRedisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Hash 类型操作</span>
+        <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"telephone"</span><span class="token punctuation">,</span> <span class="token string">"13888888888"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"password"</span><span class="token punctuation">,</span> <span class="token string">"123456"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        stringRedisTemplate<span class="token punctuation">.</span><span class="token function">opsForHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">putAll</span><span class="token punctuation">(</span><span class="token string">"admin"</span><span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> mapResult <span class="token operator">=</span> stringRedisTemplate<span class="token punctuation">.</span><span class="token function">opsForHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token string">"admin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        stringRedisTemplate<span class="token punctuation">.</span><span class="token function">opsForHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">,</span> <span class="token string">"field"</span><span class="token punctuation">,</span> <span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> fieldResult <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> stringRedisTemplate<span class="token punctuation">.</span><span class="token function">opsForHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">,</span> <span class="token string">"field"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">jsonSerializerTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        jsonRedisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> <span class="token string">"骚客"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">String</span> name <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">)</span> jsonRedisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h2 id="缓存更新策略"><a href="#缓存更新策略" class="headerlink" title="缓存更新策略"></a>缓存更新策略</h2><p>可分为三类主动更新Redis的方案。</p>
-<h4 id="Write-Through（写穿）"><a href="#Write-Through（写穿）" class="headerlink" title="Write Through（写穿）"></a>Write Through（写穿）</h4><h4 id="Write-Back（写回）"><a href="#Write-Back（写回）" class="headerlink" title="Write Back（写回）"></a>Write Back（写回）</h4><p>只操作缓存，由其他线程异步地将缓存更新到数据库，保证最终一致。</p>
-<h4 id="Cache-Aside（旁路缓存）"><a href="#Cache-Aside（旁路缓存）" class="headerlink" title="Cache Aside（旁路缓存）"></a>Cache Aside（旁路缓存）</h4><p>由程序员在代码中更新数据的同时操作缓存。</p>
+<h1 id="缓存更新策略"><a href="#缓存更新策略" class="headerlink" title="缓存更新策略"></a>缓存更新策略</h1><p>可分为三类主动更新Redis的方案。</p>
+<h2 id="Write-Through（写穿）"><a href="#Write-Through（写穿）" class="headerlink" title="Write Through（写穿）"></a>Write Through（写穿）</h2><h2 id="Write-Back（写回）"><a href="#Write-Back（写回）" class="headerlink" title="Write Back（写回）"></a>Write Back（写回）</h2><p>只操作缓存，由其他线程异步地将缓存更新到数据库，保证最终一致。</p>
+<h2 id="Cache-Aside（旁路缓存）"><a href="#Cache-Aside（旁路缓存）" class="headerlink" title="Cache Aside（旁路缓存）"></a>Cache Aside（旁路缓存）</h2><p>由程序员在代码中更新数据的同时操作缓存。</p>
 <p>需要注意线程安全。操作数据库和缓存的先后顺序的两种情况都会导致数据不一致。</p>
 <p><img src="/images/Redis%E7%AC%94%E8%AE%B0/cache_db.png" alt="先删除缓存再操作数据库"></p>
 <p><img src="/images/Redis%E7%AC%94%E8%AE%B0/db_cache.png" alt="先操作数据库再删除缓存"></p>
 <p>由于第二种方法只有当Redis中无该缓存数据时才会导致不一致，且Redis操作比数据库快，不容易被中断，因此先操作数据库再删除缓存更好。</p>
-<h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p>缓存穿透是指客户端请求的数据在缓存和数据库中都不存在，这样缓存永远都不会生效，这些请求都会到达数据库。</p>
+<h1 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h1><p>缓存穿透是指客户端请求的数据在缓存和数据库中都不存在，这样缓存永远都不会生效，这些请求都会到达数据库。</p>
 <p>解决方法包括以下几种：</p>
 <ol>
 <li>缓存空对象。当数据库查询不到时在Redis中缓存一个对应的null，并设置较短的过期时间。该方法的优点是简单方便，缺点是需要额外的缓存空间，如果有攻击者一直请求不存在的数据，缓存就会被占满。</li>
@@ -471,10 +547,10 @@
 <li>对请求数据进行合法性校验，可以直接排除一些无效请求</li>
 <li>热点参数限流</li>
 </ol>
-<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p>缓存雪崩是指在同一时间大量的缓存key失效，或Redis服务器宕机，导致大量请求到达数据库。</p>
+<h1 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h1><p>缓存雪崩是指在同一时间大量的缓存key失效，或Redis服务器宕机，导致大量请求到达数据库。</p>
 <p>例如，为了给缓存预热，提前把数据批量导入缓存，导致这批缓存的过期时间是一样的，就可能出现缓存雪崩。这种问题比较好解决，给过期时间加个随机数就好了。</p>
 <p>对于Redis服务器宕机，可以搭建Redis集群，利用Redis的哨兵机制可以避免缓存雪崩。此外还可以给缓存业务添加降级限流策略，或给业务添加多级缓存，如Nginx、JVM和Redis的多级缓存。</p>
-<h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><p>缓存击穿是指某个被高并发访问的key失效了，且重建该缓存比较耗时，则在重建缓存的过程中的大量请求都会到达数据库。</p>
+<h1 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h1><p>缓存击穿是指某个被高并发访问的key失效了，且重建该缓存比较耗时，则在重建缓存的过程中的大量请求都会到达数据库。</p>
 <p>可以加上互斥锁重建缓存，当其他请求到来时获取不到锁说明已经在重建缓存了，则休眠一段时间再尝试查询缓存直到命中。</p>
 <p><img src="/images/Redis%E7%AC%94%E8%AE%B0/hcjc_hcs.png" alt="互斥锁"></p>
 <p>但该方法所有其他线程都只能等待缓存重建，性能较差，且如果重建缓存需要得到其他服务的锁，就容易造成死锁。</p>
@@ -482,7 +558,7 @@
 <p><img src="/images/Redis%E7%AC%94%E8%AE%B0/hcjc_ljgq.png" alt="逻辑过期"></p>
 <p>这里的互斥锁可以用Redis中的<code>setnx</code>指令实现（SpringDataRedis中是<code>setIfAbsent</code>），只有在该键不存在时才能写入。<code>setnx</code>相当于获取锁，<code>del</code>删除相当于释放锁。</p>
 <p>这种方法的优点是线程无需等待性能较好，缺点是实现复杂，不能保证一致性。</p>
-<h2 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41125219/article/details/119982158">布隆(Bloom Filter)过滤器——全面讲解，建议收藏</a></p>
+<h1 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41125219/article/details/119982158">布隆(Bloom Filter)过滤器——全面讲解，建议收藏</a></p>
 
       
     </div>

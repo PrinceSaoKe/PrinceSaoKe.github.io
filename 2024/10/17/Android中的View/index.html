@@ -21,7 +21,7 @@
   <meta name="description" content="Android自定义View的基石——View工作原理总结 Android中View的更新方法：invalidate()和requestLayout() Activity创建View DecorView下是一个竖直方向的LinearLayout，包含一个id为android.R.id.content的子View，在Activity的onCreate()中调用setContentView()就是设置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android中的View">
-<meta property="og:url" content="http://princesaoke.github.io/2024/10/17/Android%E4%B8%AD%E7%9A%84View/index.html">
+<meta property="og:url" content="http://princesaoke.github.io/2024/10/17/Android%E4%B8%AD%E7%9A%84View/">
 <meta property="og:site_name" content="骚客.的个人博客">
 <meta property="og:description" content="Android自定义View的基石——View工作原理总结 Android中View的更新方法：invalidate()和requestLayout() Activity创建View DecorView下是一个竖直方向的LinearLayout，包含一个id为android.R.id.content的子View，在Activity的onCreate()中调用setContentView()就是设置">
 <meta property="og:locale" content="zh_CN">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://princesaoke.github.io/images/Android%E4%B8%AD%E7%9A%84View/layout.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Android%E4%B8%AD%E7%9A%84View/draw.png">
 <meta property="article:published_time" content="2024-10-16T16:37:03.000Z">
-<meta property="article:modified_time" content="2024-10-16T19:23:22.081Z">
+<meta property="article:modified_time" content="2025-12-21T07:09:35.205Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
@@ -49,7 +49,7 @@
   
   
   
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="骚客.的个人博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="骚客.的个人博客" type="application/atom+xml">
 </head>
 
 
@@ -397,11 +397,11 @@
       
         <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7f635283067e">Android自定义View的基石——View工作原理总结</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b6437e4b81ac">Android中View的更新方法：invalidate()和requestLayout()</a></p>
-<h2 id="Activity创建View"><a href="#Activity创建View" class="headerlink" title="Activity创建View"></a>Activity创建View</h2><p><img src="/images/Android%E4%B8%AD%E7%9A%84View/view_level.png" alt="视图层级"></p>
+<h1 id="Activity创建View"><a href="#Activity创建View" class="headerlink" title="Activity创建View"></a>Activity创建View</h1><p><img src="/images/Android%E4%B8%AD%E7%9A%84View/view_level.png" alt="视图层级"></p>
 <p>DecorView下是一个竖直方向的LinearLayout，包含一个id为<code>android.R.id.content</code>的子View，在Activity的<code>onCreate()</code>中调用<code>setContentView()</code>就是设置这个contentView。</p>
 <p>Activity的<code>onCreate()</code>方法调用之前，创建Window（PhoneWindow）<br>Activity的onCreate方法中调用<code>setContentView()</code>方法，创建<code>DecorView</code>和<code>contentView</code>，将指定的布局文件加载到contentView中<br>Activity的onResume方法调用之后，将DecorView添加到Window中，之后依次开始View的measure、layout和draw流程</p>
-<h2 id="三大流程"><a href="#三大流程" class="headerlink" title="三大流程"></a>三大流程</h2><p><code>performTraversals()</code>方法内会依次调用<code>measureHierarchy()</code>、<code>performLayout()</code>、<code>performDraw()</code>，进而开始View的三大流程：测量measure、布局layout、绘制draw</p>
-<h3 id="measure"><a href="#measure" class="headerlink" title="measure"></a>measure</h3><p>measure流程的作用是对View的大小进行测量。</p>
+<h1 id="三大流程"><a href="#三大流程" class="headerlink" title="三大流程"></a>三大流程</h1><p><code>performTraversals()</code>方法内会依次调用<code>measureHierarchy()</code>、<code>performLayout()</code>、<code>performDraw()</code>，进而开始View的三大流程：测量measure、布局layout、绘制draw</p>
+<h2 id="measure"><a href="#measure" class="headerlink" title="measure"></a>measure</h2><p>measure流程的作用是对View的大小进行测量。</p>
 <p><code>MeasureSpec</code>类，由一个32位int值表示，高2位表示SpecMode（测量模式），低30位表示SpecSize（测量尺寸大小），通过位运算实现。</p>
 <p>三种测量模式：</p>
 <ul>
@@ -426,10 +426,10 @@
 <p>ViewGroup中并没有重写onMeasure()方法，因为每个ViewGroup的布局方式都不一样，无法得出一个统一的实现方式，需要不同ViewGroup自己去实现。</p>
 <p>遍历子View，获取每个子View的MeasureSpec，然后调用每个子View的measure()方法进行测量。再根据子View的测量结果对ViewGroup自身进行测量。</p>
 <p><img src="/images/Android%E4%B8%AD%E7%9A%84View/measure_view_group.png" alt="ViewGroup的measure流程"></p>
-<h3 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h3><p>layout的作用是根据测量大小确定View的最终位置。</p>
+<h2 id="layout"><a href="#layout" class="headerlink" title="layout"></a>layout</h2><p>layout的作用是根据测量大小确定View的最终位置。</p>
 <p><img src="/images/Android%E4%B8%AD%E7%9A%84View/layout.png" alt="layout坐标系"></p>
 <p><code>layout()</code>方法中比较left、right、top、bottom是否改变，若改变则执行<code>onLayout()</code>。对于单一的View，onLayout()中不做任何事。对于ViewGroup，调用抽象的onLayout()方法（同样需要子类自己去实现），遍历子View并调用其layout()方法确定位置，不断递归。</p>
-<h3 id="draw"><a href="#draw" class="headerlink" title="draw"></a>draw</h3><p>draw的作用是将View绘制到屏幕上。</p>
+<h2 id="draw"><a href="#draw" class="headerlink" title="draw"></a>draw</h2><p>draw的作用是将View绘制到屏幕上。</p>
 <ul>
 <li>调用drawBackground()方法绘制背景</li>
 <li>调用onDraw()方法绘制自身内容</li>
@@ -439,7 +439,7 @@
 <p>其中onDraw()是抽象方法，需要不同的View自己去实现绘制方式。</p>
 <p>在单一的View中dispatchDraw()是空方法，ViewGroup则实现了其逻辑，遍历所有的子View并调用其draw()方法。</p>
 <p><img src="/images/Android%E4%B8%AD%E7%9A%84View/draw.png" alt="draw流程"></p>
-<h2 id="invalidate、postInvalidate-与-requestLayout"><a href="#invalidate、postInvalidate-与-requestLayout" class="headerlink" title="invalidate、postInvalidate 与 requestLayout"></a>invalidate、postInvalidate 与 requestLayout</h2><p>三者都是View中的方法，用于刷新视图，最终都会调用<code>ViewRootImpl</code>的<code>performTraversals()</code>方法。</p>
+<h1 id="invalidate、postInvalidate-与-requestLayout"><a href="#invalidate、postInvalidate-与-requestLayout" class="headerlink" title="invalidate、postInvalidate 与 requestLayout"></a>invalidate、postInvalidate 与 requestLayout</h1><p>三者都是View中的方法，用于刷新视图，最终都会调用<code>ViewRootImpl</code>的<code>performTraversals()</code>方法。</p>
 <ul>
 <li>invalidate不会执行<code>measure</code>和<code>layout</code>流程，只执行<code>draw</code>流程。</li>
 <li>invalidate与requestLayout都必须在主线程调用，要在子线程中刷新视图用<code>postInvalidate</code>方法</li>

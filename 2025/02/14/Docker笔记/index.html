@@ -18,17 +18,17 @@
   
   
   <title>Docker笔记 | 骚客.的个人博客</title>
-  <meta name="description" content="Docker 官方镜像仓库 Ubuntu 22.04 下 Docker 安装（最全指引） 安装以Ubuntu 20.04为例。 123456789101112131415161718192021222324252627# 安装前先卸载操作系统默认安装的 dockersudo apt-get remove docker docker-engine docker.io containerd runc#">
+  <meta name="description" content="Docker 官方镜像仓库 Ubuntu 22.04 下 Docker 安装（最全指引） 安装以Ubuntu 20.04为例。 # 安装前先卸载操作系统默认安装的 docker sudo apt-get remove docker docker-engine docker.io containerd runc  # 安装必要支持 sudo apt install apt-transport-htt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker笔记">
-<meta property="og:url" content="http://princesaoke.github.io/2025/02/14/Docker%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="http://princesaoke.github.io/2025/02/14/Docker%E7%AC%94%E8%AE%B0/">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="Docker 官方镜像仓库 Ubuntu 22.04 下 Docker 安装（最全指引） 安装以Ubuntu 20.04为例。 123456789101112131415161718192021222324252627# 安装前先卸载操作系统默认安装的 dockersudo apt-get remove docker docker-engine docker.io containerd runc#">
+<meta property="og:description" content="Docker 官方镜像仓库 Ubuntu 22.04 下 Docker 安装（最全指引） 安装以Ubuntu 20.04为例。 # 安装前先卸载操作系统默认安装的 docker sudo apt-get remove docker docker-engine docker.io containerd runc  # 安装必要支持 sudo apt install apt-transport-htt">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/Docker%E7%AC%94%E8%AE%B0/command.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Docker%E7%AC%94%E8%AE%B0/volume.png">
 <meta property="article:published_time" content="2025-02-14T08:48:08.000Z">
-<meta property="article:modified_time" content="2025-02-27T09:11:23.779Z">
+<meta property="article:modified_time" content="2025-12-21T07:10:50.039Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   
   
   
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="骚客.的个人博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="骚客.的个人博客" type="application/atom+xml">
 </head>
 
 
@@ -382,7 +382,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2025/02/14/Docker%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 976(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 974(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
@@ -394,28 +394,112 @@
       
         <p><a target="_blank" rel="noopener" href="https://hub.docker.com/">Docker 官方镜像仓库</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011278722/article/details/137673353">Ubuntu 22.04 下 Docker 安装（最全指引）</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>以<code>Ubuntu 20.04</code>为例。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装前先卸载操作系统默认安装的 docker</span></span><br><span class="line">sudo apt-get remove docker docker-engine docker.io containerd runc</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装必要支持</span></span><br><span class="line">sudo apt install apt-transport-https ca-certificates curl software-properties-common gnupg lsb-release</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用阿里源</span></span><br><span class="line">curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">阿里 apt 源</span></span><br><span class="line">echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新源</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装最新版本的 Docker</span></span><br><span class="line">sudo apt install docker-ce docker-ce-cli containerd.io</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 Docker 版本</span></span><br><span class="line">sudo docker version</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 docker 镜像</span></span><br><span class="line">sudo docker images</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 Docker 运行状态</span></span><br><span class="line">sudo systemctl status docker</span><br></pre></td></tr></table></figure>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>以<code>Ubuntu 20.04</code>为例。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装前先卸载操作系统默认安装的 docker</span>
+<span class="token function">sudo</span> <span class="token function">apt-get</span> remove <span class="token function">docker</span> docker-engine docker.io containerd runc
+
+<span class="token comment"># 安装必要支持</span>
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> apt-transport-https ca-certificates <span class="token function">curl</span> software-properties-common gnupg lsb-release
+
+<span class="token comment"># 使用阿里源</span>
+<span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg <span class="token operator">|</span> <span class="token function">sudo</span> gpg <span class="token parameter variable">--dearmor</span> <span class="token parameter variable">-o</span> /usr/share/keyrings/docker-archive-keyring.gpg
+
+<span class="token comment"># 阿里 apt 源</span>
+<span class="token builtin class-name">echo</span> <span class="token string">"deb [arch=<span class="token variable"><span class="token variable">$(</span>dpkg --print-architecture<span class="token variable">)</span></span> signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.aliyun.com/docker-ce/linux/ubuntu <span class="token variable"><span class="token variable">$(</span>lsb_release <span class="token parameter variable">-cs</span><span class="token variable">)</span></span> stable"</span> <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> /etc/apt/sources.list.d/docker.list <span class="token operator">></span> /dev/null
+
+<span class="token comment"># 更新源</span>
+<span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> update
+
+<span class="token comment"># 安装最新版本的 Docker</span>
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> docker-ce docker-ce-cli containerd.io
+
+<span class="token comment"># 查看 Docker 版本</span>
+<span class="token function">sudo</span> <span class="token function">docker</span> version
+
+<span class="token comment"># 查看 docker 镜像</span>
+<span class="token function">sudo</span> <span class="token function">docker</span> images
+
+<span class="token comment"># 查看 Docker 运行状态</span>
+<span class="token function">sudo</span> systemctl status <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>要实现远程访问，修改<code>/lib/systemd/system/docker.service</code>文件：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 找到 ExecStart 配置，注释并复制一行，在末尾加上 -H tcp://0.0.0.0:2375</span><br><span class="line"># ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span><br><span class="line">ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375</span><br><span class="line"></span><br><span class="line"># 保存退出</span><br><span class="line"></span><br><span class="line">systemctl daemon-reload</span><br><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-text" data-language="text"><code class="language-text"># 找到 ExecStart 配置，注释并复制一行，在末尾加上 -H tcp://0.0.0.0:2375
+# ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock -H tcp://0.0.0.0:2375
+
+# 保存退出
+
+systemctl daemon-reload
+service docker restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name mysql \</span><br><span class="line">    -p 3307:3306 \</span><br><span class="line">    -e TZ=Asia/Shanghai \</span><br><span class="line">    -e MYSQL_ROOT_PASSWORD=123456 \</span><br><span class="line">    mysql</span><br></pre></td></tr></table></figure>
+<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+    <span class="token parameter variable">--name</span> mysql <span class="token punctuation">\</span>
+    <span class="token parameter variable">-p</span> <span class="token number">3307</span>:3306 <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> <span class="token assign-left variable">TZ</span><span class="token operator">=</span>Asia/Shanghai <span class="token punctuation">\</span>
+    <span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span><span class="token number">123456</span> <span class="token punctuation">\</span>
+    mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>反斜杠代表未换行，所以上面实际是一行命令。每一个Docker命令都以<code>docker</code>开头，<code>run</code>表示创建一个容器并运行，<code>-d</code>是后台运行。<code>--name</code>给容器起名字，名字必须唯一。<code>-p</code>是端口映射，外部无法直接访问到容器的端口，所以需要先访问宿主机的3307端口，再映射到镜像的3306端口。<code>-e</code>是设置容器的环境变量，可以查看文档，时区一般都要改，否则容器内的时间是默认时区。最后的<code>mysql</code>是指定运行的镜像的名字，完整写法是<code>mysql:5.7</code>，后面是版本号，省略默认最新版。</p>
 <p><img src="/images/Docker%E7%AC%94%E8%AE%B0/command.png" alt="Docker常用命令"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看所有本地镜像</span></span><br><span class="line">docker images</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除指定的本地镜像</span></span><br><span class="line">docker rmi &#123;镜像名&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建容器并运行，见上面的例子</span></span><br><span class="line">docker run -d &#123;镜像名&#125;</span><br><span class="line">docker run -dit &#123;镜像名&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">运行容器</span></span><br><span class="line">docker start &#123;容器名&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止容器</span></span><br><span class="line">docker stop &#123;容器名&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">销毁容器，需要停止容器才能销毁，或 -f 强制销毁</span></span><br><span class="line">docker rm &#123;容器名&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看所有容器状态</span></span><br><span class="line">docker ps</span><br><span class="line">docker ps --format &quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Image&#125;&#125;\t&#123;&#123;.Ports&#125;&#125;\t&#123;&#123;.Status&#125;&#125;\t&#123;&#123;.Names&#125;&#125;&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入容器内部操作，-it 代表使用可交互终端的方式，bash 代表使用 bash 命令进行交互。也可以直接跟命令</span></span><br><span class="line">docker exec -it &#123;容器名&#125; bash</span><br><span class="line">docker exec -it &#123;容器名&#125; mysql -u root -p</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看容器日志</span></span><br><span class="line">docker logs &#123;容器名&#125;</span><br><span class="line">docker logs -f &#123;容器名&#125;  # 持续输出日志</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将指定镜像保存为 saved-image.tar 压缩包</span></span><br><span class="line">docker save -o saved-image.tar &#123;镜像名&#125;:latest</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 查看所有本地镜像</span>
+<span class="token function">docker</span> images
+
+<span class="token comment"># 删除指定的本地镜像</span>
+<span class="token function">docker</span> rmi <span class="token punctuation">&#123;</span>镜像名<span class="token punctuation">&#125;</span>
+
+<span class="token comment"># 创建容器并运行，见上面的例子</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">&#123;</span>镜像名<span class="token punctuation">&#125;</span>
+<span class="token function">docker</span> run <span class="token parameter variable">-dit</span> <span class="token punctuation">&#123;</span>镜像名<span class="token punctuation">&#125;</span>
+
+<span class="token comment"># 运行容器</span>
+<span class="token function">docker</span> start <span class="token punctuation">&#123;</span>容器名<span class="token punctuation">&#125;</span>
+
+<span class="token comment"># 停止容器</span>
+<span class="token function">docker</span> stop <span class="token punctuation">&#123;</span>容器名<span class="token punctuation">&#125;</span>
+
+<span class="token comment"># 销毁容器，需要停止容器才能销毁，或 -f 强制销毁</span>
+<span class="token function">docker</span> <span class="token function">rm</span> <span class="token punctuation">&#123;</span>容器名<span class="token punctuation">&#125;</span>
+
+<span class="token comment"># 查看所有容器状态</span>
+<span class="token function">docker</span> <span class="token function">ps</span>
+<span class="token function">docker</span> <span class="token function">ps</span> <span class="token parameter variable">--format</span> <span class="token string">"table &#123;&#123;.ID&#125;&#125;<span class="token entity" title="\t">\t</span>&#123;&#123;.Image&#125;&#125;<span class="token entity" title="\t">\t</span>&#123;&#123;.Ports&#125;&#125;<span class="token entity" title="\t">\t</span>&#123;&#123;.Status&#125;&#125;<span class="token entity" title="\t">\t</span>&#123;&#123;.Names&#125;&#125;"</span>
+
+<span class="token comment"># 进入容器内部操作，-it 代表使用可交互终端的方式，bash 代表使用 bash 命令进行交互。也可以直接跟命令</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> <span class="token punctuation">&#123;</span>容器名<span class="token punctuation">&#125;</span> <span class="token function">bash</span>
+<span class="token function">docker</span> <span class="token builtin class-name">exec</span> <span class="token parameter variable">-it</span> <span class="token punctuation">&#123;</span>容器名<span class="token punctuation">&#125;</span> mysql <span class="token parameter variable">-u</span> root <span class="token parameter variable">-p</span>
+
+<span class="token comment"># 查看容器日志</span>
+<span class="token function">docker</span> logs <span class="token punctuation">&#123;</span>容器名<span class="token punctuation">&#125;</span>
+<span class="token function">docker</span> logs <span class="token parameter variable">-f</span> <span class="token punctuation">&#123;</span>容器名<span class="token punctuation">&#125;</span>  <span class="token comment"># 持续输出日志</span>
+
+<span class="token comment"># 将指定镜像保存为 saved-image.tar 压缩包</span>
+<span class="token function">docker</span> save <span class="token parameter variable">-o</span> saved-image.tar <span class="token punctuation">&#123;</span>镜像名<span class="token punctuation">&#125;</span>:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h2 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h2><p>由于镜像中只有必要的环境，多数情况下没有vim，要修改容器中的文件，需要用到数据卷挂载，将容器内的目录和宿主机的目录形成映射关系。</p>
+<h1 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h1><p>由于镜像中只有必要的环境，多数情况下没有vim，要修改容器中的文件，需要用到数据卷挂载，将容器内的目录和宿主机的目录形成映射关系。</p>
 <p>数据卷挂载只能在容器创建时设置。</p>
 <p>宿主机的<code>/var/lib/docker/volumes</code>目录下存放所有的数据卷映射，其中<code>/var/lib/docker/volumes/&#123;数据卷名称&#125;/_data</code>中的文件与映射的容器内目录的文件一致，且保持同步。</p>
 <p><img src="/images/Docker%E7%AC%94%E8%AE%B0/volume.png" alt="Docker常用命令"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建数据卷</span></span><br><span class="line">docker volume create</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除指定数据卷</span></span><br><span class="line">docker volume rm</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看所有数据卷</span></span><br><span class="line">docker volume ls</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看某数据卷详情</span></span><br><span class="line">docker volume inspect</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 创建数据卷</span>
+<span class="token function">docker</span> volume create
+
+<span class="token comment"># 删除指定数据卷</span>
+<span class="token function">docker</span> volume <span class="token function">rm</span>
+
+<span class="token comment"># 查看所有数据卷</span>
+<span class="token function">docker</span> volume <span class="token function">ls</span>
+
+<span class="token comment"># 查看某数据卷详情</span>
+<span class="token function">docker</span> volume inspect<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在创建容器时添加<code>-v &#123;数据卷名&#125;:&#123;要映射的容器内目录&#125;</code>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name nginx \</span><br><span class="line">    -p 80:80 \</span><br><span class="line">    -v nginx:/usr/share/nginx/html</span><br><span class="line">    nginx</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token parameter variable">-d</span> <span class="token punctuation">\</span>
+    <span class="token parameter variable">--name</span> nginx <span class="token punctuation">\</span>
+    <span class="token parameter variable">-p</span> <span class="token number">80</span>:80 <span class="token punctuation">\</span>
+    <span class="token parameter variable">-v</span> nginx:/usr/share/nginx/html
+    nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>创建容器时，若挂载了数据卷且数据卷不存在，会自动创建数据卷。</p>
 

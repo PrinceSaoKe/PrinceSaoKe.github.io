@@ -21,16 +21,16 @@
   <meta name="description" content="并发和并行并发就是同一时刻只有一条指令在执行，但由于CPU时间片很小，多个指令间能快速切换，宏观上形成同时执行的效果。 并行则是真正意义上的同时进行。 并发三要素 原子性：在一个操作中，CPU 不可以在中途暂停然后再调度，即不被中断操作，要么执行完成，要么就不执行 可见性：多个线程访问同一个变量时，一个线程修改了这个变量的值，其他线程能够立即看得到修改的值 有序性：程序执行的顺序按照代码的先后顺序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="进程、线程和协程">
-<meta property="og:url" content="http://princesaoke.github.io/2024/06/07/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/index.html">
+<meta property="og:url" content="http://princesaoke.github.io/2024/06/07/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/">
 <meta property="og:site_name" content="骚客.的个人博客">
 <meta property="og:description" content="并发和并行并发就是同一时刻只有一条指令在执行，但由于CPU时间片很小，多个指令间能快速切换，宏观上形成同时执行的效果。 并行则是真正意义上的同时进行。 并发三要素 原子性：在一个操作中，CPU 不可以在中途暂停然后再调度，即不被中断操作，要么执行完成，要么就不执行 可见性：多个线程访问同一个变量时，一个线程修改了这个变量的值，其他线程能够立即看得到修改的值 有序性：程序执行的顺序按照代码的先后顺序">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/diagram.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/step.png">
 <meta property="article:published_time" content="2024-06-07T09:34:04.000Z">
-<meta property="article:modified_time" content="2024-11-10T09:12:54.380Z">
+<meta property="article:modified_time" content="2025-12-21T07:02:51.202Z">
 <meta property="article:author" content="骚客.">
-<meta property="article:tag" content="hexo,博客">
+<meta property="article:tag" content="骚客,hexo,博客,技术博客,blog,Android,Flutter">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://princesaoke.github.io/images/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/diagram.png">
   <!-- Canonical links -->
@@ -46,7 +46,7 @@
   
   
   
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="骚客.的个人博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="骚客.的个人博客" type="application/atom+xml">
 </head>
 
 
@@ -382,14 +382,14 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h2><p>并发就是同一时刻只有一条指令在执行，但由于CPU时间片很小，多个指令间能快速切换，宏观上形成同时执行的效果。</p>
+        <h1 id="并发和并行"><a href="#并发和并行" class="headerlink" title="并发和并行"></a>并发和并行</h1><p>并发就是同一时刻只有一条指令在执行，但由于CPU时间片很小，多个指令间能快速切换，宏观上形成同时执行的效果。</p>
 <p>并行则是真正意义上的同时进行。</p>
-<h2 id="并发三要素"><a href="#并发三要素" class="headerlink" title="并发三要素"></a>并发三要素</h2><ul>
+<h1 id="并发三要素"><a href="#并发三要素" class="headerlink" title="并发三要素"></a>并发三要素</h1><ul>
 <li>原子性：在一个操作中，CPU 不可以在中途暂停然后再调度，即不被中断操作，要么执行完成，要么就不执行</li>
 <li>可见性：多个线程访问同一个变量时，一个线程修改了这个变量的值，其他线程能够立即看得到修改的值</li>
 <li>有序性：程序执行的顺序按照代码的先后顺序执行</li>
 </ul>
-<h2 id="线程和进程的区别"><a href="#线程和进程的区别" class="headerlink" title="线程和进程的区别"></a>线程和进程的区别</h2><ul>
+<h1 id="线程和进程的区别"><a href="#线程和进程的区别" class="headerlink" title="线程和进程的区别"></a>线程和进程的区别</h1><ul>
 <li>进程是操作系统资源分配的基本单位，而线程是处理器任务调度和执行的基本单位</li>
 <li>每个进程都有独立的代码和数据空间（程序上下文），程序之间的切换会有较大的开销；线程共享代码和数据空间，每个线程都有自己独立的运行栈和程序计数器（PC），线程之间切换的开销小</li>
 <li>一个进程可以有多个线程，至少有一个主线程</li>
@@ -400,12 +400,12 @@
 <blockquote>
 <p>进程拥有独立的内存空间和资源管理机制，每次切换时需要保存和恢复更多的上下文信息；<br>而线程共享同一进程的内存和大部分资源，切换时涉及的上下文信息较少。<br>且进程切换更多发生在内核态，而同一进程内的线程切换更多发生在用户态，因此开销相对较小。</p>
 </blockquote>
-<h2 id="多进程和多线程分别有何优势？"><a href="#多进程和多线程分别有何优势？" class="headerlink" title="多进程和多线程分别有何优势？"></a>多进程和多线程分别有何优势？</h2><ul>
+<h1 id="多进程和多线程分别有何优势？"><a href="#多进程和多线程分别有何优势？" class="headerlink" title="多进程和多线程分别有何优势？"></a>多进程和多线程分别有何优势？</h1><ul>
 <li>线程之间可以更轻松的共享数据</li>
 <li>系统创建进程需要为该进程重新分配系统资源，故创建线程代价比较小</li>
 <li>线程崩溃可能导致整个进程崩溃，而进程崩溃不会影响到另一个进程</li>
 </ul>
-<h2 id="哪些是线程共享的？"><a href="#哪些是线程共享的？" class="headerlink" title="哪些是线程共享的？"></a>哪些是线程共享的？</h2><p>线程共享：</p>
+<h1 id="哪些是线程共享的？"><a href="#哪些是线程共享的？" class="headerlink" title="哪些是线程共享的？"></a>哪些是线程共享的？</h1><p>线程共享：</p>
 <ul>
 <li>全局变量和堆</li>
 <li>文件描述符，包括打开的文件、网络连接、输入输出流等，这些都是进程级别的资源</li>
@@ -415,14 +415,14 @@
 <blockquote>
 <p>……</p>
 </blockquote>
-<h2 id="Java中锁的类型"><a href="#Java中锁的类型" class="headerlink" title="Java中锁的类型"></a>Java中锁的类型</h2><ul>
+<h1 id="Java中锁的类型"><a href="#Java中锁的类型" class="headerlink" title="Java中锁的类型"></a>Java中锁的类型</h1><ul>
 <li><strong>悲观锁</strong>、<strong>乐观锁</strong>：悲观锁总是认为其他线程会修改数据，因此每次操作都上锁，如<code>synchronized</code>；乐观锁则假设其他线程不会修改数据，不上锁，如<code>CAS</code></li>
 <li><strong>公平锁</strong>、<strong>非公平锁</strong>：公平锁按申请锁的顺序获取，如<code>ReentrantLock</code>；非公平锁不保证顺序</li>
 <li><strong>自旋锁</strong>：线程循环等待直到获取锁</li>
 <li><strong>可重入锁</strong>、<strong>不可重入锁</strong>：可重入锁允许内层使用锁，不会产生死锁；不可重入锁不允许</li>
 <li><strong>共享锁&#x2F;读锁</strong>、<strong>独享锁&#x2F;写锁</strong>：共享锁允许多个执行单元同时获取锁，独享锁只允许一个</li>
 </ul>
-<h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013541140/article/details/95225769">Java 多线程：彻底搞懂线程池</a></p>
+<h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013541140/article/details/95225769">Java 多线程：彻底搞懂线程池</a></p>
 <p><img src="/images/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%8D%8F%E7%A8%8B/diagram.png" alt="继承关系"></p>
 <p><code>ThreadPoolExecutor</code>的参数：</p>
 <table>

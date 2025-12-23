@@ -21,14 +21,14 @@
   <meta name="description" content="事件循环又称消息循环。 均以Chrome浏览器为例。 浏览器的进程模型浏览器运行时有很多个进程，我们重点关注三大进程：  浏览器进程 网络进程 渲染进程（不止一个，每一个标签页就是一个渲染进程）  其中浏览器进程是打开浏览器后最先启动的，负责：  浏览器通用界面显示，如浏览器工具栏、浏览器设置等 用户交互，如监听点击、滚动等 子进程管理，浏览器其他进程均由浏览器进程开启 ……  网络进程负责加载网">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器事件循环">
-<meta property="og:url" content="http://princesaoke.github.io/2023/10/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/index.html">
+<meta property="og:url" content="http://princesaoke.github.io/2023/10/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
 <meta property="og:site_name" content="骚客.的个人博客">
 <meta property="og:description" content="事件循环又称消息循环。 均以Chrome浏览器为例。 浏览器的进程模型浏览器运行时有很多个进程，我们重点关注三大进程：  浏览器进程 网络进程 渲染进程（不止一个，每一个标签页就是一个渲染进程）  其中浏览器进程是打开浏览器后最先启动的，负责：  浏览器通用界面显示，如浏览器工具栏、浏览器设置等 用户交互，如监听点击、滚动等 子进程管理，浏览器其他进程均由浏览器进程开启 ……  网络进程负责加载网">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-22T05:47:29.000Z">
-<meta property="article:modified_time" content="2024-03-12T16:46:01.691Z">
+<meta property="article:modified_time" content="2025-12-21T07:03:15.733Z">
 <meta property="article:author" content="骚客.">
-<meta property="article:tag" content="hexo,博客">
+<meta property="article:tag" content="骚客,hexo,博客,技术博客,blog,Android,Flutter">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
   <link rel="canonical" href="http://princesaoke.github.io/2023/10/22/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/index.html">
@@ -43,7 +43,7 @@
   
   
   
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="骚客.的个人博客" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="骚客.的个人博客" type="application/atom+xml">
 </head>
 
 
@@ -386,7 +386,7 @@
       
         <p>事件循环又称消息循环。</p>
 <p>均以<code>Chrome</code>浏览器为例。</p>
-<h2 id="浏览器的进程模型"><a href="#浏览器的进程模型" class="headerlink" title="浏览器的进程模型"></a>浏览器的进程模型</h2><p>浏览器运行时有很多个进程，我们重点关注三大进程：</p>
+<h1 id="浏览器的进程模型"><a href="#浏览器的进程模型" class="headerlink" title="浏览器的进程模型"></a>浏览器的进程模型</h1><p>浏览器运行时有很多个进程，我们重点关注三大进程：</p>
 <ul>
 <li>浏览器进程</li>
 <li>网络进程</li>
@@ -401,7 +401,7 @@
 </ul>
 <p><code>网络进程</code>负责加载网络资源。网络进程内部会启动多个线程来处理不同的网络任务。</p>
 <p><code>渲染进程</code>可以有多个，每一个标签页就是一个渲染进程，该进程包括一个<code>渲染主线程</code>和其他多个子线程。</p>
-<h2 id="渲染主线程是如何工作的"><a href="#渲染主线程是如何工作的" class="headerlink" title="渲染主线程是如何工作的"></a>渲染主线程是如何工作的</h2><p>渲染主线程的任务包括但不限于：</p>
+<h1 id="渲染主线程是如何工作的"><a href="#渲染主线程是如何工作的" class="headerlink" title="渲染主线程是如何工作的"></a>渲染主线程是如何工作的</h1><p>渲染主线程的任务包括但不限于：</p>
 <ul>
 <li>解析<code>HTML</code></li>
 <li>解析<code>CSS</code></li>
@@ -422,7 +422,7 @@
 <blockquote>
 <p>JS是一门单线程的语言，这是因为它运行在浏览器的渲染主线程中，而渲染主线程只有一个。<br>渲染主线程承担着诸多的工作，渲染页面、执行JS都在其中运行。<br>如果使用同步的方式，就极有可能导致主线程阻塞，从而导致消息队列中的很多其他任务无法得到执行。<br>这一方面会导致繁忙的主线程白白消耗时间，另一方面导致页面无法及时更新，给用户造成卡死现象。<br>所以浏览器采用异步方式来避免。具体做法是当某些任务发生时，比如计时器、网络、事件监听，主线程将任务交给其他线程去处理，自身立即结束任务的执行，转而执行后续代码。当其他线程完成时，将事先传递的回调函数包装成任务，加入到消息队列的末尾排队，等待主线程调度执行。<br>在这种异步模式下，浏览器永不阻塞，最大限度保证了单线程的流畅运行。</p>
 </blockquote>
-<h2 id="任务的优先级"><a href="#任务的优先级" class="headerlink" title="任务的优先级"></a>任务的优先级</h2><p>实际上消息队列不止一个队列，而是有多个队列：<code>微队列</code>、<code>延时队列</code>、<code>交互队列</code>等。</p>
+<h1 id="任务的优先级"><a href="#任务的优先级" class="headerlink" title="任务的优先级"></a>任务的优先级</h1><p>实际上消息队列不止一个队列，而是有多个队列：<code>微队列</code>、<code>延时队列</code>、<code>交互队列</code>等。</p>
 <p>在W3C标准中，规定<code>微队列</code>是优先级最高的，意味着只有当微队列中所有任务都执行完了才会轮到其他队列。</p>
 <p>在Chrome浏览器中，<code>延时队列</code>用于存放计时器到达后的回调函数，优先级为【中】；交互队列用于存放用户操作后产生的事件处理任务，优先级为【高】。</p>
 <p>Q：阐释一下JS的事件循环？</p>
@@ -435,7 +435,25 @@
 <blockquote>
 <p>不行。<br>受事件循环的影响，计时器的回调函数只能在主线程空闲时运行，回调函数需要时间排队等待调度，因此带来了时间偏差。<br>操作系统的计时函数本身就有少量偏差，而JS的计时器最终调用的是操作系统的计时函数，因此也具有一定偏差。</p>
 </blockquote>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Promise.resolve().then(fn) 会将函数fn加入微队列</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn1</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>)</span><br><span class="line">    <span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span> <span class="title function_">fn2</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> <span class="title function_">fn3</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>)</span><br><span class="line">    <span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(fn1)</span><br><span class="line">&#125;, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">resolve</span>().<span class="title function_">then</span>(<span class="keyword">function</span> <span class="title function_">fn4</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">4</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h1><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// Promise.resolve().then(fn) 会将函数fn加入微队列</span>
+
+<span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">fn3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+    Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>fn1<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+
+Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">fn4</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>Q：浏览器执行以上js代码后输出是什么？</p>
 <p>解析：</p>
@@ -449,7 +467,11 @@
 <li><code>fn1</code>执行完毕，取出<code>fn2</code>执行，输出<code>2</code>；</li>
 </ol>
 <p>A：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">4</span><br><span class="line">3</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js:no-line-numbers" data-language="js:no-line-numbers"><code class="language-js:no-line-numbers">5
+4
+3
+1
+2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
       
     </div>
     <div class="article-footer">
