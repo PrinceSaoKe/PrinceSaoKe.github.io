@@ -64,10 +64,10 @@ http://princesaoke.github.io/tags/CSS/
 http://princesaoke.github.io/tags/Flutter/
 http://princesaoke.github.io/tags/Docker/
 http://princesaoke.github.io/tags/Github/
-http://princesaoke.github.io/tags/Hexo/
 http://princesaoke.github.io/tags/Git/
-http://princesaoke.github.io/tags/JavaScript/
 http://princesaoke.github.io/tags/HTML/
+http://princesaoke.github.io/tags/Hexo/
+http://princesaoke.github.io/tags/JavaScript/
 http://princesaoke.github.io/tags/Java/
 http://princesaoke.github.io/tags/Kotlin/
 http://princesaoke.github.io/tags/MySQL/
