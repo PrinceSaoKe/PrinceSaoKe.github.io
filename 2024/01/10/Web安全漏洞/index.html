@@ -18,15 +18,15 @@
   
   
   <title>Web安全漏洞 | 骚客.的个人博客</title>
-  <meta name="description" content="CSRFCSRF是什么 XSS浅谈XSS攻击的那些事（附常用绕过姿势） 存储型XSS反射型XSS">
+  <meta name="description" content="XSS 跨站脚本攻击XSS和SQL注入其实没什么区别，只是XSS是在网页中进行注入，而SQL注入是对数据库进行注入。 存储型XSS例如，攻击者在帖子、评论中加入&lt;script&gt;alert(&quot;HACK&quot;)&lt;&#x2F;script&gt;并提交，网站服务器存储该带恶意代码的内容，当其他用户浏览时，浏览器页面渲染时会执行恶意JS代码导致被攻击。 反射型XSS例如，攻击者将包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web安全漏洞">
 <meta property="og:url" content="http://princesaoke.github.io/2024/01/10/Web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="CSRFCSRF是什么 XSS浅谈XSS攻击的那些事（附常用绕过姿势） 存储型XSS反射型XSS">
+<meta property="og:description" content="XSS 跨站脚本攻击XSS和SQL注入其实没什么区别，只是XSS是在网页中进行注入，而SQL注入是对数据库进行注入。 存储型XSS例如，攻击者在帖子、评论中加入&lt;script&gt;alert(&quot;HACK&quot;)&lt;&#x2F;script&gt;并提交，网站服务器存储该带恶意代码的内容，当其他用户浏览时，浏览器页面渲染时会执行恶意JS代码导致被攻击。 反射型XSS例如，攻击者将包">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-09T16:23:39.000Z">
-<meta property="article:modified_time" content="2025-12-22T07:11:32.167Z">
+<meta property="article:modified_time" content="2026-03-04T07:13:07.084Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="骚客,hexo,博客,技术博客,blog,Android,Flutter">
 <meta name="twitter:card" content="summary">
@@ -206,7 +206,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%BD%91/">计网</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E7%BB%8F/">面经</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%BD%91/">计网</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E7%BB%8F/">面经</a><span class="category-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -249,6 +249,11 @@
 	</a>
 </span>
         
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </span>
+
         
 
         
@@ -263,19 +268,119 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/01/10/Web%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 27(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22521378">CSRF是什么</a></p>
-<h1 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26177815">浅谈XSS攻击的那些事（附常用绕过姿势）</a></p>
-<h2 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h2><h2 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h2>
+        <h1 id="XSS-跨站脚本攻击"><a href="#XSS-跨站脚本攻击" class="headerlink" title="XSS 跨站脚本攻击"></a>XSS 跨站脚本攻击</h1><p>XSS和SQL注入其实没什么区别，只是XSS是在网页中进行注入，而SQL注入是对数据库进行注入。</p>
+<h2 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h2><p>例如，攻击者在帖子、评论中加入<code>&lt;script&gt;alert(&quot;HACK&quot;)&lt;/script&gt;</code>并提交，网站服务器存储该带恶意代码的内容，当其他用户浏览时，浏览器页面渲染时会执行恶意JS代码导致被攻击。</p>
+<h2 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h2><p>例如，攻击者将包含XSS恶意代码的链接发送给用户：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.baidu.com/search?question=&lt;script&gt;alert(&quot;HACK&quot;)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>当用户点击时，服务器接受该用户的请求并进行处理，然后把带有XSS的代码发送给用户，用户浏览器解析执行代码，触发XSS漏洞。</p>
+<h2 id="二者区别"><a href="#二者区别" class="headerlink" title="二者区别"></a>二者区别</h2><table>
+<thead>
+<tr>
+<th>对比点</th>
+<th>存储型XSS</th>
+<th>反射型XSS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>是否存储</td>
+<td>存储在服务器</td>
+<td>不存储</td>
+</tr>
+<tr>
+<td>触发方式</td>
+<td>页面访问即触发</td>
+<td>需要点击恶意链接</td>
+</tr>
+<tr>
+<td>危害范围</td>
+<td>大（影响所有用户）</td>
+<td>小（单个受害者）</td>
+</tr>
+</tbody></table>
+<h2 id="如何预防"><a href="#如何预防" class="headerlink" title="如何预防"></a>如何预防</h2><p>XSS的本质是浏览器把用户输入当成代码执行了。因此XSS防御的核心原则是：</p>
+<ul>
+<li>不要相信用户输入</li>
+<li>输出时进行编码</li>
+</ul>
+<h3 id="输出编码"><a href="#输出编码" class="headerlink" title="输出编码"></a>输出编码</h3><p>将要显示的网页中的特殊字符转义编码，如<code>&lt;script&gt;</code>转为<code>&amp;lt;script&amp;gt;</code>。需要针对HTML内容、JS字符串、URL参数做区分处理。</p>
+<p>现在的主流框架都有做此处理。</p>
+<h3 id="Content-Security-Policy（CSP）"><a href="#Content-Security-Policy（CSP）" class="headerlink" title="Content-Security-Policy（CSP）"></a>Content-Security-Policy（CSP）</h3><p>这是浏览器级别的防护，通过配置HTTP响应头<code>Content-Security-Policy</code>告诉浏览器只能加载我允许的脚本。</p>
+<h3 id="输入过滤"><a href="#输入过滤" class="headerlink" title="输入过滤"></a>输入过滤</h3><p>例如过滤：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">&lt;img src=x onerror=alert(1)&gt;</span><br><span class="line">&lt;svg onload=alert(1)&gt;</span><br><span class="line">&lt;a href=&quot;javascript:alert(1)&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但难以过滤所有的可能，只能作为辅助手段。</p>
+<h3 id="HttpOnly"><a href="#HttpOnly" class="headerlink" title="HttpOnly"></a>HttpOnly</h3><p>在<code>Set-Cookie</code>字段中添加<code>HttpOnly</code>：<code>Set-Cookie: sessionId=xxx; HttpOnly</code>。</p>
+<p>此举不能防止XSS攻击，但可以使JS无法读取Cookie，防止<code>document.cookie</code>窃取Cookie。</p>
+<h1 id="CSRF-跨站请求伪造"><a href="#CSRF-跨站请求伪造" class="headerlink" title="CSRF 跨站请求伪造"></a>CSRF 跨站请求伪造</h1><h2 id="什么是CSRF"><a href="#什么是CSRF" class="headerlink" title="什么是CSRF"></a>什么是CSRF</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22521378">CSRF是什么</a></p>
+<p>例如，攻击者构造网站后台某功能接口的请求地址，诱导用户去点击或者用特殊方法让该请求地址自动加载。网站登录状态下，浏览器会自动携带Cookie，该请求被服务端接收后会被误以为是用户合法的操作，导致用户在不知情时执行了请求。</p>
+<p>对于GET接口攻击，诱导用户点击请求地址，或用<code>&lt;img&gt;</code>加载指定url进行请求。</p>
+<p>对于POST接口攻击，在某页面直接用JS发送POST请求，只要用户打开该页面，浏览器就会执行JS并触发攻击。</p>
+<h2 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yexudengzhidao/article/details/93527586">CSRF防御之token认证</a></p>
+<p>CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生，只能通过增强自己网站针对CSRF的防护能力来提升安全性。</p>
+<p>CSRF的两个特点：</p>
+<ul>
+<li>通常发生在第三方域名。</li>
+<li>攻击者不能获取到Cookie等信息，只是使用。</li>
+</ul>
+<p>针对这两点，我们可以专门制定防护策略，如下：</p>
+<ul>
+<li>提交时要求附加本域才能获取的信息<ul>
+<li>CSRF Token</li>
+<li>双重Cookie验证</li>
+</ul>
+</li>
+<li>阻止不明外域的访问<ul>
+<li>Samesite Cookie</li>
+<li>同源检测</li>
+</ul>
+</li>
+</ul>
+<h3 id="CSRF-Token"><a href="#CSRF-Token" class="headerlink" title="CSRF Token"></a>CSRF Token</h3><p>CSRF攻击之所以能够成功，是因为服务器误把攻击者发送的请求当成了用户自己的请求。那么我们可以要求所有的用户请求都携带一个CSRF攻击者无法获取到的CSRF Token。服务器通过校验请求是否携带正确的Token，来把正常的请求和攻击的请求区分开，进而防范CSRF攻击。</p>
+<p>具体步骤：</p>
+<p>用户打开网站页面时，服务器生成一个CSRF Token，该Token不能放在Cookie中否则又会被攻击者冒用。页面提交的请求都携带这个Token参数，服务器验证Token是否有效，无效则拒绝请求。</p>
+<h3 id="SameSite"><a href="#SameSite" class="headerlink" title="SameSite"></a>SameSite</h3><p>在<code>Set-Cookie</code>响应头中添加<code>SameSite=Lax</code>，可以限制浏览器在什么情况下会携带Cookie：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-Cookie: sessionId=xxx; SameSite=Lax</span><br></pre></td></tr></table></figure>
+
+<p>SameSite的取值包括：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Strict</td>
+<td>完全禁止跨站携带</td>
+</tr>
+<tr>
+<td>Lax</td>
+<td>部分允许（GET 导航允许）</td>
+</tr>
+<tr>
+<td>None</td>
+<td>必须配合 Secure</td>
+</tr>
+</tbody></table>
+<p>注：老浏览器可能不支持</p>
+<h3 id="同源检测"><a href="#同源检测" class="headerlink" title="同源检测"></a>同源检测</h3><p>在HTTP协议中，每一个异步请求都会携带两个Header，用于标记来源域名：</p>
+<ul>
+<li>Origin Header</li>
+<li>Referer Header</li>
+</ul>
+<p>缺点是无法做到万无一失，只能作为辅助手段。</p>
+<h3 id="验证码"><a href="#验证码" class="headerlink" title="验证码"></a>验证码</h3>
       
     </div>
     <div class="article-footer">
