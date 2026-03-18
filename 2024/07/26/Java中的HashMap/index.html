@@ -18,12 +18,12 @@
   
   
   <title>Java中的HashMap | 骚客.的个人博客</title>
-  <meta name="description" content="为啥HashMap的默认容量是16？ 实现原理HashMap用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似桶排序的结构。  当调用HashMap的put方法新增键值对时，会根据HashMap类的静态方法hash，用键值对的键来计算出哈希值，并用(散列表大小n - 1) &amp; hash的值作为散列表数组下标，将新增的键值对放入。   为解决哈希碰撞，每个散列表数组槽位内是">
+  <meta name="description" content="HashMap为啥HashMap的默认容量是16？ 实现原理HashMap用于存储键值对，内部为散列表（一个数组），每个数组槽位是一个链表或红黑树，即类似桶排序的结构。  当调用HashMap的put方法新增键值对时，会根据HashMap类的静态方法hash，用键值对的键来计算出哈希值，并用(散列表大小n - 1) &amp; hash的值作为散列表数组下标，将新增的键值对放入。   为解决哈希碰">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java中的HashMap">
 <meta property="og:url" content="http://princesaoke.github.io/2024/07/26/Java%E4%B8%AD%E7%9A%84HashMap/">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="为啥HashMap的默认容量是16？ 实现原理HashMap用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似桶排序的结构。  当调用HashMap的put方法新增键值对时，会根据HashMap类的静态方法hash，用键值对的键来计算出哈希值，并用(散列表大小n - 1) &amp; hash的值作为散列表数组下标，将新增的键值对放入。   为解决哈希碰撞，每个散列表数组槽位内是">
+<meta property="og:description" content="HashMap为啥HashMap的默认容量是16？ 实现原理HashMap用于存储键值对，内部为散列表（一个数组），每个数组槽位是一个链表或红黑树，即类似桶排序的结构。  当调用HashMap的put方法新增键值对时，会根据HashMap类的静态方法hash，用键值对的键来计算出哈希值，并用(散列表大小n - 1) &amp; hash的值作为散列表数组下标，将新增的键值对放入。   为解决哈希碰">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84HashMap/hash_map.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84HashMap/put.png">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84HashMap/threshold.png">
 <meta property="og:image" content="http://princesaoke.github.io/images/Java%E4%B8%AD%E7%9A%84HashMap/hash.png">
 <meta property="article:published_time" content="2024-07-26T15:30:21.000Z">
-<meta property="article:modified_time" content="2025-12-22T07:07:16.128Z">
+<meta property="article:modified_time" content="2026-03-18T07:18:10.803Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -274,23 +274,23 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/07/26/Java%E4%B8%AD%E7%9A%84HashMap/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 968(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hollischuang/p/12009172.html">为啥HashMap的默认容量是16？</a></p>
-<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p><code>HashMap</code>用于存储键值对，内部为散列表，每个数组槽位是一个链表或红黑树，即类似<strong>桶排序</strong>的结构。</p>
+        <h1 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hollischuang/p/12009172.html">为啥HashMap的默认容量是16？</a></p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p><code>HashMap</code>用于存储键值对，内部为散列表（一个数组），每个数组槽位是一个链表或红黑树，即类似<strong>桶排序</strong>的结构。</p>
 <p><img src="/images/Java%E4%B8%AD%E7%9A%84HashMap/hash_map.png" alt="HashMap"></p>
 <p>当调用HashMap的<code>put</code>方法新增键值对时，会根据HashMap类的静态方法<code>hash</code>，用键值对的键来计算出哈希值，并用<code>(散列表大小n - 1) &amp; hash</code>的值作为散列表数组下标，将新增的键值对放入。</p>
 <p><img src="/images/Java%E4%B8%AD%E7%9A%84HashMap/put.png" alt="put"></p>
 <p><img src="/images/Java%E4%B8%AD%E7%9A%84HashMap/put_val.png" alt="put"></p>
-<p>为解决哈希碰撞，每个散列表数组槽位内是一个链表或红黑树。当链表长度大于8，且散列表数组长度大于等64时，链表转化为红黑树；当红黑树节点小于6时退化成链表。</p>
+<p>为解决哈希碰撞，每个散列表数组槽位内是一个链表或红黑树（JDK 8 开始引入红黑树）。当链表长度大于8，且散列表数组长度大于等64时，链表转化为红黑树；当红黑树节点小于6时退化成链表。</p>
 <p><img src="/images/Java%E4%B8%AD%E7%9A%84HashMap/threshold.png" alt="阈值"></p>
 <p>来说计算哈希值的<code>hashCode</code>方法。当键不为<code>null</code>时，将键的<code>hashCode</code>方法的值，和自身右移16位的值进行异或，结果作为计算后的哈希值返回。键为空则结果为0。</p>
 <p><img src="/images/Java%E4%B8%AD%E7%9A%84HashMap/hash.png" alt="hash"></p>
@@ -301,15 +301,79 @@
 <p>例：$ 21 &#x2F; 8 $ 和 $ 21 % 8 $</p>
 <p>21的二进制：10101， 8的二进制：01000， 7的二进制：00111</p>
 <p>$ 21 &#x2F; 8 &#x3D; 21右移三位 &#x3D; 00010 &#x3D; 2 $ ， $ 21 % 8 &#x3D; 21 &amp; 7 &#x3D; 00101 &#x3D; 5 $</p>
-<h1 id="扩容机制"><a href="#扩容机制" class="headerlink" title="扩容机制"></a>扩容机制</h1><p>虽然解决了哈希碰撞的问题，但若散列表太小，键值对太多，频繁出现哈希碰撞，链表或红黑树就会变得很长，此时就需要对散列表扩容。</p>
+<h2 id="扩容机制"><a href="#扩容机制" class="headerlink" title="扩容机制"></a>扩容机制</h2><p>虽然解决了哈希碰撞的问题，但若散列表太小，键值对太多，频繁出现哈希碰撞，链表或红黑树就会变得很长，此时就需要对散列表扩容。</p>
 <p>前面提到，键值对放在散列表中的哪个位置，是由<code>(散列表大小n - 1) &amp; hash</code>决定的，与散列表大小有关。现在散列表大小改变了，意味着键值对存放的位置可能发生改变，要计算出扩容后所有键值对的新位置。</p>
 <p>JDK1.7 中的做法是每个键值对重新hash映射到新的散列表，在 JDK1.8 进行了改进：</p>
-<p>根据之前的结论，散列表长度必须是 $ 2^n $ ，每次扩容为之前的两倍。这样的好处是，扩容后计算<code>(n - 1) &amp; hash</code>，有变化的只有扩容前的n那一位。</p>
+<p>根据之前的结论，散列表长度必须是2<sup>n</sup>，每次扩容为之前的两倍。这样的好处是，扩容后计算<code>(n - 1) &amp; hash</code>，有变化的只有扩容前的n那一位。</p>
 <p>例：原本散列表长度为8，下标为2处有一键值对，现长度扩容为16</p>
 <p>8-1的二进制为<code>00111</code>，16-1的二进制为<code>01111</code></p>
 <p>则对于<code>(n - 1) &amp; hash</code>，原先的值就是下标2，即<code>00010</code>，说明hash为<code>??010</code>，扩容后的值应该为<code>0?010</code>。</p>
 <p>若<code>?</code>为0，则扩容后位置也不变，无需迁移。若<code>?</code>为1，则扩容后的新位置就是原先的下标加上扩容前的散列表长度。</p>
-<h1 id="HashMap-和-Hashtable-的区别"><a href="#HashMap-和-Hashtable-的区别" class="headerlink" title="HashMap 和 Hashtable 的区别"></a>HashMap 和 Hashtable 的区别</h1><ul>
+<p>散列表初始默认容量为<code>16</code>，负载因子为<code>0.75</code>。</p>
+<h2 id="头插与尾插"><a href="#头插与尾插" class="headerlink" title="头插与尾插"></a>头插与尾插</h2><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7522039703899832359">JDK1.8 后 HashMap 由头插法改为了尾插法，为什么？</a></p>
+<p>JDK 1.7 及以前使用头插法，JDK 1.8 及以后使用尾插法。这是因为头插法在HashMap扩容时可能导致环形链表导致死循环。</p>
+<h1 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h1><p><code>LinkedHashMap</code>继承自<code>HashMap</code>，所以<code>HashMap</code>有的功能<code>LinkedHashMap</code>全都有。</p>
+<p>它是有顺序的。如</p>
+<p>若在创建时传入参数<code>accessOrder = true</code>，则每次调用<code>get()</code>或<code>put()</code>时，将访问的节点移动到双向链表尾部（最近访问），适合实现<code>LRU</code>。LinkedHashMap内部的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="type">boolean</span> <span class="title function_">removeEldestEntry</span><span class="params">(Map.Entry&lt;K,V&gt; eldest)</span></span><br></pre></td></tr></table></figure>
+
+<p>方法决定是否要删除最久未被访问的元素。默认当容量满后又有新元素加入则删除最旧元素。</p>
+<p>LinkedHashMap遍历内部元素时直接通过双向链表的迭代器进行遍历，而无需像HashMap那样一个个去遍历哈希表（可能有很多空桶），遍历效率更高。</p>
+<h1 id="HashMap、ConcurrentHashMap、HashTable-的区别"><a href="#HashMap、ConcurrentHashMap、HashTable-的区别" class="headerlink" title="HashMap、ConcurrentHashMap、HashTable 的区别"></a>HashMap、ConcurrentHashMap、HashTable 的区别</h1><p>HashTable使用<code>synchronized</code>来锁住整张表来实现线程安全，即每次锁住整张表让线程独占，相当于所有线程进行读写时都去竞争一把锁，导致效率非常低下。</p>
+<p><code>ConcurrentHashMap</code>可以做到读取数据不加锁，并且其内部的结构可以让其在进行写操作的时候能够将锁的粒度保持地尽量地小，允许多个修改操作并发进行，其关键在于使用了锁分段技术。使用<code>CAS</code>+<code>synchronized</code>实现更细粒度的锁。当发生哈希冲突时，只锁住冲突的链表或红黑树的头节点。</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>HashMap</th>
+<th>Hashtable</th>
+<th>ConcurrentHashMap</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>线程安全</td>
+<td>❌ 不安全</td>
+<td>✅ 线程安全</td>
+<td>✅ 线程安全</td>
+</tr>
+<tr>
+<td>锁机制</td>
+<td>无锁</td>
+<td>整个方法 synchronized</td>
+<td>分段锁 &#x2F; CAS</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>高</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>是否允许 null key</td>
+<td>✅ 允许一个</td>
+<td>❌ 不允许</td>
+<td>❌ 不允许</td>
+</tr>
+<tr>
+<td>是否允许 null value</td>
+<td>✅ 允许</td>
+<td>❌ 不允许</td>
+<td>❌ 不允许</td>
+</tr>
+<tr>
+<td>出现时间</td>
+<td>JDK1.2</td>
+<td>JDK1.0</td>
+<td>JDK1.5</td>
+</tr>
+<tr>
+<td>推荐使用</td>
+<td>单线程</td>
+<td>基本淘汰</td>
+<td>并发场景</td>
+</tr>
+</tbody></table>
+<h2 id="HashMap-和-HashTable-的区别"><a href="#HashMap-和-HashTable-的区别" class="headerlink" title="HashMap 和 HashTable 的区别"></a>HashMap 和 HashTable 的区别</h2><ul>
 <li>父类不同：HashMap继承抽象类<code>AbstractMap</code>；而Hashtable实现<code>Dictionary</code>类。二者都实现<code>Map</code>接口</li>
 <li>线程安全不同：Hashtable是线程安全的，而HashMap不是</li>
 <li>能否有null：Hashtable中key和value都不允许出现null；而HashMap允许有一个为null的key，value可以有多个null，因此不能用<code>get()</code>返回null来判断HashMap中是否有某个键</li>
