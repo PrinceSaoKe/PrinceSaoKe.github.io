@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>饿了么客户端实习面经 | 骚客.的个人博客</title>
-  <meta name="description" content="答的很烂……就没几个问题是答出来的 T^T 共四十多分钟。  ✔ 自我介绍 ✔ 详细讲一下实习期间做了哪些事情？实现的细节？ ❌ LazyColumn和Column有什么区别？为什么能提升性能？ ❌ 长列表的数据如果一次性加载会卡顿，如何处理？分页查询相关。如何刷新？前一页的数据如何处理？ ❌ Flutter三个树？嵌套的组件渲染绘制的步骤？ ✔ UDP和TCP的区别 ❌ 2M的数据流，通过TCP">
+  <title>Android中的Handler消息机制 | 骚客.的个人博客</title>
+  <meta name="description" content="Android Handler 机制原理详解 四个关键角色：Message、Handler、MessageQueue、Looper。 需要传递的消息放在Message中。Message有一个成员变量target引用它绑定的Handler对象。 Handler在创建时需要一个Looper对象，Handler会在sendMessage方法中将Message添加到这个Looper的MessageQueu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="饿了么客户端实习面经">
-<meta property="og:url" content="http://princesaoke.github.io/2024/05/07/%E9%A5%BF%E4%BA%86%E4%B9%88%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/">
+<meta property="og:title" content="Android中的Handler消息机制">
+<meta property="og:url" content="http://princesaoke.github.io/2026/03/23/Android%E4%B8%AD%E7%9A%84Handler%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="答的很烂……就没几个问题是答出来的 T^T 共四十多分钟。  ✔ 自我介绍 ✔ 详细讲一下实习期间做了哪些事情？实现的细节？ ❌ LazyColumn和Column有什么区别？为什么能提升性能？ ❌ 长列表的数据如果一次性加载会卡顿，如何处理？分页查询相关。如何刷新？前一页的数据如何处理？ ❌ Flutter三个树？嵌套的组件渲染绘制的步骤？ ✔ UDP和TCP的区别 ❌ 2M的数据流，通过TCP">
+<meta property="og:description" content="Android Handler 机制原理详解 四个关键角色：Message、Handler、MessageQueue、Looper。 需要传递的消息放在Message中。Message有一个成员变量target引用它绑定的Handler对象。 Handler在创建时需要一个Looper对象，Handler会在sendMessage方法中将Message添加到这个Looper的MessageQueu">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-05-07T11:30:21.000Z">
-<meta property="article:modified_time" content="2024-05-17T04:15:31.399Z">
+<meta property="article:published_time" content="2026-03-22T19:34:14.000Z">
+<meta property="article:modified_time" content="2026-04-08T03:17:25.263Z">
 <meta property="article:author" content="骚客.">
-<meta property="article:tag" content="骚客,hexo,博客,技术博客,blog,Android,Flutter">
+<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://princesaoke.github.io/2024/05/07/%E9%A5%BF%E4%BA%86%E4%B9%88%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/index.html">
+  <link rel="canonical" href="http://princesaoke.github.io/2026/03/23/Android%E4%B8%AD%E7%9A%84Handler%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -206,7 +206,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%BD%91/">计网</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E7%BB%8F/">面经</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%BD%91/">计网</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E7%BB%8F/">面经</a><span class="category-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -216,7 +216,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/" rel="tag">Kotlin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue3/" rel="tag">Vue3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="tag">解决方案</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/" rel="tag">Kotlin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue3/" rel="tag">Vue3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="tag">解决方案</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -229,14 +229,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-饿了么客户端实习面经" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Android中的Handler消息机制" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      饿了么客户端实习面经
+      Android中的Handler消息机制
     </h1>
   
 
@@ -244,17 +244,22 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2024/05/07/%E9%A5%BF%E4%BA%86%E4%B9%88%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/" class="article-date">
-	  <time datetime="2024-05-07T11:30:21.000Z" itemprop="datePublished">2024-05-07</time>
+	<a href="/2026/03/23/Android%E4%B8%AD%E7%9A%84Handler%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/" class="article-date">
+	  <time datetime="2026-03-22T19:34:14.000Z" itemprop="datePublished">2026-03-23</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E9%9D%A2%E7%BB%8F/">面经</a>
+    <a class="article-category-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a>
   </span>
 
         
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Android/" rel="tag">Android</a>
+  </span>
+
 
         
 	<span class="article-read hidden-xs">
@@ -265,10 +270,10 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/05/07/%E9%A5%BF%E4%BA%86%E4%B9%88%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2026/03/23/Android%E4%B8%AD%E7%9A%84Handler%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 490(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 383(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -278,29 +283,15 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>答的很烂……就没几个问题是答出来的 T^T</p>
-<p>共四十多分钟。</p>
-<ul>
-<li><span style="color: green">✔</span> 自我介绍</li>
-<li><span style="color: green">✔</span> 详细讲一下实习期间做了哪些事情？实现的细节？</li>
-<li><span style="color: red">❌</span> LazyColumn和Column有什么区别？为什么能提升性能？</li>
-<li><span style="color: red">❌</span> 长列表的数据如果一次性加载会卡顿，如何处理？分页查询相关。如何刷新？前一页的数据如何处理？</li>
-<li><span style="color: red">❌</span> Flutter三个树？嵌套的组件渲染绘制的步骤？</li>
-<li><span style="color: green">✔</span> UDP和TCP的区别</li>
-<li><span style="color: red">❌</span> 2M的数据流，通过TCP发送，要经过哪些步骤？</li>
-<li><span style="color: red">❌</span> APP的启动过程</li>
-<li><span style="color: green">✔</span> Activity的生命周期？两个Activity跳转其分别的生命周期函数调用顺序？哪些情况下不会进入onStop？</li>
-<li><span style="color: red">❌</span> 说一下快排</li>
-<li><span style="color: green">✔</span> 最大递增子串</li>
-<li><span style="color: green">✔</span> 链表翻转</li>
-</ul>
-<p>长列表性能问题应该是想问<code>RecyclerView</code>四级缓存机制吧。即<code>Scrap缓存</code>、<code>Recycle缓存</code>、<code>ViewCacheExtension缓存</code>、<code>RecycledViewPool缓存</code>。</p>
-<p>RecyclerView在滚动时会复用已经存在的ViewHolder对象，而不是每次都创建新的ViewHolder。这样做的好处是减少了对象的创建和销毁次数，提高了内存利用率和性能。当列表项滚出屏幕时，对应的ViewHolder会被移除并加入到RecyclerView的内部缓存池中，当新的列表项需要显示时，RecyclerView会尝试从缓存池中获取可用的ViewHolder对象，避免了重新创建ViewHolder。</p>
-<p>RecyclerView提供了setItemViewCacheSize()方法来设置缓存的ViewHolder数量。通过适当调整这个值，可以控制缓存的大小，避免过多的缓存导致内存占用过高。</p>
-<p>Flutter三棵树指的是<code>Widget树</code>、<code>Element树</code>、<code>RenderObject树</code>。</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaokangss/article/details/125547085">Activity的生命周期和启动模式详解</a></p>
-<p><code>Fragment</code>在显示到销毁的过程中会执行自己的生命周期：<code>onAttach</code> -&gt; <code>onCreate</code> -&gt;<code>onCreateView</code> -&gt; <code>onActivityCreate</code> -&gt; <code>onStart</code> -&gt; <code>onResume</code> -&gt; <code>onPause</code> -&gt; <code>onStop</code> -&gt; <code>onDestroyView</code> -&gt; <code>onDestroy</code> -&gt; <code>onDetach</code></p>
-<p>同时也受到<code>Activity</code>生命周期的影响，如果Activity触发<code>onPause</code>，Fragment也会执行相应的onPause。</p>
+        <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7563142314447110144">Android Handler 机制原理详解</a></p>
+<p>四个关键角色：<code>Message</code>、<code>Handler</code>、<code>MessageQueue</code>、<code>Looper</code>。</p>
+<p>需要传递的消息放在Message中。Message有一个成员变量<code>target</code>引用它绑定的Handler对象。</p>
+<p>Handler在创建时需要一个Looper对象，Handler会在<code>sendMessage</code>方法中将Message添加到这个Looper的MessageQueue中排队等待触发回调。</p>
+<p>每个线程只能有一个Looper，它在<code>Looper.prepare()</code>初始化时会给自己创建一个MessageQueue，然后<code>Looper.loop()</code>开启一个死循环，不停地从MessageQueue中取出Message，再通过Message的<code>target</code>获取到对应的Handler，调用Handler的<code>handleMessage</code>方法，从而执行回调。</p>
+<p>MessageQueue是一个按时间排序的单向链表，负责存放等待Looper处理的Message。Handler调用MessageQueue的<code>enqueueMessage()</code>方法添加Message，Looper调用MessageQueue的<code>next()</code>方法获取Message。</p>
+<p>建议通过<code>Message.obtain()</code>从缓存池中获取Message对象复用，而不要直接new，避免创建太多对象，减轻GC压力。Message缓存池的最大容量是<code>50</code>个。Looper在调用完<code>handleMessage</code>方法后会回收Message对象。</p>
+<p>当MessageQueue中没有Message时，Looper并不会死循环一直空转占满CPU导致卡死ANR，而是Looper所在的线程会进入阻塞休眠状态，不会执行循环体。这是因为Looper调用MessageQueue的<code>next()</code>方法获取Message，而<code>next()</code>中判断如果MessageQueue为空，则调用<code>nativePollOnce</code>方法阻塞，该方法是在native层（C++）实现的，因此是调用Linux的<code>epoll</code>机制进行阻塞。</p>
+<p>唤醒的时机在Handler添加Message时调用的<code>enqueueMessage</code>当中，里面会调用<code>nativeWake</code>方法，唤醒epoll阻塞的线程。</p>
 
       
     </div>
@@ -310,7 +301,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://princesaoke.github.io/2024/05/07/%E9%A5%BF%E4%BA%86%E4%B9%88%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/" title="饿了么客户端实习面经" target="_blank" rel="external">http://princesaoke.github.io/2024/05/07/饿了么客户端实习面经/</a>
+      <a href="http://princesaoke.github.io/2026/03/23/Android%E4%B8%AD%E7%9A%84Handler%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6/" title="Android中的Handler消息机制" target="_blank" rel="external">http://princesaoke.github.io/2026/03/23/Android中的Handler消息机制/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -357,12 +348,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2024/05/14/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="排序算法总结"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2026/03/24/0324%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/" title="0324项目总结"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2024/04/28/%E7%BE%8E%E5%9B%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E4%B9%A0%E9%9D%A2%E7%BB%8F/" title="美团客户端实习面经"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2026/03/21/Java%E8%99%9A%E6%8B%9F%E6%9C%BA/" title="Java虚拟机"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

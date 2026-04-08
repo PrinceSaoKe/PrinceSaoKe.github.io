@@ -18,15 +18,15 @@
   
   
   <title>Android中的Service | 骚客.的个人博客</title>
-  <meta name="description" content="Android Studio 中">
+  <meta name="description" content="关于Android Service真正的完全详解，你需要知道的一切 Android Service 使用篇 Service是Android中用于执行后台任务、没有UI的组件。运行在主线程（UI线程），适合做耗时任务、跨组件通信、常驻任务（需谨慎）。 Service有两种核心启动方式。 启动型当应用组件（如Activity）通过startService(intent)方法启动服务，则属于启动型。特点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android中的Service">
 <meta property="og:url" content="http://princesaoke.github.io/2024/06/09/Android%E4%B8%AD%E7%9A%84Service/">
 <meta property="og:site_name" content="骚客.的个人博客">
-<meta property="og:description" content="Android Studio 中">
+<meta property="og:description" content="关于Android Service真正的完全详解，你需要知道的一切 Android Service 使用篇 Service是Android中用于执行后台任务、没有UI的组件。运行在主线程（UI线程），适合做耗时任务、跨组件通信、常驻任务（需谨慎）。 Service有两种核心启动方式。 启动型当应用组件（如Activity）通过startService(intent)方法启动服务，则属于启动型。特点">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-09T09:21:24.000Z">
-<meta property="article:modified_time" content="2024-06-11T01:00:03.369Z">
+<meta property="article:modified_time" content="2026-04-08T03:13:25.297Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
@@ -206,7 +206,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%BD%91/">计网</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E7%BB%8F/">面经</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">移动端</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%A1%E7%BD%91/">计网</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E7%BB%8F/">面经</a><span class="category-list-count">6</span></li></ul>
     </div>
   </div>
 
@@ -216,7 +216,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/" rel="tag">Kotlin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue3/" rel="tag">Vue3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="tag">解决方案</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flutter/" rel="tag">Flutter</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/" rel="tag">Kotlin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue3/" rel="tag">Vue3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="tag">解决方案</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -273,17 +273,51 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2024/06/09/Android%E4%B8%AD%E7%9A%84Service/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 696(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>Android Studio 中</p>
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/javazejian/article/details/52709857">关于Android Service真正的完全详解，你需要知道的一切</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7517497597884776485">Android Service 使用篇</a></p>
+<p><code>Service</code>是Android中用于执行后台任务、没有UI的组件。运行在主线程（UI线程），适合做耗时任务、跨组件通信、常驻任务（需谨慎）。</p>
+<p>Service有两种核心启动方式。</p>
+<h1 id="启动型"><a href="#启动型" class="headerlink" title="启动型"></a>启动型</h1><p>当应用组件（如Activity）通过<code>startService(intent)</code>方法启动服务，则属于<code>启动型</code>。特点是独立运行，与调用方无关，即使启动服务的组件被销毁也不受影响，不会将结果返回给调用方，通常通过广播（Broadcast）、通知（Notification）、更新文件&#x2F;数据库等方式告知结果。只能手动调用停止，如服务内自己调用<code>stopSelf</code>或外部调用<code>stopService</code>销毁。</p>
+<p>启动型服务的生命周期为：<code>onCreate() → onStartCommand() → (运行中) → onDestroy()</code>。其中<code>onCreate()</code>只会在初次创建服务时调用，多次<code>startService</code>只会重复触发<code>onStartCommand()</code>，而不会触发<code>onCreate()</code>。<code>onDestroy()</code>在服务销毁时触发，来清理所有资源，如线程、注册的侦听器、接收器等。</p>
+<p>其中需要关注的是<code>onStartCommand()</code>的返回值。有三种返回：</p>
+<table>
+<thead>
+<tr>
+<th>返回值</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>START_STICKY</td>
+<td>被系统杀死后重启（不带intent）</td>
+<td>当Service因内存不足而被系统kill后，一段时间后内存再次空闲时，系统将会尝试重新创建此Service，一旦创建成功后将回调<code>onStartCommand()</code>，但其中的Intent将是null，除非有挂起的Intent，如pendingintent。这个状态下比较适用于不执行命令、但无限期运行并等待作业的媒体播放器或类似服务</td>
+</tr>
+<tr>
+<td>START_NOT_STICKY</td>
+<td>不重启</td>
+<td>当Service因内存不足而被系统kill后，即使系统内存再次空闲时，系统也不会尝试重新创建此Service。除非程序中再次调用<code>startService</code>启动此Service。这是最安全的选项，可以避免在不必要时以及应用能够轻松重启所有未完成的作业时运行服务</td>
+</tr>
+<tr>
+<td>START_REDELIVER_INTENT</td>
+<td>重启并重新传intent</td>
+<td>当Service因内存不足而被系统kill后，则会重建服务，并通过传递给服务的最后一个Intent调用<code>onStartCommand()</code>，任何挂起Intent均依次传递。与<code>START_STICKY</code>不同的是，其中的传递的Intent将是非空，是最后一次调用startService中的intent。这个值适用于主动执行应该立即恢复的作业（例如下载文件）的服务</td>
+</tr>
+</tbody></table>
+<h1 id="绑定型"><a href="#绑定型" class="headerlink" title="绑定型"></a>绑定型</h1><p>当Service处于绑定状态时，其代表着客户端-服务器模式中的服务器。其他组件（如 Activity）绑定到Service时，组件可以向Service（也就是服务端）发送请求，或者调用Service的方法。</p>
+<p>宿主解除绑定后，绑定服务就会被销毁。</p>
+<h2 id="基于-IBinder-通信"><a href="#基于-IBinder-通信" class="headerlink" title="基于 IBinder 通信"></a>基于 IBinder 通信</h2><p>TODO</p>
+<h1 id="Foreground-Service"><a href="#Foreground-Service" class="headerlink" title="Foreground Service"></a>Foreground Service</h1><p>TODO</p>
 
       
     </div>
