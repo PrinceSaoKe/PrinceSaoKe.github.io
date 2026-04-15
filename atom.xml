@@ -6,7 +6,7 @@
   <link href="http://princesaoke.github.io/atom.xml" rel="self"/>
   
   <link href="http://princesaoke.github.io/"/>
-  <updated>2026-04-08T15:50:20.111Z</updated>
+  <updated>2026-04-15T08:01:34.012Z</updated>
   <id>http://princesaoke.github.io/</id>
   
   <author>
@@ -21,16 +21,12 @@
     <link href="http://princesaoke.github.io/2026/04/08/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/"/>
     <id>http://princesaoke.github.io/2026/04/08/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/</id>
     <published>2026-04-08T13:26:18.000Z</published>
-    <updated>2026-04-08T15:50:20.111Z</updated>
+    <updated>2026-04-15T08:01:34.012Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="什么是灰度"><a href="#什么是灰度" class="headerlink" title="什么是灰度"></a>什么是灰度</h1><p>所谓灰度，即把新版本先给一小部分用户使用，验证没问题后再逐步放量到全量用户，降低上线风险，并实现可控回滚。</p><p>如果全量发布，有这些风险：</p><ul><li>BUG影响全部用户</li><li>性能问题直接炸全量</li><li>服务端被打崩</li><li>无法快速定位问题</li></ul><p>而灰度可以：</p><ul><li>控制影响范围（1% → 5% → 20% → 100%）</li><li>实时监控（崩溃率 &#x2F; 耗时 &#x2F; 成功率）</li><li>快速止损（随时关闭灰度）</li></ul><h1 id="灰度的命中"><a href="#灰度的命中" class="headerlink" title="灰度的命中"></a>灰度的命中</h1><p>灰度的判断优先放在服务端，但在UI渲染或无网环境下需要客户端灰度。</p><ul><li>用户维度：需保证同一个用户是否命中是确定不变的，可按用户ID或设备ID取模判断，不能使用随机数</li><li>版本维度：按APP版本号或Android版本判</li><li>地区维度：按不同地区判断，常用于CDN策略或网络优化</li><li>设备特征：机型（低端&#x2F;高端机）、内存大小、CPU架构</li><li>白名单：内部员工、QA、指定用户</li></ul>]]></content>
+    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="c4f83e7297f8dcdf1ce33bf66b13827fe0f16da43b9d4ed84b3b87b52e085b6c">f4618cd75d7e547a378d5b31f962b2e95666e10dc9cc08f05c72cd2af5b1c387f2ec65a04fc6dce97fa6e7fe060f598c2fd7c78baf3c2d0e7c9c5e3415b3fd97ac86bd1a542cb26944a69359736e926f05ac211db9c56d03e08e67c0df2c4a791778084384dd6fa00a93c5745edc57cfc60cee76dc9e6e90808e33c59a1bc5dda8aee7ab8078a070e88ac6312277c9dd8ef45985dea0d99d9d226583a04f78b5140d33f607c7b0778de5a58b9a96d59aac87cdd67af5a19e3f6c43791f7e1f1a38bf50f604587b8880bb53063fbcc72d1d3826b3aaa55f779e59870437c1328cb47a5ad2cec30ffe1ddb145dfa0a38e5114f6efaabe7b91faf41f2d909a8d94d620140019631ce84f6d6d783a24b838f8041b2ab0a81e64887da02572efb258731c897e92e3a894dc0b0825dcc3c8fe1de9f5456ade072f30b27a15ec0ac184684872caa9a133514509f6972ed5d83e377da8de30d17fdf38883212c7d19319289189d9c6a72795ae9857ea06807012bc50828752584c521de1708ae2ecda859278b9d946ff90640192bfa34dc202fb799f8bc9a360bcf3dda65b44f638495eaf0780cd11738fd9b46e157715624d62cb83ae9d5c9d9c4334ece0bbff8e5fc53dd21d195bbe969151dd40f0ac35b4daa113da7cb93d03916e2a393f5c5c3106e2233116c5d63135fd8fd552c48974dbeb97ab4a556a801eba90aef60b4ce72fd416058f0632e019bf7aafd7f8f992232da04e3fb3dc7a30ccd6a3397b2cf6c674b287d0ceb799b67247ccbb298473768b961b6eda450406d9db1cde854804628474cd74139da54de727ce3c58166764c31b210881d6073aca052ebf32fc4938c37f00e5517c94307938a89cb6a8ee70fa96f9d4041d56b42797f57ce979e58ec51e73f49008884103b4aaac11ec57c8a57715ab9802774364367f02696a5493855b8a3daa9f7e12f9480480146bb8295ee4bb8f232883140bd98ba6f42e7ee64d28950624e511f738b2fc6e9ab4fbee5b19f53e2e228364471f52a0e74d35c7af1e87df4f27e4f26d19dccf7804ae2b8881fbc8f4b7161c6493298b1003cbe4bdd9961ef652945efda39b92a069c1e472c1a8682a7f6bcf4a54b398d531dc7f41d269afc48cf9d9a52cf7fe5940c5b9b7f98d952eb6099f07449d9c22f80c8d8e7b4edcf0fb6bd0bf62fbb30aff3ecec834404377c0a6fbf2a797d5729af10ef8055744216ddb609703b17c8be39cb872839a5b0e1316e3aa283be358a0d2f7f2f60c50878be4a2100021a4fd2d362afd85ef3bc5899f63495c205a8251ce05caf16d9e2586c01cd5088338ddfac2a551316bec909b74d0833a03f27ee9d8ccf7453c83ed7569d99428772bace1c060782af937c50e59a6093fc92d8d6101caba5de7299f8538c032deb871f3deaec38e808abb75121753124df95271119b02ced5938510b0d38070b9387e3abb495cd5bb1d277dd75cad650460ca28d7e85962a53bbbc2a19270dcb6e2ec5d76238045a8898a09e12e5b792d1cebae89a1dabc4a74280fa497ff6b4c6054eaf0c9ca65115c4a28c7fffa31ef82bc35c66574b8d8fbaf1a663b5c5c0ada28df5ec9021bb15d2880de6205da348e842c9d69036953b74069f9b5f01458c313dee7ab1e33735db26dbe88191185aa700e249166628e5efe0a1fbc13f1df48cac8f1ffd7f5c5d84eaeede7544687510172e09772c7fcadef34f3e5fe75ffaf5665254d489c17c71e8e91ffca14cd268f85bda78f59ba59eec4ecf9795f5a53520b2c86d79a5e16fba2d12eab8d57a5ebb37181f7603579f46b6dcf13ae5860d4cf60a7b5bd54f0dfa1ef313b0a8c4d6b7a26707055aef23d8c462abb534364bbccba5ff6da4f7e80d97d48cb606ef1c87edb4be053a94339ba04f258191d0385a315198475805ef31d9f37336a03ad77a7cc8f2d1</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
     
     
-      
-      
-    <summary type="html">&lt;h1 id=&quot;什么是灰度&quot;&gt;&lt;a href=&quot;#什么是灰度&quot; class=&quot;headerlink&quot; title=&quot;什么是灰度&quot;&gt;&lt;/a&gt;什么是灰度&lt;/h1&gt;&lt;p&gt;所谓灰度，即把新版本先给一小部分用户使用，验证没问题后再逐步放量到全量用户，降低上线风险，并实现可控回滚。&lt;/p&gt;
-</summary>
-      
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
     
     
     
