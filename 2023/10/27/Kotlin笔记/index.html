@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://princesaoke.github.io/images/Kotlin%E7%AC%94%E8%AE%B0/visiblity.png">
 <meta property="article:published_time" content="2023-10-27T02:52:41.000Z">
-<meta property="article:modified_time" content="2025-12-22T07:08:31.658Z">
+<meta property="article:modified_time" content="2026-04-14T10:08:36.141Z">
 <meta property="article:author" content="骚客.">
 <meta property="article:tag" content="Kotlin">
 <meta name="twitter:card" content="summary">
@@ -275,10 +275,10 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/27/Kotlin%E7%AC%94%E8%AE%B0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.7k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2k(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 8(分)</span>
 	
 
       </div>
@@ -301,7 +301,15 @@
 </ol>
 </blockquote>
 <h1 id="val-与-var"><a href="#val-与-var" class="headerlink" title="val 与 var"></a>val 与 var</h1><p>类比JavaScript中的<code>const</code>和<code>let</code>。</p>
-<p><code>val</code>用于声明常量，相当于加了<code>final</code>，赋值后无法修改；<code>var</code>用于声明变量。</p>
+<p><code>val</code>用于声明常量，相当于加了<code>final</code>，其引用不可变，赋值后无法修改；<code>var</code>用于声明变量。</p>
+<h1 id="空安全"><a href="#空安全" class="headerlink" title="空安全"></a>空安全</h1><p>Q：哪些情况会出现NPE（NullPointException）？</p>
+<p>A：</p>
+<ul>
+<li>强制<code>!!</code></li>
+<li><code>lateinit</code>但未初始化</li>
+<li>与Java通信，Java返回的空值</li>
+<li>泛型擦除导致</li>
+</ul>
 <h1 id="Any、Unit"><a href="#Any、Unit" class="headerlink" title="Any、Unit"></a>Any、Unit</h1><ul>
 <li><code>Any</code>等同于Java中的<code>Object</code>，是所有类的父类</li>
 <li><code>Unit</code>等同于<code>void</code>，当函数无返回值时会自动加上返回值Unit</li>
@@ -375,13 +383,25 @@
 
 <p>这里调用的<code>format</code>函数是我们自定义的。</p>
 <p>kotlin与dart都有这种特性。</p>
+<p>Kotlin的拓展函数只是语法糖，本质是静态解析，编译期根据声明类型决定调用哪个函数。</p>
 <h1 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h1><p><img src="/images/Kotlin%E7%AC%94%E8%AE%B0/visiblity.png" alt="可见性"></p>
 <h1 id="List、Set、Map"><a href="#List、Set、Map" class="headerlink" title="List、Set、Map"></a>List、Set、Map</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// List</span></span><br><span class="line"><span class="keyword">val</span> list = listOf(<span class="string">&quot;春秋左氏传&quot;</span>, <span class="string">&quot;春秋公羊传&quot;</span>, <span class="string">&quot;春秋谷梁传&quot;</span>)       <span class="comment">// 不可变列表，不可添加元素</span></span><br><span class="line"><span class="keyword">val</span> mutableList = mutableListOf(<span class="string">&quot;诗经&quot;</span>, <span class="string">&quot;尚书&quot;</span>, <span class="string">&quot;礼记&quot;</span>, <span class="string">&quot;易经&quot;</span>) <span class="comment">// 可变列表</span></span><br><span class="line">mutableList.add(<span class="string">&quot;春秋&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Set</span></span><br><span class="line"><span class="keyword">val</span> <span class="keyword">set</span> = setOf(<span class="string">&quot;白起&quot;</span>, <span class="string">&quot;王翦&quot;</span>, <span class="string">&quot;廉颇&quot;</span>, <span class="string">&quot;李牧&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> mutableSet = mutableSetOf(<span class="string">&quot;齐桓公&quot;</span>, <span class="string">&quot;晋文公&quot;</span>, <span class="string">&quot;秦穆公&quot;</span>, <span class="string">&quot;宋襄公&quot;</span>)</span><br><span class="line">mutableSet.add(<span class="string">&quot;楚庄王&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Map</span></span><br><span class="line"><span class="keyword">val</span> map = mapOf(<span class="string">&quot;儒&quot;</span> to <span class="string">&quot;孔子&quot;</span>, <span class="string">&quot;法&quot;</span> to <span class="string">&quot;韩非子&quot;</span>, <span class="string">&quot;墨&quot;</span> to <span class="string">&quot;墨子&quot;</span>, <span class="string">&quot;道&quot;</span> to <span class="string">&quot;庄子&quot;</span>)</span><br><span class="line"><span class="keyword">val</span> mutableMap = mutableMapOf(<span class="string">&quot;齐&quot;</span> to <span class="string">&quot;临淄&quot;</span>, <span class="string">&quot;楚&quot;</span> to <span class="string">&quot;郢都&quot;</span>, <span class="string">&quot;燕&quot;</span> to <span class="string">&quot;蓟城&quot;</span>, <span class="string">&quot;韩&quot;</span> to <span class="string">&quot;新郑&quot;</span>, <span class="string">&quot;赵&quot;</span> to <span class="string">&quot;邯郸&quot;</span>, <span class="string">&quot;魏&quot;</span> to <span class="string">&quot;大梁&quot;</span>)</span><br><span class="line">mutableList.add(<span class="string">&quot;秦&quot;</span> to <span class="string">&quot;咸阳&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h1><p>即可当做参数传递的一段代码。</p>
+<h1 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h1><p>本质是匿名函数，即可当做值来传递的一段代码。</p>
 <p>完整结构：<code>val lambda = &#123; param1: Type, param2: Type -&gt; 函数体 &#125;</code>，最后一行表达式的值作为整个Lambda表达式的返回值。</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">button.setOnClickListener(&#123; <span class="keyword">data</span> -&gt; println(<span class="keyword">data</span>) &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若Lambda表达式是函数的最后一个参数，可以把Lambda表达式提到括号外：</span></span><br><span class="line">button.setOnClickListener() &#123; <span class="keyword">data</span> -&gt; println(<span class="keyword">data</span>) &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若Lambda表达式是唯一的参数可以省略括号：</span></span><br><span class="line">button.setOnClickListener &#123; <span class="keyword">data</span> -&gt; println(<span class="keyword">data</span>) &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若Lambda表达式内只有一个参数，可以用`it`代指：</span></span><br><span class="line">button.setOnClickListener &#123; println(it) &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="inline-noinline-crossinline（TODO）"><a href="#inline-noinline-crossinline（TODO）" class="headerlink" title="inline &amp; noinline &amp; crossinline（TODO）"></a>inline &amp; noinline &amp; crossinline（TODO）</h2><p>Lambda的实现有两种情况：普通的非inline和inline。非inline的Lambda，本质是生成了一个匿名的函数对象，包含了Lambda中的方法，因此有创建对象的性能开销。inline则是编译期间直接展开代码。</p>
+<p>Q：与Java中的Lambda区别？</p>
+<p>A：</p>
+<p>Java的Lambda本质是实现接口，而Kotlin的Lambda是一个函数对象。</p>
+<p>另外Kotlin的Lambda可以非局部返回，如：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">()</span></span> &#123;</span><br><span class="line">    listOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>).forEach &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="comment">// 直接返回 test()</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Java则不行。</p>
+<h1 id="数据类"><a href="#数据类" class="headerlink" title="数据类"></a>数据类</h1><p>数据类的<code>copy</code>方法是浅拷贝，只是复制引用，没有递归复制对象，深拷贝需要自行实现。</p>
+<h1 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h1><p>协程是<strong>用户态</strong>的调度单元，不由操作系统调度，可以在一个线程上运行多个协程。线程运行在内核态，协程运行在用户态。</p>
 
       
     </div>
